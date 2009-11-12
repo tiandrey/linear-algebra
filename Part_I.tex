@@ -450,7 +450,7 @@ $\det A=\sum\limits_{\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_n)}(-1)^{\sigma(\al
 \end{proof}
 \item Определитель квадратной матрицы не меняется при её транспонировании.
 \begin{proof}
-$\det A^T=\sum\limits_{\beta=(\beta_1,\beta_2,\ldots,\beta_n)}(-1)^{\sigma(\beta)}\{A^T\}_{1\beta_1}\{A^T\}_{2\beta_2}\cdots{}\{A^T\}_{n\beta_n}==$
+$\det A^T=\sum\limits_{\beta=(\beta_1,\beta_2,\ldots,\beta_n)}(-1)^{\sigma(\beta)}\{A^T\}_{1\beta_1}\{A^T\}_{2\beta_2}\cdots{}\{A^T\}_{n\beta_n}=$
 
 $=\sum\limits_{\beta(\beta_1,\beta_2,\ldots,\beta_n)}
 (-1)^{\sigma(\beta)}
@@ -518,7 +518,12 @@ $\begin{vmatrix} a'_1+\alpha_2{}a'_2+\cdots+\alpha_n{}a'_n \\ a'_2 \\ \vdots \\ 
 \item III типа: определитель не меняется.
 \end{itemize}
 Так как коэффициент $\alpha$ в ЭП II типа отличен от нуля, то изменение определителя при ЭП контролируемо.
-$|A|\rightarrow\left\{\right.$
+$|A|\ep\left\{
+\begin{aligned}
+ & \mbox{I тип:} & \alpha|A| &\ (\alpha\neq0) \\
+ & \mbox{II тип:} & -|A| \\
+ & \mbox{III тип:} & |A|
+\end{aligned}\right.$
 \end{remark}
 \section{*-Метод Гаусса в вычислении определителя-*}
 \section{*-Миноры и алгебраические дополнения-*}
