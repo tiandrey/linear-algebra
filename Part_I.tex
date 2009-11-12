@@ -530,3 +530,109 @@ $|A|\ep\left\{
 \section{*-Определители квазитреугольной матрицы-*}
 \section{*-Определитель произведения матриц-*}
 \chapter{*-Обратная матрица-*}
+\begin{opred}
+Матрица $B$ называется \mybold{обратной к} $A$, если $AB=BA=I$. Обозначение: $B=A^{-1}$
+\end{opred}
+\begin{remark}
+Известно, что если $A$,$B$ - перестановочны, то обе матрицы $A$ и $B$ --- квадратные одного размера.
+\end{remark}
+
+Понятие корректности:
+\begin{enumerate}
+\item Существование объекта
+\item Однозначная определенность (единственность)
+\end{enumerate}
+\begin{theor}
+\mybold{Критерий обратимости.}
+
+Квадратная матрица $A$ имеет обратную тогда и только тогда, когда $\det A\neq0$
+\end{theor}
+\begin{proof}
+$\Rightarrow$. $AA^{-1}=I$ \then $|AA^{-1}|=1$ \then $|A||A^{-1}|=1$ \then $\left\{\begin{aligned}
+& \det A\neq 0\ (\mbox{и }\det A^{-1}\neq0) \\
+& \det A^{-1}=\frac1{\det A}
+\end{aligned}\right.$
+$\Leftarrow$. Алгоритм построения обратной матрицы. \begin{enumerate}
+\item Заменим каждый элемент матрицы $A$ на его алгебраическое дополнение: $a_{ij}\rightarrow{}A_{ij}$
+\item Транспонируем полученную матрицу
+\item Получится матрица $\hat{A}:\hat{A}_{ij}={A_{ji}$
+
+${A\hat{A}}_{kk}=\sum\limits_{j=1}^na_{kj}A_{kj}=|A|$
+
+${A\hat{A}}_{ij}=\sum\limits_{k=1}^na_{ik}A_{jk}$
+\begin{lemma} О фальшивом разложении определителя.
+
+В любой квадратной матрице сумма произведений элементов какой-либо строки на соответствующие алгебраические дополнения другой строки равно нулю.
+
+$\forall\ i\neq{}j\ \sum\limits_{k=1}^na_{ik}A_{jk}=0\ (*)$
+\end{lemma}
+\begin{proof}
+Построим дополнительную матрицу, в которой заменим $j$--ю строку на $i$--ю. Заметим, что разложение её определителя по j-й строке равно (*). В этой матрице две одинаковых строки \then ее определитель равен нулю \then $(*)=0$
+\end{proof}
+По лемме, все элементы, не лежащие на главной диагонали, равны нулю.
+
+$A\hat{A}=\begin{pmatrix}
+|A|    & 0      & \cdots & 0      \\
+0      & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0      \\
+0      & \cdots & 0      & |A|
+\end{pmatrix}=|A|I \Rightarrow \cfrac1{|A|}A\hat{A}=I \Rightarrow \left\{\begin{aligned}
+& A(\cfrac1{|A|}\hat{A})=I \\
+& (\cfrac1{|A|}\hat{A})A=I
+\end{aligned}\right.$
+
+$A^{-1}=\cfrac1{|A|}\hat{A}$
+\end{enumerate}
+\end{proof}
+\begin{theor}Если обратная матрица существует, то она определена единственным образом.\end{theor}
+\begin{proof}
+Предположим противное: $\exists\ B_1,B_2,\ B_1\neq{}B_2:\left\{\begin{aligned} AB_1=B_1A=I \\ AB_2=B_2A=I \end{aligned}\right.$
+
+$AB_1=I=AB_2\ \Rightarrow\ B_1(AB_1)=B_1(AB_2)\ \Rightarrow\ (B_1A)B_1=(B_1A)B_2\ \Rightarrow\ IB_1=IB_2\ \Rightarrow\ B_1=B_2$, что противоречит предположению.
+\end{proof}
+\begin{theor}
+Свойства обратной матрицы:\begin{enumerate}
+\item $\det A^{-1}=\cfrac1{\det A}$
+\item $(A^T)^{-1}=(A^{-1})^T$
+\item $(\alpha{}A)^{-1}=\cfrac1\alpha{}A^{-1}, \forall\ \alpha\neq0$
+\item $(A^{-1})^{-1}=A$
+\item $I^{-1}=I$
+\item $(AB)^{-1}=B^{-1}A^{-1}$
+\end{enumerate}
+\end{theor}
+\begin{remark}
+Перечисленные свойства понимаются следующим образом: если левая часть определена, то имеет смысл и правая часть и обе части совпадают.
+\end{remark}
+\begin{proof}
+\begin{enumerate}
+\item По теореме о критерии совместимости
+\item Очевидно, выводится по определениям
+\item Очевидно, выводится по определениям
+\item Очевидно, выводится по определениям
+\item Очевидно, выводится по определениям
+\item Пусть $AB$ обратима \then $|AB|\neq0$ \then $|A||B|\neq0$ \then $A,B$ обратимы --- правая часть определена.
+
+Докажем, что матрица $B^{-1}A^{-1}$ является обратной к $(AB)$
+
+$(AB)(B^{-1}A^{-1})=ABB^{-1}A^{-1}=AA^{-1}=I$
+
+$(B^{-1}A^{-1})(AB)=B^{-1}A^{-1}AB=B^{-1}B=I$
+
+\end{enumerate}
+\end{proof}
+\mybold{Метод Гаусса-Жорданна вычисления обратной матрицы}\begin{enumerate}
+\item Пусть \rmatrix{A}{n}{n}, $|A|\neq0$. Покажем:
+
+\begin{aligned}
+& $A\epofs{}I$ \\
+& $A\epofs{}$ верхний ступенчатый вид
+\end{aligned}
+
+Если $A$ --- квадратная, то верхняя ступенчатая матрица --- квадратная \then она является треугольной матрицей
+
+Квадратная $A\epofs$ верхняя треугольная матрица\begin{enumerate}
+\item Смена знака
+\item Умножение на $\alpha\neq0$
+\item Неизменность
+\end{enumerate}
+\end{enumerate}
