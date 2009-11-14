@@ -525,11 +525,93 @@ $|A|\ep\left\{
  & \mbox{III тип:} & |A|
 \end{aligned}\right.$
 \end{remark}
-\section{*-Метод Гаусса в вычислении определителя-*}
-\section{*-Миноры и алгебраические дополнения-*}
-\section{*-Определители квазитреугольной матрицы-*}
+\section{*Метод Гаусса вычисления определителя*}
+$A\epofs\ $верхняя треугольная матрица
+
+При всех преобразованиях в этом процессе $\det$ меняется контролируемым образом. При этом при вычислении определителя по определению приходится выполнять порядка $n!$ умножений, а методом Гаусса --- порядка $\frac13n^3$.
+\section{*Миноры и алгебраические дополнения*}
+\begin{opred}
+\rmatrixof{A}{a_{ij}}{m}{n}; $k\in\mathbb{N}:1\leq{}k\leq{}min(m,n)$
+
+Выберем в $A$ произвольные $k$ строк и $k$ столбцов.
+
+Строки $i_1<i_2<\ldots<i_k$, столбцы  $j_1<j_2<\ldots<j_k$.
+
+На пересечении выбранных строк и столбцов расположены $k^2$ элементов. Упорядочим их в матрицу. Определитель этой матрицы называется \mybold{(основным) минором $k$--го порядка, расположенным в выбранных строках и столбцах.}
+
+Обозначается так: $M^{i_1\ldots{}i_k}_{j_1\ldots{}j_k}$
+\end{opred}
+\begin{opred}
+Пусть теперь A --- квадратная. Из нее можно исключить выбранные строки и столбцы целиком. Определитель оставшейся матрицы называется \mybold{дополнительным минором} к минору, построенному на предыдущем этапе.
+
+Обозначается так: $\tilde{M}^{i_1\ldots{}i_k}_{j_1\ldots{}j_k}$
+\end{opred}
+\begin{opred}
+$A^{i_1\ldots{}i_k}_{j_1\ldots{}j_k}=(-1)^{i_1+\cdots+i_k+j_1+\cdots+j_k}\tilde{M}^{i_1\ldots{}i_k}_{j_1\ldots{}j_k}$ называется \mybold{алгебраическим дополнением к основному минору}.
+\end{opred}
+\begin{theor}Теорема Лапласа(строчный вариант)
+
+Пусть \rmatrixof{A}{a_{ij}}{n}{n}, $k\in\mathbb{N}:1\leq{}k\leq{}n-1$ и в $A$ выбраны какие-либо $k$ строк $i_1<i_2<\ldots<i_k$. Тогда $\det{A}$ равен сумме всевозможных произведений миноров $k$--го порядка, расположенных в выбранных строках, на их алгебраические дополнения.
+$$
+|A|=\sum\limits_{1\leq{}j_1<\ldots<j_k\leq{}n}M^{i_1\ldots{}i_k}_{j_1\ldots{}j_k}A^{i_1\ldots{}i_k}_{j_1\ldots{}j_k}
+$$
+\end{theor}
+\begin{proof}
+На потоке бакалавров теорема идет без доказательства.
+\end{proof}
+\begin{theor}Следствие из теоремы Лапласа (разложение определителя по строке/столбцу)
+
+Строчный вариант:
+
+Пусть в \rmatrix{A}{n}{n} выбрана какая-либо ($i$--я) строка. Тогда $\det{A}=\sum\limits_{j=1}^na_{ij}A^i_j$
+
+Строчный вариант:
+
+Пусть в \rmatrix{A}{n}{n} выбрана какой-либо ($j$--й) столбец. Тогда $\det{A}=\sum\limits_{i=1}^na_{ij}A^i_j$
+\end{theor}
+\begin{proof}Докажем строчный вариант.
+
+$\det{A}=\sum\limits_{j=1}^na_{ij}A^i_j$ (1)
+
+\begin{enumerate}
+\item Пусть $i=1$.$\det{A}=\sum\limits_{j=1}^na_{1j}(-1)^{1+j}\tilde{M}^1_j$ (2)
+
+Каждая часть (2) является алгебраической суммой. Левая часть --- в силу определения $\det$, а правая --- так как является линейной комбинацией $\det$ $n-1$--го порядка.
+
+Для обоснования (2):\begin{itemize}
+\item Одинаковое количество слагаемых в обоих частях
+\item Любое произведение из левой части есть в правой части и наоборот
+\item Любое произведение из левой части имеет такой же знак в правой
+\end{itemize}
+Обоснование:\begin{itemize}
+\item Слева $n!$ слагаемых, справа --- $n(n-1)!=n!$ слагаемых
+\item Слагаемое из левой части:
+$$\underbrace{a_{1\alpha_1}}_{j=\alpha_1}\underbrace{a_{2\alpha_2}\ldots{}a_{n\alpha_n}}_{\mbox{в }M^1_j}$$
+Слагаемое из правой части:
+$$a_{1j}a_{2\beta_2}\ldots{}a_{n\beta_n}$$
+$(j,\beta_2,\ldots,\beta_n)$ --- перестановка
+\item Рассмотрим слагаемое из правой части при $j=1$:
+$$
+a_{11}\underbrace{a_{2\alpha_2}\ldots{}a_{n\alpha_n}}_{\mbox{произведение из }\tilde{M}^1_1}\mbox{ в правой части --- у него :}(-1)^{\sigma(1,\alpha_2,\ldots,\alpha_n)}
+$$
+Рассмотрим слагаемое из правой части с $\forall\ j>2$:
+
+$(-1)^{1+j+\sigma(\alpha_2,\ldots,\alpha_n)}$
+
+В левой части:
+
+$(-1)^{\sigma(j,\alpha_2,\ldots,\alpha_n)}$
+
+В $(\alpha_2,\ldots,\alpha_n)$ есть все числа от 1 до $j-1$ \then $\sigma(j,\alpha_2,\ldots,\alpha_n)=(j-1)+\sigma(\alpha_2,\ldots,\alpha_n)$
+\end{itemize}
+\item Пусть $i\geq2$. Введем дополнительную матрицу $\tilde{A}$, которая является матрицей $A$, в которой поменяли местами 1 и $i$ строки. Выведем разложение (1) с помощью (2):
+
+$\det{A}=(-1)^{i-1}\det{\tilde{A}}=(-1)^{i-1}\sum\limits_{j=1}^na_{ij}(-1)^{1+j}\tilde{M}^i_j$
+\end{enumerate}
+\end{proof}
+\section{*Определитель квазитреугольной матрицы*}
 \section{*-Определитель произведения матриц-*}
-\chapter{*-Обратная матрица-*}
+\chapter{*Обратная матрица*}
 \begin{opred}
 Матрица $B$ называется \mybold{обратной к} $A$, если $AB=BA=I$. Обозначение: $B=A^{-1}$
 \end{opred}
@@ -620,7 +702,7 @@ $(B^{-1}A^{-1})(AB)=B^{-1}A^{-1}AB=B^{-1}B=I$
 
 \end{enumerate}
 \end{proof}
-\mybold{Метод Гаусса-Жорданна вычисления обратной матрицы}\begin{enumerate}
+\section*{Метод Гаусса-Жорданна вычисления обратной матрицы}\begin{enumerate}
 \item Пусть \rmatrix{A}{n}{n}, $|A|\neq0$. Покажем:
 
 $\begin{aligned}
@@ -635,4 +717,31 @@ $\begin{aligned}
 \item Умножение на $\alpha\neq0$
 \item Неизменность
 \end{enumerate}
+Если $|A|\neq0$, то и у получившейся верхней треугольной матрицы $\det {} \neq0$.
+$$
+\begin{pmatrix}
+a_{11} & *      & \cdots & *      \\
+0      & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & *      \\
+0      & \cdots & 0      & a_{nn}
+\end{pmatrix} \epofs \begin{pmatrix}
+1      & *      & \cdots & *      \\
+0      & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & *      \\
+0      & \cdots & 0 & 1
+\end{pmatrix} \epofs \begin{pmatrix}
+1      & *      & \cdots & *      & 0      \\
+0      & 1      & \ddots & \vdots & \vdots \\
+\vdots & \ddots & \ddots & *      & \vdots \\
+\vdots & \ddots & \ddots & 1      & 0      \\
+0      & \cdots & \cdots & 0      & 1
+\end{pmatrix} \epofs I
+$$
+$A\epofs{}A' \Longleftrightarrow A'=SA$
+
+Таким образом, $A\epofs{}I \Longleftrightarrow I=S_k\cdots{}S_1A$; $I=SA \Rightarrow IA^{-1}=SAA^{-1} \Rightarrow S=A^{-1}$
+
+Проведем те же ЭП строк и в том же порядке с $I$: получим матрицу $B=S_k\cdots{}S_1I=S=A^{-1}$
+
+$(A|I)\epofs(I|A^{-1})$
 \end{enumerate}
