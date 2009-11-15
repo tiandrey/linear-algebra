@@ -59,7 +59,7 @@ $\forall\ a\in\V\colon{}a+\T_1=a,\ a+\T_2=a$
 
 $\T_1=\T_1+\T_2=\T_2+\T_1=\T_2$
 
-Пусть $\exists\ a\in\V\colon\exists\ \(-a)_1,\(-a)_2\in\V$
+Пусть $\exists\ a\in\V\colon\exists\ (-a)_1,(-a)_2\in\V$
 
 $\T=a+(-a)_1=a+(-a)_2$
 
@@ -78,9 +78,97 @@ $\alpha\T=\alpha(0a)=(\alpha0)a=0a=\T$
 \item $(-1)a+a=(-1)a+1a=(-1+1)a=0a=\T$; по единственности $(-a)\ (-1)a=-a$
 \end{enumerate}
 \end{proof}
-\chapter{*-Линейная зависимость-*}
-\section{*-Теорема о линейной зависимости-*}
-\section{*-Геометрический смысл линейной зависимости-*}
+\chapter{*Линейная зависимость*}
+\begin{opred}
+Рассмотрим линейную комбинацию элементов:
+
+$\alpha_1a_1+\alpha_2a_2+\cdots+\alpha_ka_k$
+
+Если $\alpha_1=\alpha_2=\ldots=\alpha_k=0$, то эта линейная комбинация называется \mybold{тривиальной}. Если $\exists\ a_j\neq0$, то эта линейная комбинация --- \mybold{нетривиальная}.
+\end{opred}
+\begin{opred}
+Система векторов $a_1,a_2,\ldots,a_k\in\V$ называется \mybold{линейно зависимой}, если существует нетривиальная линейная комбинация этих векторов, равная $\T$.
+\end{opred}
+\begin{opred}
+Система векторов $a_1,a_2,\ldots,a_k\in\V$ называется \mybold{линейно независимой}, если только тривиальная линейная комбинация этих векторов равна $\T$.
+\end{opred}
+\begin{remark}
+\begin{enumerate}
+\item $k=1$
+
+Система л/з $\Leftrightarrow$ $a_1=\T$
+\item Если в системе векторов есть $\T$, то эта система л/з.
+\end{enumerate}
+\end{remark}
+\section{*Теоремы о линейной зависимости*}
+\begin{theor}Система из более, чем одного вектора линейно зависима тогда и только тогда, когда хотя бы один вектор линейно выражается через остальные (является их линейной комбинацией).
+\end{theor}
+\begin{proof}
+$\Longleftarrow$ $a_k=\beta_1a_1+\cdots+\beta_{k-1}a_{k-1}$
+
+$\underbrace{\beta_1a_1+\cdots+\beta_{k-1}a_{k-1}+(-1)a_k}_{\scriptsize\mbox{нетривиальная ЛК}}=\T$
+
+$\Longrightarrow$ $\exists\ \alpha_1,\ldots,\alpha_k\in\mathbb{R},\ a_j\neq0$
+
+$\alpha_1a_1+\ldots+\alpha_ja_j+\ldots+\alpha_ka_k=\T$
+
+$a_j=\sum\limits_{i\neq{}j}(-\frac{\alpha_i}{\alpha_j})a_i$
+\end{proof}
+\begin{theor}
+Если в системе $a_1,\ldots,a_k$ есть л/з подсистема, то и вся система л/з.
+\end{theor}
+\begin{proof}
+Пусть $a_1,\ldots,a_s\ (s<k)$ --- л/з \then $\exists$ нетривиальная л/к $\alpha_1a_1+\cdots+\alpha_sa_s+0a_{s+1}+\cdots+0a_k=\T$
+\mybold{Следствие:} если система $a_1,\ldots,a_k$ л/нез, то любая её подсистема л/нез.
+\end{proof}
+\begin{theor}
+Система $a_1,\ldots,a_k$ л/нез тогда и только тогда, когда любой вектор, являющийся их линейной комбинацией, выражается через них единственным образом.
+\end{theor}
+\begin{proof}
+$\Longrightarrow$ Предположим противное: $\exists\ b\in\V\colon b=\alpha_1a_1+\cdots+\alpha_ka_k;\ b=\beta_1a_1+\cdots+\beta_ka_k\ (\exists\ \alpha_j\neq\beta_j)$ \then $\T=(\alpha_1-\beta_1)a_1+\cdots+(\alpha_k-\beta_k),\ \alpha_j-\beta_j\neq0$ \then система л/з \then противоречие
+
+$\Longleftarrow$ Нулевой вектор заведомо является линейной комбинацией этих векторов: $\T=0\alpha_1+\cdots+0\alpha_k$; это тривиальная комбинация \then система л/нез
+\end{proof}
+\section{*Геометрический смысл линейной зависимости*}
+\begin{theor}
+2 геометрических вектора л/з тогда и только тогда, когда они коллинеарны
+\end{theor}
+\begin{proof}
+$\Longrightarrow$ $\bar{a}_2=\beta\bar{a}_1$ \then $\bar{a}_1,\bar{a}_2$ --- коллинеарны
+
+$\Longleftarrow$ а) $\left[\begin{aligned}
+&\bar{a}_1=\bar{0} \Rightarrow \bar{a}_1=0\bar{a}_2 \\
+&\bar{a}_2=\bar{0} \Rightarrow \bar{a}_2=0\bar{a}_1
+\end{aligned}\right.$
+
+б) $\bar{a}_1,\bar{a}_2\neq\bar{0}$
+
+$\bar{a}_1\uparrow\uparrow\bar{a}_2\ \Rightarrow\ \cfrac{\bar{a}_1}{|\bar{a}_1|}=\cfrac{\bar{a}_2}{|\bar{a}_2|} \Rightarrow\ \bar{a}_1=\cfrac{|\bar{a}_1|}{|\bar{a}_2|}\bar{a}_2$
+
+$\bar{a}_1\uparrow\downarrow\bar{a}_2\ \Rightarrow\ \cfrac{\bar{a}_1}{|\bar{a}_1|}=-\cfrac{\bar{a}_2}{|\bar{a}_2|} \Rightarrow\ \bar{a}_1=-\cfrac{|\bar{a}_1|}{|\bar{a}_2|}\bar{a}_2$
+\end{proof}
+\begin{theor}
+3 геометрических вектора л/з тогда и только тогда, когда они компланарны
+\end{theor}
+\begin{proof}
+$\Longrightarrow$ $\bar{a}_1=\underbrace{\beta_2\bar{a}_2+\beta_3\bar{a}_3}_{\scriptsize{\mbox{параллелен плоскости, определяемой }\bar{a}_2\mbox{ и }\bar{a}_3}}$
+
+$\Longleftarrow$ а) один вектор $\bar{0}=\bar{a}_1$ \then $\bar{a}_1=0\bar{a}_2+0\bar{a}_3$
+
+б) все вектора $\neq\bar{0}$
+
+$\bar{a}_3=\vec{AD}+\vec{AB}=\alpha_1\bar{a}_1+\alpha_2\bar{a}_2$ \then $\bar{a}_1,\bar{a}_2,\bar{a}_3$ --- л/з
+\end{proof}
+\begin{theor}
+4 геометрических вектора всегда л/з
+\end{theor}
+\begin{proof}
+а) ${a}_1,\bar{a}_2,\bar{a}_3$ --- компланарны \then они л/з \then вся система л/з
+
+б) ${a}_1,\bar{a}_2,\bar{a}_3$ --- некомпланарны.
+
+$\bar{a}_4=\vec{AB}+\vec{AC}+\vec{AD}=\alpha_1\bar{a}_1+\alpha_2\bar{a}_2+\alpha_3\bar{a}_3$ \then ${a}_1,\bar{a}_2,\bar{a}_3,\bar{a}_4$ --- л/з
+\end{proof}
 \chapter{*-Ранг матрицы-*}
 \section{*-Арифметическое линейное пространство-*}
 \section{*-Понятие ранга-*}
