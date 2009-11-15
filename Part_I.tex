@@ -15,7 +15,7 @@
 \newlineЭти элементы --- \mybold{диагональные}.
 \end{opred}
 \begin{opred}
-Матрица, в которой все элементы равны нулю, называется \mybold{нулевой} и обозначается $\Theta_{m\times{}n}$
+Матрица, в которой все элементы равны нулю, называется \mybold{нулевой} и обозначается $\T_{m\times{}n}$
 \end{opred}
 \section{*Квадратные матрицы*}
 Квадратные матрицы делят на:
@@ -151,8 +151,8 @@ $A$ и $B$ называюся \mybold{равными}, если $\forall{}i,j$ $
 \newlineДля любых мартиц одинакового размера выполнено:
 \newline1) $A+B=B+A$ (\mybold{коммутативность сложения})
 \newline2) $(A+B)+C=A+(B+C)$ (\mybold{ассоциативность сложения})
-\newline3) $A+\Theta=A$ (\mybold{нулевая матрица является нейтральным элементом относительно сложения})
-\newline4) $\forall{}A\ \exists{}(-A):\ A+(-A)=\Theta$ (\mybold{существование противоположного элемента})
+\newline3) $A+\T=A$ (\mybold{нулевая матрица является нейтральным элементом относительно сложения})
+\newline4) $\forall{}A\ \exists{}(-A):\ A+(-A)=\T$ (\mybold{существование противоположного элемента})
 \end{theor}
 \begin{proof}
 Справедливость всех этих свойств вытекает непосредственно из определения операции сложения и свойств рациональных чисел.
@@ -232,9 +232,9 @@ A=\begin{pmatrix}
 \end{pmatrix}$; $B=\begin{pmatrix}
 0 & 0 \\
 0 & 2
-\end{pmatrix} \Rightarrow\ AB=\Theta$, но $A,B\neq\Theta$.
+\end{pmatrix} \Rightarrow\ AB=\T$, но $A,B\neq\T$.
 \begin{opred}
-Матрицы $A$ и $B$ такие, что $AB=\Theta$, называются \mybold{делителями нуля}.
+Матрицы $A$ и $B$ такие, что $AB=\T$, называются \mybold{делителями нуля}.
 \end{opred}
 \begin{theor}
 \mybold{Свойства операции умножения}
@@ -286,7 +286,7 @@ A=\begin{pmatrix}
 3) $AB=A\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} b_1 & \cdots & b_k \end{BMAT} =\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} Ab_1 & \cdots & Ab_k \end{BMAT}$; 
 $BA=\begin{BMAT}(b,15pt,20pt){|c|}{|c;c;c|} b'_1 \\ \vdots \\ b'_l \end{BMAT} A=\begin{BMAT}(b,15pt,20pt){|c|}{|c;c;c|} b'_1A \\ \vdots \\ b'_lA \end{BMAT}$
 \newline\mybold{Столбцы произведения $AB$ являются линейной комбинацией столбцов $A$.}
-\newline\mybold{строки произведения $AB$ являются линейной комбинацией строк $A$.}
+\newline\mybold{строки произведения $BA$ являются линейной комбинацией строк $A$.}
 
 $3^0$) $ AI=A\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} e_1 & \cdots & e_k \end{BMAT} = \begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} Ae_1 & \cdots & Ae_k \end{BMAT} = \begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} a_1 & \cdots & a_k \end{BMAT} = A$
 \newline\mybold{$I$ является нейтральным элементом относительно операции умножения как справа, так и слева.}
@@ -313,8 +313,8 @@ $3^0$) $ AI=A\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} e_1 & \cdots & e_k \end{BMA
 2) Для $\forall\ i>1$ из $i$-й строки вычтем первую,умноженную на $a_{ik_1}$ и разделенную на $a_{1k_1}$. Получим матрицу такого вида:
 $$
 \begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c;c|}
-\Theta & a_{1k_1} & a_{1k_1+1}\ \cdots\ a_{1n} \\
-\Theta & \Theta   & A' \\
+\T & a_{1k_1} & a_{1k_1+1}\ \cdots\ a_{1n} \\
+\T & \T   & A' \\
 \end{BMAT}
 $$
 3) Перейдем к 1 пункту, но будем рассматривать не $A$, а $A'$. Так как размер рассматриваемой матрицы каждый раз уменьшается, то этот процесс конечен.
@@ -454,7 +454,7 @@ $\det A^T=\sum\limits_{\beta=(\beta_1,\beta_2,\ldots,\beta_n)}(-1)^{\sigma(\beta
 
 $=\sum\limits_{\beta(\beta_1,\beta_2,\ldots,\beta_n)}
 (-1)^{\sigma(\beta)}
-\overbrace{a_{\beta_11}a_{\beta_22}\cdots{}a_{\beta_nn}}\limits^{\mbox{переупорядочим сомножители}}$
+\overbrace{a_{\beta_11}a_{\beta_22}\cdots{}a_{\beta_nn}}\limits^{\scriptsize\mbox{переупорядочим сомножители}}$
 $$
 \begin{pmatrix}
 \beta_1 & \beta_2 & \ldots & \beta_n \\
@@ -592,7 +592,7 @@ $$a_{1j}a_{2\beta_2}\ldots{}a_{n\beta_n}$$
 $(j,\beta_2,\ldots,\beta_n)$ --- перестановка
 \item Рассмотрим слагаемое из правой части при $j=1$:
 $$
-a_{11}\underbrace{a_{2\alpha_2}\ldots{}a_{n\alpha_n}}_{\mbox{произведение из }\tilde{M}^1_1}\mbox{ в правой части --- у него :}(-1)^{\sigma(1,\alpha_2,\ldots,\alpha_n)}
+a_{11}\underbrace{a_{2\alpha_2}\ldots{}a_{n\alpha_n}}_{\scriptsize{\mbox{произведение из }\tilde{M}^1_1}}\mbox{ в правой части у него :}(-1)^{\sigma(1,\alpha_2,\ldots,\alpha_n)}
 $$
 Рассмотрим слагаемое из правой части с $\forall\ j>2$:
 
@@ -626,10 +626,10 @@ $|A|=|A_1|(-1)^{2(1+\cdots+k)}=|A_1|$
 Воспользуемся вспомогательной матрицей:
 
 $C=\begin{BMAT}(b,20pt,20pt){|c|c|}{|c|c|}
-A  & \Theta \\
+A  & \T \\
 -I & B
 \end{BMAT}$; $|C|=|A||B|$; $C\xrightarrow[\mbox{III типа}]{\mbox{ЭП строк}}\begin{BMAT}(b,20pt,20pt){|c|c|}{|c|c|}
-\Theta  & AB \\
+\T  & AB \\
 -I & B
 \end{BMAT}$ \then $|C|=|AB|$ \then $|A||B|=|AB|$
 \end{proof}

@@ -1,11 +1,83 @@
-\chapter{*Направленный отрезок и свободный вектор*}
-\begin{opred}
-\mybold{Направленный отрезок}-упорядоченная пара точек на плоскости. Обозначение: $\vec{AB}$
-\end{opred}
+\chapter{*-Направленный отрезок и свободный вектор-*}
 \chapter{*-Линейные операции над векторами-*}
 \section{*-Сложение-*}
 \section{*-Умножение на число-*}
-\section{*-Векторы как элементы вещественного линейного пространства-*}
+\section{*Векторы как элементы вещественного линейного пространства*}
+Пусть $\V\neq\varnothing$, и на $\V$ задано соответствие:
+
+$\forall\ (a,b)\in\underbrace{\V\times\V}_{\scriptsize\mbox{Декартово произведение}}\longmapsto{}c\in\V$ называется алгебраической операцией или внутренним законом композиции.
+
+$c=a*b$
+
+$c=a\cdot{}b$
+
+$c=a+b$ --- абстрактное сложение.
+
+$\forall\ \alpha\in\mathbb{R},\ a\in\V\longmapsto{}b\in\V$ --- внешний закон композиции
+
+$b=\alpha{}a$ --- абстрактное умножение.
+
+\begin{opred}
+Множество с введенными на нём внутренним и внешним законом композиции называется \mybold{вещественным линейным пространством $\mathbb{V}$}, если эти операции обладают следующими свойствами:
+
+$\forall\ a,b,c\in\V, \alpha,\beta\in\mathbb{R}$
+\begin{enumerate}
+\item $a+b=b+a$
+\item $(a+b)+c=a+(b+c)$
+\item $\exists\ \T\in\V:\ a+\T=a$
+\item $\exists\ (-a)\in\V:\ a+(-a)=\T$
+\item $1a=a$
+\item $\alpha(\beta{}a)=(\alpha\beta)a$
+\item $(\alpha+\beta)a=\alpha{}a+\beta{}a$
+\item $\alpha(a+b)=\alpha{}a+\alpha{}b$
+\end{enumerate}
+\end{opred}
+\begin{opred}
+$\V$ --- \mybold{векторное пространство}, если \begin{itemize}
+\item элементы $\V$ --- векторы
+\item $\V$ --- вещественное линейное пространство
+\item $\T$ --- нулевой вектор
+\item $(-a)$ --- противоположный вектор
+\end{itemize}
+\end{opred}
+\begin{theor}
+Простейшие свойства:\begin{enumerate}
+\item $\T$ определен однозначно, $\forall\ a\in\V\ (-a)$ определен однозначно
+\item $\forall\ a\in\V\colon 0a=\T$, $\forall\ \alpha\in\mathbb{R}\colon \alpha\T=\T$
+\item из равенства $\alpha{}a=\T$ следует : $\left[\begin{aligned}
+&\alpha=0 \\
+&a=\T
+\end{aligned}\right.$
+\item $\forall\ a\in\V\colon -a=(-1)a$
+\end{enumerate}
+\end{theor}
+\begin{proof}
+\begin{enumerate}
+\item Пусть $\exists\ \T_1,\T_2\in\V$
+
+$\forall\ a\in\V\colon{}a+\T_1=a,\ a+\T_2=a$
+
+$\T_1=\T_1+\T_2=\T_2+\T_1=\T_2$
+
+Пусть $\exists\ a\in\V\colon\exists\ \(-a)_1,\(-a)_2\in\V$
+
+$\T=a+(-a)_1=a+(-a)_2$
+
+$(-a)_1+(a+(-a)_1)=(-a)_1+(a+(-a)_2)$
+
+$\underbrace{((-a)_1+a)}_{\scriptsize\T}+(-a)_1=\underbrace{((-a)_1+a)}_{\scriptsize\T}+(-a)_2$
+
+\item $a+0a=1a+0a=(1+0)a=1a=a$, т. о., $a+\underbrace{0a}_{\scriptsize\T}=a$
+
+$\alpha\T=\alpha(0a)=(\alpha0)a=0a=\T$
+
+\item $\alpha{}a=\T\Rightarrow\left[\begin{aligned}
+& \alpha=0 \\
+& \alpha\neq0\ \Rightarrow\ \frac1\alpha(\alpha{}a)=\frac1\alpha\T\Rightarrow a=\T
+\end{aligned}\right.$
+\item $(-1)a+a=(-1)a+1a=(-1+1)a=0a=\T$; по единственности $(-a)\ (-1)a=-a$
+\end{enumerate}
+\end{proof}
 \chapter{*-Линейная зависимость-*}
 \section{*-Теорема о линейной зависимости-*}
 \section{*-Геометрический смысл линейной зависимости-*}
