@@ -318,10 +318,119 @@ $a'_k=-\cfrac{A_1}{M_r}a'_1-\cfrac{A_3}{M_r}a'_2-\cdots-\cfrac{A_r}{M_r}a'_r$
 Матрица называется \mybold{вырожденной}, если её $\det$ равен 0, и \mybold{невырожденной} --- в противном случае.
 \end{opred}
 \begin{theor}
+\mybold{Критерий невырожденности.}
+
 Определитель матрицы равен нулю тогда и только тогда, когда её строки (столбцы) л/нез.
 \end{theor}
 \begin{proof}$\Longrightarrow$ Пусть $|A|\neq0$ и её строки л/з \then существует строка, линейно выражающаяся через другие \then $|A|=0$
 
 $\Longleftarrow$ Пусть $|A|=0$ \then $rg A\leq n-1$ \then базисными строками будут не все строки $A$ \then существует строка, являющаяся линейной комбинацией остальных \then строки $A$ л/з.
 \end{proof}
-\section{*-Метод Гаусса вычисления ранга-*}
+\begin{theor}
+\mybold{Основная теорема о линейной зависимости.}
+
+Пусть $\V$ --- ВЛП; рассмотрим 2 системы векторов: $\{a_1,\ldots,a_k\},\{b_1,\ldots,b_m\},\ m>k$. Тогда если любой $b_j$ линейно выражается через векторы первой системы, то вторая система --- л/з.
+
+\mybold{Другая формулировка}: Если большая система линейно выражается через меньшую, то большая --- л/з.
+\end{theor}
+\begin{proof} Пусть
+
+$\begin{matrix}
+& b_1&=&\alpha_1a_1+\cdots+\alpha_ka_k & \\
+& b_2&=&\beta_1a_1+\cdots+\beta_ka_k & \\
+& &\vdots & &\\
+& b_{m-1}&=&\gamma_1a_1+\cdots+\gamma_ka_k & \\
+& b_m&=&\delta_1a_1+\cdots+\delta_ka_k &
+\end{matrix}$
+
+$m\left\{\lefteqn{\phantom{\begin{matrix}\alpha_1 \\ \beta_1 \\ \vdots \\ \gamma_1 \\ \delta_1 \end{matrix}}}\right.
+\underbrace{
+\begin{matrix}
+\alpha_1 & \ldots & \alpha_k \\
+\beta_1  & \ldots & \beta_k  \\
+\vdots   & \vdots & \vdots   \\
+\gamma_1 & \ldots & \gamma_k \\
+\delta_1 & \ldots & \delta_k
+\end{matrix}}_{k}$
+
+$m>k$ \then базисных строк не больше $k$ \then существует строка (пускай последняя), которая линейно выражается через остальные.
+
+$(\gamma_1,\ldots,\gamma_k)=\lambda_1(\alpha_1,\ldots,\alpha_k)+\lambda_2(\beta_1,\ldots,\beta_k)+\cdots+\lambda_{m-1}(\delta_1,\ldots,\delta_k)$
+
+$\lambda_1b_1+\lambda_2b_2+\cdots+\lambda_{m-1}b_{m-1}=\delta_1a_1+\delta_2a_2+\cdots+\delta_ka_k=b_m$ \then л/з.
+\end{proof}
+\begin{theor}
+\mybold{Другое определение ранга}
+
+Ранг ненулевой матрицы равен максимальному числу её л/нез строк и/или столбцов.
+\end{theor}
+\begin{proof}
+Пусть $rg A=r\geq1$. Докажем, что $r$ равно максимальному количеству л/нез строк, т.е.: \begin{enumerate}
+\item $\exists\ r$ л/нез строк
+\item Любой набор из большего количества строк л/з.
+\end{enumerate}
+\begin{enumerate}
+\item $r$ базисных строк л/нез по теореме о базисном миноре
+\item Возьмём $k>r$ строк. Все они линейно выражаются через $r$ базисных \then в силу основной теоремы о линейной зависимости выбранные $k$ строк л/з.
+\end{enumerate}
+\end{proof}
+\mybold{Следствие}. $rg\ A^T=rg\ A$
+\begin{theor}
+Пусть $A,B$ --- две матрицы с одинаковым количеством столбцов (строк). Пусть любая строка $B$ линейно выражается через строки $A$. Тогда $rg\ B\leq rg\ A$
+\end{theor}
+\begin{proof}
+Пусть $rg\ A=r$ и $rg B>r$.
+
+Рассмотрим в $B$ базисные строки (их больше $r$). Они все линейно выражаются через строки $A$, а строки $A$ линейно выражаются через $r$ базисных строк $A$ \then базисные строки $B$ линейно выражаются через $r$ базисных строк $A$ \then базисные строки $B$ л/з, что противоречит теореме о базисном миноре.
+\end{proof}
+\begin{theor}
+$rg\ AB\leq min(rg\ A,rg\ B)$
+\end{theor}
+\begin{proof}
+$\left\{\begin{aligned}
+& \text{Столбцы $AB$ являются л/к столбцов $A$} \\
+& \text{Строки $AB$ являются л/к строк $B$}
+\end{aligned}\right.$ \then $\left\{\begin{aligned}
+& rg\ AB\leq rg\ A \\
+& rg\ AB\leq rg\ B
+\end{aligned}\right.$ \then $rg\ AB\leq min(rg\ A,rg\ B)$
+\end{proof}
+\begin{theor}
+Если $B$ --- квадратная невырожденная матрица, то $\left\{\begin{aligned}
+& rg\ AB=rg\ A \\
+& rg\ BA=rg\ A
+\end{aligned}\right.\ \forall\ A$
+\end{theor}
+\begin{proof}
+$rg\ AB\leq rg\ A$
+
+$A=(AB)B^{-1}$
+
+$rg\ [(AB)B^{-1}]\leq rg\ AB$
+
+$rg\ AB=rg\ A$
+\end{proof}
+\section{*Метод Гаусса вычисления ранга*}
+\begin{theor}
+Элементарные преобразования не меняют ранг матрицы.
+\end{theor}
+\begin{proof}
+$A\epofs\tilde{A}=SA$
+
+$A\epofc\tilde{\tilde{A}}=AS$
+
+Заметим, что $S$ --- невырожденная.
+
+I тип: $|S|=-1$
+
+II тип: $|S|=\lambda$
+
+III тип: $|S|=1$
+
+$S$ --- невырожденная, квадратная \then ЭП не меняют ранг.
+\end{proof}
+\mybold{Метод Гаусса вычисления ранга.}
+
+$A\epofs B$ --- верхняя ступенчатая матрица, $rg\ A=rg\ B$
+
+Ранг верхней ступенчатой матрицы равен числу её ненулевых строк.
