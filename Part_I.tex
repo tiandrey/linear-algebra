@@ -1,4 +1,4 @@
-\chapter{*Понятие матрицы*}
+\chapter{Понятие матрицы}
 \begin{opred}
 \mybold{Матрицей размера $m\times{}n$} называют набор из $mn$ чисел, упорядоченых в прямоугольную таблицу, состоящую из m строк и n столбцов.
 Эти числа - \mybold{элементы} этой матрицы.
@@ -17,7 +17,7 @@
 \begin{opred}
 Матрица, в которой все элементы равны нулю, называется \mybold{нулевой} и обозначается $\T_{m\times{}n}$
 \end{opred}
-\section{*Квадратные матрицы*}
+\section{Квадратные матрицы}
 Квадратные матрицы делят на:
 \begin{itemize}
 \item Верхние треугольные
@@ -86,7 +86,7 @@ e'_1 \\
 \vdots \\
 e'_n\end{pmatrix}$.
 \end{opred}
-\section{*Ступенчатые матрицы*}
+\section{Ступенчатые матрицы}
 Матрицы любого размера принято делить на верхние и нижние ступенчатые.
 \begin{opred}Признак \mybold{верхней ступенчатой матрицы}:
 \newlineВ каждой строке отметим позицию, в которой находится первый ненулевой элемент.
@@ -114,7 +114,7 @@ a_{11} & a_{12} & a_{13} & a_{14} \\
 \end{pmatrix}
 $$
 \end{opred}
-\section{*Блочная (клеточная) структура*}
+\section{Блочная (клеточная) структура}
 $$
 A=\begin{pmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} & a_{15} \\
@@ -135,14 +135,14 @@ $$
 Если при некотором делении матрицы на клетки получилось так, что клетки, стоящие на главной диагонали, являются квадратными матрицами, а клетки, стоящие под главной диагональю - нулевые, то говорят, что эта матрица является \mybold{(верхней) квазитреугольной}.
 \newlineАналогично определяются \mybold{нижняя квазитреугольная} и \mybold{квазидиагональная} матрицы.
 \end{opred}
-\chapter{*Операции над матрицами*}
-\section{*Равенство матриц*}
+\chapter{Операции над матрицами}
+\section{Равенство матриц}
 $A=\left( a_{ij} \right) \in \mathbb {R}^{m\times{}n}$
 \newline$B=\left( b_{ij} \right) \in \mathbb {R}^{m\times{}n}$
-\begin{opred}\label{eq_matrices}
+\begin{opred}
 $A$ и $B$ называюся \mybold{равными}, если $\forall{}i,j$ $a_{ij}=b_{ij}$.
 \end{opred}
-\section{*Сложение матриц*}
+\section{Сложение матриц}
 \begin{opred}
 Матрица $C=\left( a_{ij}+b_{ij} \right) \in \mathbb {R}^{m\times{}n}$ называется \mybold{суммой} матриц $A$ и $B$.
 \end{opred}
@@ -160,7 +160,7 @@ $A$ и $B$ называюся \mybold{равными}, если $\forall{}i,j$ $
 \begin{opred}
 Матрица $C=\left( a_{ij}-b_{ij} \right) \in \mathbb {R}^{m\times{}n}$ называется \mybold{разностью} матриц $A$ и $B$.
 \end{opred}
-\section{*Умножение матрицы на число*}
+\section{Умножение матрицы на число}
 \begin{opred}
 Матрица $(\alpha{}A)=\left( \alpha{}a_{ij} \right) \in \mathbb {R}^{m\times{}n}$ называется \mybold{произведением матрицы $A$ на число $\alpha$}. Операция умножения матрицы на число выполнима всегда.
 \end{opred}
@@ -191,7 +191,7 @@ $
 \begin{opred}
 \mybold{Линейной комбинацией матриц $A_1,\ldots,A_k$ с коэффициентами $\alpha_1,\ldots,\alpha_k$} называется матрица $B=\sum\limits_{i=1}^k\alpha_iA_i$
 \end{opred}
-\section{*Умножение матриц*}
+\section{Умножение матриц}
 \begin{opred}
 \mybold{Произведением матриц $A\in{}\mathbb{R}^{m\times{}n}$ и $B\in{}\mathbb{R}^{k\times{}l}$} называется матрица $C\in{}\mathbb{R}^{m\times{}l}$ такая, что $c_{ij}=\sum\limits^k_{p=1}a_{ip}b_{pj}$
 \end{opred}
@@ -247,7 +247,7 @@ A=\begin{pmatrix}
 1) Если операция в левой части этого равенства определена, то определена операция в правой части равенства и результирующие матрицы правой и левой частей совпадают.
 \newlineПусть \rmatrix{A}{m}{n}, \rmatrix{B}{n}{k} $\Rightarrow$ \rmatrix{AB}{m}{k}; \rmatrix{C}{k}{l}.
 \newlineТогда: \rmatrix{(AB)C}{m}{l}, \rmatrix{BC}{n}{l}, \rmatrix{A(BC)}{m}{l}, следовательно, размеры правой и левой части совпадают.
-\newlineДано: $\{(AB)C\}_{ij}=\sum\limits_{p=1}^k(AB)_{cp}C_{pj}=\sum\limits_{p=1}^k(\sum\limits_{q=1}^na_{iq}b_{qp})c_{pj}=\sum\limits_{p=1}^k\sum\limits_{q=1}^na_{iq}b_{qp}c_{pj}=\sum\limits_{q=1}^n\sum\limits_{p=1}^ka_{iq}b_{qp}c_{pj}=$\newline$=\sum\limits_{q=1}^na_{iq}(\sum\limits_{p=1}^kb_{qp}c_{pj})=\sum\limits_{q=1}^na_{iq}\{BC\}_{qj}=\{A(BC)\}_{ij}$, т.о., для $\forall\ i,j\ \{(AB)C\}_{ij}=\{A(BC)\}_{ij}$, т.е. \newline$(AB)C=A(BC)$ по определению (см. с. \pageref{eq_matrices}).
+\newlineДано: $\{(AB)C\}_{ij}=\sum\limits_{p=1}^k(AB)_{cp}C_{pj}=\sum\limits_{p=1}^k(\sum\limits_{q=1}^na_{iq}b_{qp})c_{pj}=\sum\limits_{p=1}^k\sum\limits_{q=1}^na_{iq}b_{qp}c_{pj}=\sum\limits_{q=1}^n\sum\limits_{p=1}^ka_{iq}b_{qp}c_{pj}=$\newline$=\sum\limits_{q=1}^na_{iq}(\sum\limits_{p=1}^kb_{qp}c_{pj})=\sum\limits_{q=1}^na_{iq}\{BC\}_{qj}=\{A(BC)\}_{ij}$, т.о., для $\forall\ i,j\ \{(AB)C\}_{ij}=\{A(BC)\}_{ij}$, т.е. \newline$(AB)C=A(BC)$ по определению.
 \newline\mybold{\slshape2 и 3 части - аналогично}
 \end{proof}
 \begin{remark}
@@ -256,7 +256,7 @@ A=\begin{pmatrix}
 \newlineб) $(a\pm{}b)^2=a^2\pm{}2ab+b^2$, но $(A\pm{}B)^2=A^2\pm{}AB\pm{}BA+B^2$.
 \newlineОднако, эти формулы верны и для матриц, если $A$ и $B$ --- перестановочные.
 \end{remark}
-\section{*Транспонирование матриц*}
+\section{Транспонирование матриц}
 \begin{opred}
 Матрица $B$ называется транспонированием к матрице \rmatrix{A}{m}{n}, если \rmatrix{B}{n}{m} и\newlineдля $\forall\ i,j\ b_{ij}=a_{ji}$. Это обозначается $B=A^T$.
 \end{opred}
@@ -274,9 +274,9 @@ A=\begin{pmatrix}
 1),2),3) - очевидно, доказательство по определению.
 \newline4) Пусть \rmatrixof{A}{a_{ij}}{m}{n}, \rmatrixof{B}{b_{ij}}{n}{k}. Тогда \rmatrix{(AB)^T}{k}{m}, \rmatrix{B^T}{k}{n}, \rmatrix{A^T}{n}{m},\newline\rmatrix{B^TA^T}{k}{m}.
 \newline$\{(AB)^T\}_{ij}=\{(AB)\}_{ji}=\sum\limits_{p=1}^nA_{jp}B_{pi}=\sum\limits_{p=1}^n\{A^T\}_{pj}\{B^T\}_{ip}=\sum\limits_{p=1}^n\{B^T\}_{ip}\{A^T\}_{pj}=\{B^TA^T\}_{ij}$
-\newlineТ.о., для $\forall\ i,j\ \{(AB)^T\}_{ij}=\{B^TA^T)\}_{ij}$, т.е. $(AB)^T=B^TA^T$ по определению (см. с. \pageref{eq_matrices}).
+\newlineТ.о., для $\forall\ i,j\ \{(AB)^T\}_{ij}=\{B^TA^T)\}_{ij}$, т.е. $(AB)^T=B^TA^T$ по определению.
 \end{proof}
-\section{*Некоторые дополнительные особенности операции\newlineумножения матриц*}
+\section{Некоторые дополнительные особенности операции\newlineумножения матриц}
 1) $Ae_i=a_i$, $e'_iA=a'_i$
 
 2) Пусть $b=\begin{pmatrix}\beta_1 \\ \vdots \\ \beta_n\end{pmatrix}$, тогда $Ab=A(\beta_1e_1+\cdots+\beta_ne_n)=\beta_1Ae_1+\cdots+\beta_nAe_n=\beta_1a_1+\cdots+\beta_na_n$
@@ -286,11 +286,11 @@ A=\begin{pmatrix}
 3) $AB=A\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} b_1 & \cdots & b_k \end{BMAT} =\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} Ab_1 & \cdots & Ab_k \end{BMAT}$; 
 $BA=\begin{BMAT}(b,15pt,20pt){|c|}{|c;c;c|} b'_1 \\ \vdots \\ b'_l \end{BMAT} A=\begin{BMAT}(b,15pt,20pt){|c|}{|c;c;c|} b'_1A \\ \vdots \\ b'_lA \end{BMAT}$
 \newline\mybold{Столбцы произведения $AB$ являются линейной комбинацией столбцов $A$.}
-\newline\mybold{строки произведения $BA$ являются линейной комбинацией строк $A$.}
+\newline\mybold{Строки произведения $BA$ являются линейной комбинацией строк $A$.}
 
 $3^0$) $ AI=A\begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} e_1 & \cdots & e_k \end{BMAT} = \begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} Ae_1 & \cdots & Ae_k \end{BMAT} = \begin{BMAT}(b,15pt,20pt){|c;c;c|}{|c|} a_1 & \cdots & a_k \end{BMAT} = A$
 \newline\mybold{$I$ является нейтральным элементом относительно операции умножения как справа, так и слева.}
-\chapter{*Элементарные преобразования матриц. Основной процесс*}
+\chapter{Элементарные преобразования матриц. Основной процесс}
 Элементарные преобразования (ЭП) матриц - преобразование строк или столбцов матрицы.
 
 ЭП строк бывают:
@@ -371,8 +371,8 @@ $$
 
 $S$ --- \mybold{матрицы перехода}.
 \end{remark}
-\chapter{*Определители*}
-\section{*Перестановки и их свойства*}
+\chapter{Определители}
+\section{Перестановки и их свойства}
 \begin{opred}
 \mybold{Перестановкой из множества $M$} называется упорядоченная совокупность чисел из $M$ $(\alpha_1,\alpha_2,\ldots,\alpha_n)$, в которой в разных позициях стоят разные числа $(\forall\ i\neq{}j\ \alpha_i\neq{}\alpha_j)$
 
@@ -427,7 +427,7 @@ $$
 Если в исходной перестановке они образовывали инверсию, т. е. $\alpha_i>\alpha_j$, тогда их индексы в новой перестановке тоже будут образовывать инверсию, т. к. их взаимное расположение изменится.
 Итого для любых двух элементов отношение их индексов в новой перестановке такое же, как отношение самих элементов в исходной \then $\sigma(\alpha_1,\alpha_2,\ldots,\alpha_n)=\sigma(\beta_1,\beta_2,\ldots,\beta_n)$
 \end{proof}
-\section{*Понятие определителя $n$--го порядка*}
+\section{Понятие определителя $n$--го порядка}
 Пусть \rmatrixof{A}{a_{ij}}{n}{n}. Определителем $n$--го порядка называется число, сопоставленное этой матрице по определенному правилу.
 Обозначение: $|A|,\ \det A$.
 \begin{opred}
@@ -442,7 +442,7 @@ a_{31} & a_{32} & a_{33}
 \end{vmatrix}=\underset{(1,2,3)}{a_{11}a_{22}a_{33}}-\underset{(2,1,3)}{a_{12}a_{21}a_{33}}-\underset{(1,3,2)}{a_{11}a_{23}a_{32}}+\underset{(2,3,1)}{a_{12}a_{23}a_{31}}+\underset{(3,1,2)}{a_{13}a_{21}a_{32}}-\underset{(3,2,1)}{a_{13}a_{22}a_{31}}$
 
 $\det A=\sum\limits_{\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_n)}(-1)^{\sigma(\alpha)}a_{1\alpha_1}a_{2\alpha_2}\cdots{}a_{n\alpha_n}$ (*) - $n!$ слагаемых
-\section{*Свойства определителя*}
+\section{Свойства определителя}
 \begin{enumerate}
 \item Определитель треугольной матрицы равен произведению элементов главной диагонали.
 \begin{proof}
@@ -525,11 +525,11 @@ $|A|\ep\left\{
  & \mbox{III тип:} & |A|
 \end{aligned}\right.$
 \end{remark}
-\section{*Метод Гаусса вычисления определителя*}
+\section{Метод Гаусса вычисления определителя}
 $A\epofs\ $верхняя треугольная матрица
 
 При всех преобразованиях в этом процессе $\det$ меняется контролируемым образом. При этом при вычислении определителя по определению приходится выполнять порядка $n!$ умножений, а методом Гаусса --- порядка $\frac13n^3$.
-\section{*Миноры и алгебраические дополнения*}
+\section{Миноры и алгебраические дополнения}
 \begin{opred}
 \rmatrixof{A}{a_{ij}}{m}{n}; $k\in\mathbb{N}:1\leq{}k\leq{}min(m,n)$
 
@@ -565,7 +565,7 @@ $$
 
 Пусть в \rmatrix{A}{n}{n} выбрана какая-либо ($i$--я) строка. Тогда $\det{A}=\sum\limits_{j=1}^na_{ij}A^i_j$
 
-Строчный вариант:
+Столбцовый вариант:
 
 Пусть в \rmatrix{A}{n}{n} выбрана какой-либо ($j$--й) столбец. Тогда $\det{A}=\sum\limits_{i=1}^na_{ij}A^i_j$
 \end{theor}
@@ -574,7 +574,7 @@ $$
 $\det{A}=\sum\limits_{j=1}^na_{ij}A^i_j$ (1)
 
 \begin{enumerate}
-\item Пусть $i=1$.$\det{A}=\sum\limits_{j=1}^na_{1j}(-1)^{1+j}\tilde{M}^1_j$ (2)
+\item Пусть $i=1$. $\det{A}=\sum\limits_{j=1}^na_{1j}(-1)^{1+j}\tilde{M}^1_j$ (2)
 
 Каждая часть (2) является алгебраической суммой. Левая часть --- в силу определения $\det$, а правая --- так как является линейной комбинацией $\det$ $n-1$--го порядка.
 
@@ -594,7 +594,7 @@ $(j,\beta_2,\ldots,\beta_n)$ --- перестановка
 $$
 a_{11}\underbrace{a_{2\alpha_2}\ldots{}a_{n\alpha_n}}_{\scriptsize{\mbox{произведение из }\tilde{M}^1_1}}\mbox{ в правой части у него :}(-1)^{\sigma(1,\alpha_2,\ldots,\alpha_n)}
 $$
-Рассмотрим слагаемое из правой части с $\forall\ j>2$:
+Рассмотрим слагаемое из правой части с $\forall\ j>1$:
 
 $(-1)^{1+j+\sigma(\alpha_2,\ldots,\alpha_n)}$
 
@@ -609,16 +609,16 @@ $(-1)^{\sigma(j,\alpha_2,\ldots,\alpha_n)}$
 $\det{A}=(-1)^{i-1}\det{\tilde{A}}=(-1)^{i-1}\sum\limits_{j=1}^na_{ij}(-1)^{1+j}\tilde{M}^i_j$
 \end{enumerate}
 \end{proof}
-\section{*Определитель квазитреугольной матрицы*}
+\section{Определитель квазитреугольной матрицы}
 \begin{theor}
 Определитель квазитреугольной матрицы равен произведению определителей диагональных клеток.
 \end{theor}
 \begin{proof}
 Выделим столбцы, которые попадают в первую диагональную клетку. В этих столбцах имеется только один минор, который может быть ненулевым - угловой.
 
-$|A|=|A_1|(-1)^{2(1+\cdots+k)}=|A_1|$
+$|A|=|A_1|(-1)^{2(1+\cdots+k)}|A_2|=|A_1||A_2|$
 \end{proof}
-\section{*Определитель произведения матриц*}
+\section{Определитель произведения матриц}
 \begin{theor}
 Определитель произведения матриц равен произведению определителей сомножителей.
 \end{theor}
@@ -633,7 +633,7 @@ A  & \T \\
 -I & B
 \end{BMAT}$ \then $|C|=|AB|$ \then $|A||B|=|AB|$
 \end{proof}
-\chapter{*Обратная матрица*}
+\chapter{Обратная матрица}
 \begin{opred}
 Матрица $B$ называется \mybold{обратной к} $A$, если $AB=BA=I$. Обозначение: $B=A^{-1}$
 \end{opred}
@@ -659,11 +659,11 @@ $\Rightarrow$. $AA^{-1}=I$ \then $|AA^{-1}|=1$ \then $|A||A^{-1}|=1$ \then $\lef
 $\Leftarrow$. Алгоритм построения обратной матрицы. \begin{enumerate}
 \item Заменим каждый элемент матрицы $A$ на его алгебраическое дополнение: $a_{ij}\rightarrow{}A_{ij}$
 \item Транспонируем полученную матрицу
-\item Получится матрица $\hat{A}:\hat{A}_{ij}=A_{ji}$
+\item Получится матрица $\hat{A}:\hat{A}_{ij}=A_j^i$
 
-${A\hat{A}}_{kk}=\sum\limits_{j=1}^na_{kj}A_{kj}=|A|$
+${A\hat{A}}_{kk}=\sum\limits_{j=1}^na_{kj}A_j^k=|A|I$
 
-${A\hat{A}}_{ij}=\sum\limits_{k=1}^na_{ik}A_{jk}$
+${A\hat{A}}_{ij}=\sum\limits_{k=1}^na_{ik}A_j^k$
 \begin{lemma} О фальшивом разложении определителя.
 
 В любой квадратной матрице сумма произведений элементов какой-либо строки на соответствующие алгебраические дополнения другой строки равно нулю.
@@ -709,7 +709,7 @@ $AB_1=I=AB_2\ \Rightarrow\ B_1(AB_1)=B_1(AB_2)\ \Rightarrow\ (B_1A)B_1=(B_1A)B_2
 \end{remark}
 \begin{proof}
 \begin{enumerate}
-\item По теореме о критерии совместимости
+\item По теореме о критерии обратимости
 \item Очевидно, выводится по определениям
 \item Очевидно, выводится по определениям
 \item Очевидно, выводится по определениям

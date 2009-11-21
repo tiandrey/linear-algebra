@@ -1,10 +1,120 @@
-\chapter{*-Постановка задачи-*}
-\chapter{*-Системы с квадратной матрицей-*}
-\chapter{*-Системы общего вида-*}
-\section{*-Системы с верхней трапецевидной матрицей-*}
-\section{*-Системы с верхней ступенчатой матрицей-*}
-\section{*-Случай общей матрицы-*}
-\section{*-Критерий совместности и определённости СЛАУ-*}
-\chapter{*-Геометрические свойства решений систем-*}
-\section{*-Однородные системы-*}
-\section{*-Случай неоднородной системы-*}
+\chapter{Постановка задачи}
+\begin{opred}
+\mybold{Системой линейных алгебраических уравнений(СЛАУ) с $n$ неизвестными $x_1,\ldots,x_n$} будем называть систему:
+
+$\begin{cases}
+a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+\cdots \\
+a_{m1}x_1+\cdots+a_{mn}x_n=b_m
+\end{cases}\ (1)$
+\end{opred}
+\begin{opred}
+\mybold{Решение (1)} - это упорядоченная совокупность чисел $(c_1,\ldots,c_n)$, которые после подстановки $x_1=c_1,\ldots,x_n=c_n$ обращают каждое уравнение в тождество.
+\end{opred}
+\begin{opred}
+Говорят, что система (1) \mybold{совместна}, если у неё есть хотя бы одно решение, и \mybold{несовместна} --- в противном случае.
+\end{opred}
+\begin{opred}
+Говорят, что система (1) \mybold{определённая}, если у неё ровно одно решение, и \mybold{неопределённая} --- если у неё больше, чем одно решение.
+\end{opred}
+\begin{opred}
+\mybold{Исследовать и решить систему (1)} значит
+\begin{enumerate}
+\item Выяснить, совместна ли она
+\item В случае совместности описать множество всех решений
+\end{enumerate}
+\end{opred}
+$\begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{m1} & \cdots & a_{mn}
+\end{pmatrix}=A$ --- матрица коэффициентов
+
+$\begin{pmatrix}
+x_1    \\
+\vdots \\
+x_m
+\end{pmatrix}=x$ --- столбец неизвестных
+
+$\begin{pmatrix}
+b_1    \\
+\vdots \\
+b_m
+\end{pmatrix}=b$ --- столбец ответов
+
+$Ax=b$ --- матричная форма записи
+
+$a_1x_1+\cdots+a_mx_m=b$ --- векторная форма записи
+\begin{theor}(О структуре множества решений СЛАУ)
+
+СЛАУ либо не имеет решений, либо имеет единственное решение, либо имеет бесконечное количество решений.
+\end{theor}
+\begin{proof}
+Пусть СЛАУ имеет более 1 решения. Значит, существуют как минимум 2 различных столбца $x^{(1)},\ x^{(2)}$, что $Ax^{(1)}=b,\ Ax^{(2)}=b$
+
+$x=\alpha x^{(1)}+(1-\alpha)x^{(2)},\ \forall\ \alpha\in\mathbb{R}$
+
+$\vphantom{\mbox{Хуй!}}$
+
+$\vphantom{\mbox{Хуй!}}$
+
+Покажем:
+\begin{enumerate}
+\item Этот вектор-столбец всегда является решением
+\item При различных $\alpha$ его значения разные
+\end{enumerate}
+\begin{enumerate}
+\item $Ax=A(\alpha x^{(1)}+(1-\alpha)x^{(2)})=\alpha Ax^{(1)}+(1-\alpha)x^{(2)}=\alpha b+(1-\alpha)b=b$
+\item $x'=\alpha'x^{(1)}+(1-\alpha')x^{(2)}$
+
+$x''=\alpha''x^{(1)}+(1-\alpha'')x^{(2)}$
+
+$x''-x'=(\alpha''-\alpha')x^{(1)}+(\alpha'-\alpha'')x^{(2)}=\underbrace{(\alpha'-\alpha'')}_{\scriptsize{\neq0}}\underbrace{(x^{(2)}-x^{(1)})}_{\scriptsize{\neq0}}\neq0$ \then $x''\neq x'$
+\end{enumerate}
+\end{proof}
+\chapter{Системы с квадратной матрицей}
+$Ax=b$, \rmatrix{A}{n}{n}. (1)
+Пусть $|A|\neq0$. Тогда существует $A^{-1}$.
+\begin{enumerate}
+\item Если $x$ --- решение (1), то $A^{-1}Ax=A^{-1}b$ \then $x=A^{-1}b$
+\item Рассмотрим $x=A^{-1}b$: $A(A^{-1}b)\equiv b$
+\end{enumerate}
+\begin{theor}
+Если $|A|\neq0$, то система (1) совместна и имеет ровно 1 решение: $x=A^{-1}b$.
+\end{theor}
+\begin{proof}
+От противного. (Очевидно, на лекциях его не было)
+\end{proof}
+\begin{theor}
+Если $|A|\neq0$, то единственное решение (1) может быть найдено по следующим формулам (\mybold{формулам Крамера}): $x=(x_1,\ldots,x_n)^T$, где $x_i=\cfrac{|A_i|}{|A|},\ A_i$ получается из $A$ заменой $i$--го столбца на столбец ответов.
+\end{theor}
+\begin{proof}
+$x_i=\{A^{-1}b\}_i=\sum\limits_{j=1}^n\{A^{-1}\}_{ij}b_j=\cfrac1{|A|}\sum\limits_{j=1}^n\{\hat{A}\}_{ij}b_j=\cfrac1{|A|}\sum\limits_{j=1}^nA_{ji}b_j=\cfrac{|A_i|}{|A|}$
+\end{proof}
+$|A|=0\ \lor$ \rmatrixof{A}{m}{n}, $m\neq n$
+\begin{opred}
+$Ax=0$ - \mybold{однородная} СЛАУ.
+\end{opred}
+Однородные СЛАУ всегда совместны.
+\begin{opred}
+$x=(0,\ldots,0)^T$ --- \mybold{тривиальное} решение однородной СЛАУ; $x=(x_1,\ldots,x_n)^T,\ \exists\ x_i\neq0$ --- \mybold{нетривиальное} решение однородной СЛАУ.
+\end{opred}
+\begin{theor}
+Однородная СЛАУ с квадратной матрицей имеет нетривиальное решение тогда и только тогда, когда $|A|=0$
+\end{theor}
+\begin{proof}
+$|A|=0\ \Leftrightarrow$ столбцы $A$ л/з $\Leftrightarrow$ $\exists\ c_1,\ldots,c_n\in\mathbb{R},\ \exists\ c_j\neq0:\ c_1a_1+\cdots+c_na_n=0$,
+
+$x=(c_1,\ldots,c_n)^T$ --- решение системы.
+\end{proof}
+\begin{remark}
+$Ax=0,\ |A|=0$ \then существует бесконечное количество решений.
+\end{remark}
+\chapter{-Системы общего вида-}
+\section{-Системы с верхней трапецевидной матрицей-}
+\section{-Системы с верхней ступенчатой матрицей-}
+\section{-Случай общей матрицы-}
+\section{-Критерий совместности и определённости СЛАУ-}
+\chapter{-Геометрические свойства решений систем-}
+\section{-Однородные системы-}
+\section{-Случай неоднородной системы-}

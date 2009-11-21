@@ -1,4 +1,4 @@
-\chapter{*Направленный отрезок и свободный вектор*}
+\chapter{Направленный отрезок и свободный вектор}
 \begin{opred}
 \mybold{Направленный отрезок} --- упорядоченная пара точек на плоскости.
 \end{opred}
@@ -36,8 +36,8 @@ $\left[\begin{aligned}
 
 Для свободных векторов вводятся все термины, связанные с направленными отрезками: длина, параллельность прямой и плоскости, коллинеарность и компланарность, сонаправленность и противоположнонаправленность.
 \end{opred}
-\chapter{*Линейные операции над векторами*}
-\section{*Сложение*}
+\chapter{Линейные операции над векторами}
+\section{Сложение}
 \begin{opred}
 Суммой $\bar{a}$ и $\bar{b}$ называется $\bar{c}$, определяемый по следующим правилам: (тут рисунок с правилом треугольника)
 \end{opred}
@@ -64,7 +64,7 @@ $\left[\begin{aligned}
 
 $\vc=\vc+\vo=\vc+(\va+(-\va))=(\vc+\va)+(-\va)=\vb+(-\va)$
 \end{enumerate}\end{proof}
-\section{*Умножение на число*}
+\section{Умножение на число}
 \begin{opred}
 Вектор $\vb=\alpha\va$:\begin{enumerate}
 \item $|\vb|=|\alpha||\va|$
@@ -88,7 +88,7 @@ $\vc=\vc+\vo=\vc+(\va+(-\va))=(\vc+\va)+(-\va)=\vb+(-\va)$
 \item По геометрическим соображениям
 \end{enumerate}
 \end{proof}
-\section{*Векторы как элементы вещественного линейного пространства*}
+\section{Векторы как элементы вещественного линейного пространства}
 Пусть $\V\neq\varnothing$, и на $\V$ задано соответствие:
 
 $\forall\ (a,b)\in\underbrace{\V\times\V}_{\scriptsize\mbox{Декартово произведение}}\longmapsto{}c\in\V$ называется алгебраической операцией или внутренним законом композиции.
@@ -164,7 +164,7 @@ $\alpha\T=\alpha(0a)=(\alpha0)a=0a=\T$
 \item $(-1)a+a=(-1)a+1a=(-1+1)a=0a=\T$; по единственности $(-a)\ (-1)a=-a$
 \end{enumerate}
 \end{proof}
-\chapter{*Линейная зависимость*}
+\chapter{Линейная зависимость}
 \begin{opred}
 Рассмотрим линейную комбинацию элементов:
 
@@ -186,7 +186,7 @@ $\alpha_1a_1+\alpha_2a_2+\cdots+\alpha_ka_k$
 \item Если в системе векторов есть $\T$, то эта система л/з.
 \end{enumerate}
 \end{remark}
-\section{*Теоремы о линейной зависимости*}
+\section{Теоремы о линейной зависимости}
 \begin{theor}Система из более, чем одного вектора линейно зависима тогда и только тогда, когда хотя бы один вектор линейно выражается через остальные (является их линейной комбинацией).
 \end{theor}
 \begin{proof}
@@ -211,11 +211,11 @@ $a_j=\sum\limits_{i\neq{}j}(-\frac{\alpha_i}{\alpha_j})a_i$
 Система $a_1,\ldots,a_k$ л/нез тогда и только тогда, когда любой вектор, являющийся их линейной комбинацией, выражается через них единственным образом.
 \end{theor}
 \begin{proof}
-$\Longrightarrow$ Предположим противное: $\exists\ b\in\V\colon b=\alpha_1a_1+\cdots+\alpha_ka_k;\ b=\beta_1a_1+\cdots+\beta_ka_k\ (\exists\ \alpha_j\neq\beta_j)$ \then $\T=(\alpha_1-\beta_1)a_1+\cdots+(\alpha_k-\beta_k),\ \alpha_j-\beta_j\neq0$ \then система л/з \then противоречие
+$\Longrightarrow$ Предположим противное: $\exists\ b\in\V\colon b=\alpha_1a_1+\cdots+\alpha_ka_k;\ b=\beta_1a_1+\cdots+\beta_ka_k\ (\exists\ \alpha_j\neq\beta_j)$ \then $\T=(\alpha_1-\beta_1)a_1+\cdots+(\alpha_k-\beta_k)a_k,\ \alpha_j-\beta_j\neq0$ \then система л/з \then противоречие
 
 $\Longleftarrow$ Нулевой вектор заведомо является линейной комбинацией этих векторов: $\T=0\alpha_1+\cdots+0\alpha_k$; это тривиальная комбинация \then система л/нез
 \end{proof}
-\section{*Геометрический смысл линейной зависимости*}
+\section{Геометрический смысл линейной зависимости}
 \begin{theor}
 2 геометрических вектора л/з тогда и только тогда, когда они коллинеарны
 \end{theor}
@@ -255,12 +255,12 @@ $\bar{a}_3=\vec{AD}+\vec{AB}=\alpha_1\bar{a}_1+\alpha_2\bar{a}_2$ \then $\bar{a}
 
 $\bar{a}_4=\vec{AB}+\vec{AC}+\vec{AD}=\alpha_1\bar{a}_1+\alpha_2\bar{a}_2+\alpha_3\bar{a}_3$ \then ${a}_1,\bar{a}_2,\bar{a}_3,\bar{a}_4$ --- л/з
 \end{proof}
-\chapter{*Ранг матрицы*}
-\section{*Арифметическое линейное пространство*}
+\chapter{Ранг матрицы}
+\section{Арифметическое линейное пространство}
 \begin{opred}
 Элементами \mybold{арифметического линейного пространства} являются упорядоченные совокупности из $n$ вещественных чисел. Обозначается это так: $\mathbb{R}^n$ Нетрудно убедиться, что арифметические линейные пространства --- вещественные линейные пространства $(\mathbb{R}^{1\times{}n},\mathbb{R}^{n\times1})$
 \end{opred}
-\section{*Понятие ранга*}
+\section{Понятие ранга}
 \begin{opred}
 Рангом ненулевой матрицы $A$ называется максимальный размер её ненулевых миноров. Нулевая матрица считается матрицей ранга 0. Обозначается так: $rang\ A=rk\ A=rg\ A$
 \end{opred}
@@ -270,7 +270,7 @@ $\bar{a}_4=\vec{AB}+\vec{AC}+\vec{AD}=\alpha_1\bar{a}_1+\alpha_2\bar{a}_2+\alpha
 \begin{opred}
 \mybold{Базисные строки(столбцы)} --- строки(столбцы) матрицы, в которых расположен базисный минор.
 \end{opred}
-\section{*Теорема о базисном миноре*}
+\section{Теорема о базисном миноре}
 \begin{theor}(строчный вариант)
 
 В ненулевой матрице \rmatrix{A}{m}{n}:\begin{enumerate}
@@ -305,15 +305,13 @@ a_{k1} & \cdots & a_{kr} & a_{kj}
 $$
 Почему: если $1\leq j\leq r$, то в матрице 2 одинаковых столбца; если $j>r$ и детерминант не равен нулю, то ранг равен $r+1$, что противоречит условию.
 
-$0=\underbrace{a_{1j}A_1+a_{2j}A_2+\cdots+a_{rj}Ar+a_{kj}M_r}_{\scriptsize\begin{aligned}&\mbox{определяется только первыми r} \\ & \mbox{столбцами вспомогательной матрицы,} \\ & \mbox{а потому не зависит от j}\end{aligned}}$
+$0=\underbrace{a_{1j}A_1+a_{2j}A_2+\cdots+a_{rj}A_r+a_{kj}M_r}_{\scriptsize\begin{aligned}&\mbox{определяется только первыми r} \\ & \mbox{столбцами вспомогательной матрицы,} \\ & \mbox{а потому не зависит от j}\end{aligned}}$
 
-$a_{kj}=-\cfrac{A_1}{M_r}a_{1j}-\cfrac{A_3}{M_r}a_{2j}-\cdots-\cfrac{A_r}{M_r}a_{rj}$
-
-$a'_k=-\cfrac{A_1}{M_r}a'_1-\cfrac{A_3}{M_r}a'_2-\cdots-\cfrac{A_r}{M_r}a'_r$
+$a_{kj}=-\cfrac{A_1}{M_r}a_{1j}-\cfrac{A_2}{M_r}a_{2j}-\cdots-\cfrac{A_r}{M_r}a_{rj}\ \forall\ j\colon1\leq j\leq n$ \then $a'_k=-\cfrac{A_1}{M_r}a'_1-\cfrac{A_2}{M_r}a'_2-\cdots-\cfrac{A_r}{M_r}a'_r$
 \end{enumerate}
 \end{enumerate}
 \end{proof}
-\section{*Следствия из теоремы о базисном миноре*}
+\section{Следствия из теоремы о базисном миноре}
 \begin{opred}
 Матрица называется \mybold{вырожденной}, если её $\det$ равен 0, и \mybold{невырожденной} --- в противном случае.
 \end{opred}
@@ -355,7 +353,7 @@ $m\left\{\lefteqn{\phantom{\begin{matrix}\alpha_1 \\ \beta_1 \\ \vdots \\ \gamma
 
 $m>k$ \then базисных строк не больше $k$ \then существует строка (пускай последняя), которая линейно выражается через остальные.
 
-$(\gamma_1,\ldots,\gamma_k)=\lambda_1(\alpha_1,\ldots,\alpha_k)+\lambda_2(\beta_1,\ldots,\beta_k)+\cdots+\lambda_{m-1}(\delta_1,\ldots,\delta_k)$
+$(\delta_1,\ldots,\delta_k)=\lambda_1(\alpha_1,\ldots,\alpha_k)+\lambda_2(\beta_1,\ldots,\beta_k)+\cdots+\lambda_{m-1}(\gamma_1,\ldots,\gamma_k)$
 
 $\lambda_1b_1+\lambda_2b_2+\cdots+\lambda_{m-1}b_{m-1}=\delta_1a_1+\delta_2a_2+\cdots+\delta_ka_k=b_m$ \then л/з.
 \end{proof}
@@ -379,7 +377,7 @@ $\lambda_1b_1+\lambda_2b_2+\cdots+\lambda_{m-1}b_{m-1}=\delta_1a_1+\delta_2a_2+\
 Пусть $A,B$ --- две матрицы с одинаковым количеством столбцов (строк). Пусть любая строка $B$ линейно выражается через строки $A$. Тогда $rg\ B\leq rg\ A$
 \end{theor}
 \begin{proof}
-Пусть $rg\ A=r$ и $rg B>r$.
+Пусть $rg\ A=r$ и $rg\ B>r$.
 
 Рассмотрим в $B$ базисные строки (их больше $r$). Они все линейно выражаются через строки $A$, а строки $A$ линейно выражаются через $r$ базисных строк $A$ \then базисные строки $B$ линейно выражаются через $r$ базисных строк $A$ \then базисные строки $B$ л/з, что противоречит теореме о базисном миноре.
 \end{proof}
@@ -410,7 +408,7 @@ $rg\ [(AB)B^{-1}]\leq rg\ AB$
 
 $rg\ AB=rg\ A$
 \end{proof}
-\section{*Метод Гаусса вычисления ранга*}
+\section{Метод Гаусса вычисления ранга}
 \begin{theor}
 Элементарные преобразования не меняют ранг матрицы.
 \end{theor}
