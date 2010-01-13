@@ -108,7 +108,7 @@ $|A|=0\ \Leftrightarrow$ столбцы $A$ л/з $\Leftrightarrow$ $\exists\ c_
 $x=(c_1,\ldots,c_n)^T$ --- решение системы.
 \end{proof}
 \begin{remark}
-$Ax=0,\ |A|=0$ \then существует бесконечное количество решений.
+$Ax=\T,\ |A|=0$ \then существует бесконечное количество решений.
 \end{remark}
 \chapter{Системы общего вида}
 $Ax=b$, \rmatrix{A}{m}{n}
@@ -192,6 +192,101 @@ $Ax=b$ совместна $\Longleftrightarrow\ rg\ (A|b)=rg\ A$
 \item[б)] Определена $\Longleftrightarrow\ rg\ A=n$
 \end{itemize}
 Информации о $n$ и $m$ недостаточно для того, чтобы сделать вывод о количестве решений системы.
-\chapter{-Геометрические свойства решений систем-}
-\section{-Однородные системы-}
-\section{-Случай неоднородной системы-}
+\chapter{Геометрические свойства решений систем}
+\section{Однородные системы}
+$Ax=\T$, \rmatrix{A}{m}{n}
+\begin{theor}Множество решений однородной системы $Ax=\T$ образует линейное пространство арифметических векторов из $\R^n$: $\N=\left\{x\in\R^n|Ax=\T\right\}$
+\end{theor}
+\begin{proof}
+$\N$ - вещественное линейной пространство. Сложение, умножение на число не выводят из $\N$.
+Аксиомы:\begin{enumerate}
+\item *
+\item *
+\item $\T\in\N$, так как $Ax=\T$ всегда имеет тривиальное решение.
+\item если $x\in\N$ $Ax=\T$ \then $A(-x)=\T$ \then $A(-x)\in\N$
+\item *
+\item 1*x=x
+\item *
+\item *
+\end{enumerate}
+* - аксиома не проверяется, так как множество всех векторов из $\R^n$ этим аксиомам удовлетворяет.
+
+$x^{(1)},x^{(2)}\in\N\Longrightarrow\ Ax^{(1)}=\T,\ Ax^{(2)}=\T\Longrightarrow\ A(x^{(1)}+x^{(2)})=Ax^{(1)}+Ax^{(2)}=\T+\T=\T\Longrightarrow (x^{(1)}+x^{(2)})\in\N$
+
+$A(\alpha x)=\alpha(Ax)=\alpha\T=\T\Longrightarrow (\alpha x)\in\N\ \forall\ \alpha \in \R$
+\end{proof}
+\begin{remark}
+Другими словами, в теореме показано, что множество $\N$ является линейным подпространством в $\R^n$
+\end{remark}
+Пусть $Ax=\T$ имеет не только тривиальное решение. ($rg\ A\eq r<n$)
+\begin{opred}
+Упорядлченная совокупность $e_1,\ldots,e_k\in\R^n$ называется \mybold{фундаментальной системой решений (ФСР)}, если:
+\begin{enumerate}
+\item $\forall\ j\in[1,k]\ Ae_j=\T$
+\item $e_1,\ldots,e_k$ линейно независимы
+\item $\forall$ решение $x\colon Ax=\T$ линейно выражается через $e_1,\ldots,e_k\colon x=\alpha_1e_1+\ldots+\alpha_ke_k$
+\end{enumerate}
+\end{opred}
+\begin{theor}
+Если в $Ax=\T\ r\equiv rg\ A<n$, то для этой системы $\exists$ ФСР, причём она состоит из $(n-r)$ векторов.
+\end{theor}
+\begin{proof}
+Не ограничивая общности будем считать, что $x_1,\ldots,x_r$ -- главные неизвестные, а $x_{r+1},\ldots,x_n$ -- свободные неизвестные. ($n-r>0$)
+
+$\begin{BMAT}(b,20pt,15pt){c|cccc|c}{c|c|c|c|c}
+x_1\ldots x_r       & x_{r+1} & x_{r+2} & \ldots & x_n &        \\
+c_{11}\ldots c_{1r} & 1       & 0       & \ldots & 0   & e_1    \\
+c_{21}\ldots c_{2r} & 0       & 1       & \ldots & 0   & e_2    \\
+\ldots              &         &         & \ldots & 0   & \ldots \\
+c_{k1}\ldots c_{kr} & 0       & 0       & \ldots & 1   & e_k    \\
+\end{BMAT}
+
+k\equiv n-r
+
+\alpha_1\ldots\alpha_r,\alpha_{r+1}\ldots\alpha_n$
+\begin{enumerate}
+\item $e_1,\ldots,e_k$ линейно независимы, так как матрица в постоенной таблице имеет ранг, равный $k$.
+\item рассмотрим $\forall$ решение $Ax=\T$
+
+По последним неизвестным $x=(\alpha_1,\ldots,\alpha_r,\alpha_{r+1},\ldots,\alpha_n) x_{r+1},\ldots,x_n$ выполнено "равенство".
+
+$\alpha_{r+1}e_1+\ldots+\alpha_ne_k=(\alpha_1,\ldots,\alpha_n)\equiv x$
+
+Покажем, что это равенство верно и по неизвестным $x_1,\ldots,x_r$
+
+$y=x-(\alpha_{r+1}e_1+\ldots+\alpha_ne_k)=(\ldots,\underbrace{0,\ldots,0}_{n-r})$
+
+Множество решений - линейное пространство \then $y$ -- решение $Ax=0$, в котором все свободные неизвестные равны нулю. Так как главные элементы определяются по свободным однозначно и $\T$ -- решение, то $y$ -- тривиальное решение, а $x=\alpha_{r+1}e_1+\ldots+\alpha_ne_k$
+\end{enumerate}
+\end{proof}
+\begin{remark}
+Конец предыдущего доказательства я не вкурил, поэтому оно может быть неправильным. Уточню на консультации.
+\end{remark}
+\section*{Геометрический смысл понятия ФСР}
+... становится ясен, если рассмотреть однородное решение $Ax=\T,\ n=3$.
+
+$rg\ A=0,1,2,3$
+\begin{enumerate}
+\item $rg\ A=3$ \then есть только тривиальное решение
+\item $rg\ A=2$ \then $\exists$ ФСР из $n-r=1$ вектора $e_1\colon e_1\neq\T,\ e_1=(\alpha_1,\alpha_2,\alpha_3)$; общее решение имеет вид $x=\alpha_1e_1,\ \forall \ \alpha_1\in\R$ --- это уравнение прямой, проходящей через начало координат.
+\item $rg\ A=1$ \then $\exists$ ФСР из $n-r=2$ векторов $e_1,e_2$ -- линейно независимы, т.е. компланарны; общее решение $x=\alpha_1e_1+\alpha_2e_2$, это уравнение плоскости, проходящей через начало координат.
+\item $rg\ A=0$ \then $\T x=\T\ \Longleftrightarrow$ множество решений -- $\R^3$, т. е. все пространство.
+\end{enumerate}
+\section{Неоднородные системы}
+$Ax=b,\ A \in \R^{m\times n},\ b\neq\T$, система совместна.
+Множество решений $\M=\left\{x\in\R^m|Ax=b\right\}$ не образует линейное пространство:
+
+$x^{(1)}, x^{(2)}\colon Ax^{(1)}=b,\ Ax^{(2)}=b\Longrightarrow A(x^{(1)}+x^{(2)})=Ax^{(1)}+Ax^{(2)}=b+b=2b\neq b$
+\begin{theor}
+$\M=\N+\xs$ --- множество решений неоднородной СЛАУ; $\N=\left\{x\in\R^n|Ax=\T\right\}$; $A\xs=b$
+\end{theor}
+\begin{proof}
+$\xs+\N\subset\M\colon\forall\ x\in\ \xs+\N\colon\xs+\dot{x},\ A\dot{x}=\T,\  Ax=A(\xs+\dot{x})=A\xs+A\dot{x}=b+\T=b\ \Longrightarrow\ x\in\N
+
+M\subset\xs+\N\colon\forall\ x\in\M\colon Ax=b\colon x=\xs+(x-\xs),\ A(x-\xs)=Ax-A\xs=b-b=\T\Longrightarrow x-\xs\in\N$
+\end{proof}
+ФСР для неоднородной системы $Ax=b,\ b\neq\T$ вводить не имеет смысла.
+
+Однако для описания множества $\left\{x|Ax=b\right\}$ можно использовать ФСР однородной системы $\left\{x|Ax=\T\right\}$
+
+$\M=\N+\xs\ \Longrightarrow x=\xs+\alpha_1e_1+\ldots+\alpha_ke_k;\ x$ -- частное решение $Ax=b;\ \alpha_1e_1+\ldots+\alpha_ke_k$ -- линейная комбинация ФСР $Ax=\T$.
