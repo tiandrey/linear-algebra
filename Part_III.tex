@@ -218,7 +218,7 @@ $A(\alpha x)=\alpha(Ax)=\alpha\T=\T\Longrightarrow (\alpha x)\in\N\ \forall\ \al
 \begin{remark}
 Другими словами, в теореме показано, что множество $\N$ является линейным подпространством в $\R^n$
 \end{remark}
-Пусть $Ax=\T$ имеет не только тривиальное решение. ($rg\ A\eq r<n$)
+Пусть $Ax=\T$ имеет не только тривиальное решение. ($rg\ A\equiv r<n$)
 \begin{opred}
 Упорядлченная совокупность $e_1,\ldots,e_k\in\R^n$ называется \mybold{фундаментальной системой решений (ФСР)}, если:
 \begin{enumerate}
@@ -239,11 +239,11 @@ c_{11}\ldots c_{1r} & 1       & 0       & \ldots & 0   & e_1    \\
 c_{21}\ldots c_{2r} & 0       & 1       & \ldots & 0   & e_2    \\
 \ldots              &         &         & \ldots & 0   & \ldots \\
 c_{k1}\ldots c_{kr} & 0       & 0       & \ldots & 1   & e_k    \\
-\end{BMAT}
+\end{BMAT}$
 
-k\equiv n-r
+$k\equiv n-r$
 
-\alpha_1\ldots\alpha_r,\alpha_{r+1}\ldots\alpha_n$
+$\alpha_1\ldots\alpha_r,\alpha_{r+1}\ldots\alpha_n$
 \begin{enumerate}
 \item $e_1,\ldots,e_k$ линейно независимы, так как матрица в постоенной таблице имеет ранг, равный $k$.
 \item рассмотрим $\forall$ решение $Ax=\T$
@@ -281,9 +281,9 @@ $x^{(1)}, x^{(2)}\colon Ax^{(1)}=b,\ Ax^{(2)}=b\Longrightarrow A(x^{(1)}+x^{(2)}
 $\M=\N+\xs$ --- множество решений неоднородной СЛАУ; $\N=\left\{x\in\R^n|Ax=\T\right\}$; $A\xs=b$
 \end{theor}
 \begin{proof}
-$\xs+\N\subset\M\colon\forall\ x\in\ \xs+\N\colon\xs+\dot{x},\ A\dot{x}=\T,\  Ax=A(\xs+\dot{x})=A\xs+A\dot{x}=b+\T=b\ \Longrightarrow\ x\in\N
+$\xs+\N\subset\M\colon\forall\ x\in\ \xs+\N\colon\xs+\dot{x},\ A\dot{x}=\T,\  Ax=A(\xs+\dot{x})=A\xs+A\dot{x}=b+\T=b\ \Longrightarrow\ x\in\N$
 
-M\subset\xs+\N\colon\forall\ x\in\M\colon Ax=b\colon x=\xs+(x-\xs),\ A(x-\xs)=Ax-A\xs=b-b=\T\Longrightarrow x-\xs\in\N$
+$M\subset\xs+\N\colon\forall\ x\in\M\colon Ax=b\colon x=\xs+(x-\xs),\ A(x-\xs)=Ax-A\xs=b-b=\T\Longrightarrow x-\xs\in\N$
 \end{proof}
 ФСР для неоднородной системы $Ax=b,\ b\neq\T$ вводить не имеет смысла.
 
