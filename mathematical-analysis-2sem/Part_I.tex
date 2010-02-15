@@ -1,1 +1,105 @@
-\chapter{Основные понятия}
+\chapter{Определенный интеграл}
+\section{Основные понятия}
+\begin{opred}
+\mybold{Разбиением отрезка $[a;b]$} называется набор $\underset{0\leq k\leq n}{\{x_k\}}=\{x_0,x_1,\ldots,x_n\}$, где $x_0=a$, $x_n=b$, $x_0<x_1<\ldots<x_n$.
+\end{opred}
+\begin{opred}
+\mybold{Диаметром,} или \mybold{мелкостью разбиения $\{x_k\}$} называется число $d=d(\{x_k\})=\underset{1\leq k\leq n}{max}\{\Delta x_k\}$, $\Delta x_k=x_k-x_{k-1}$.
+\end{opred}
+\begin{opred}
+\mybold{Размеченным разбиением} называется разбиение, в котором зафиксированы точки $\underset{1\leq k\leq n}{\{\xi_k\}}$, где $\xi_k\in[x_{k-1},x_k]$.
+\end{opred}
+\begin{opred}
+Разбиение $\{y_m\}$ называется \mybold{измельчением разбиения $\{x_k\}$}, если $\{x_k\}\subset\{y_m\}$.
+\end{opred}
+\begin{opred}
+Разбиение $\{z_j\}$ называется \mybold{объединением разбиений $\{x_k\}$ и $\{y_m\}$}, если $\{z_j\}=\{x_k\}\cup\{y_m\}$.
+\end{opred}
+\begin{opred}
+Пусть на $[a;b]$ задана $f(x)$. \mybold{Интегральной суммой для $f(x)$ на отрезке $[a;b]$, составленной по размеченному разбиению $(\{x_k\},\{\xi_k\})$} называется выражение вида $$\sigma_f=\sigma_f(\{x_k\},\{\xi_k\}):=\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
+\end{opred}
+\begin{opred}
+Число $A$ наывается \mybold{пределом интегральных сумм $f(x)$ на $[a;b]$ при $d\mapsto0$}, где $d$ - мелкость разбиений, если $\forall\ \epsilon>0\ \exists\ \delta=\delta(\epsilon)>0$, что для любого размеченного разбиения $(\{x_k\},\{\xi_k\})$, мелкость которого $d<\delta$, выполнено неравенство: $|\sigma_f\rr-A|<\epsilon$.
+$$A=\lim\limits_{d\mapsto0}\sigma_f\rr$$
+\end{opred}
+\begin{opred}
+\mybold{Определенным интегралом} $f(x)$ на отрезке $[a;b]$ называется предел интегральных сумм этой функции на этом отрезке при $d\mapsto0$.
+$$\int\limits^b_af(x)dx:=\lim\limits_{d\mapsto0}\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
+\end{opred}
+\begin{theor}
+Если у $f(x)$ существует предел интегральных сумм, то этот предел -- единственный.
+\end{theor}
+\begin{proof}
+Предположим противное. Пусть существует 2 предела: $A_1<A_2,\ A_2-A_1=\alpha>0$.
+По определению предела, для $\forall\ \epsilon=\frac\alpha3\ \exists\ \delta_1,\delta_2$, что:
+\begin{enumerate}
+\item для $\forall\ \rr,\ d<\delta_1\colon|\sigma_f\rr-A_1|<\epsilon$
+\item для $\forall\ \rr,\ d<\delta_2\colon|\sigma_f\rr-A_2|<\epsilon$
+\end{enumerate}
+Тогда для любого размеченного разбиения $\rr$, у которого $d\leq min(\delta_1,\delta_2)$, будет выполнено и 1), и 2) \then $\sigma_f\rr$ попадает одновременно в 2 непересекающихся интервала. Противоречие.
+\end{proof}
+\begin{theor}
+Если существует $\int\limits_a^bf(x)dx$, то обязательно $f(x)$ ограничена на $[a;b]$.
+\end{theor}
+\begin{proof}
+Предположим противное. Пусть $f(x)$ неограничена на $[a;b]$. Тогда для любого разбиения $[a;b]\ \{x_k\}\ f(x)$ будет неограничена на хотя бы одном отрезке $\xko$ этого разбиения. Выберем последовательность разбиений $\underset{0\leq k\leq n}{\{x_k^m\}}$ с мелкостью $d_m=d_m(\{x_k^m\})<\frac1m$. В каждом из этих разбиений выберем отрезок $\xmko$, где $f(x)$ не ограничена. Теперь подберем разметку так, чтобы интегральные суммы $\sigma_f\rr$ были больше $m$. Выберем $\xi_k$ на всех отрезках $\xmk$, кроме $\xmko$, произвольным образом. А на $\xko$ выберем $\xi_{k_0}$ так, чтобы $|f(\xi_{k_0})|>\frac{m+|\sum\limits_{k\neq k_0}f(\xi_k)\Delta x_k)|}{\Delta x^m_{k_0}}$.
+Тогда вспомним неравенство: $|a+b|\geq|a|-|b|$ ($|a|=|(a+b)-b|\leq|a+b|+|b|$ \then $|a|-|b|\leq|a+b|$, ЧТД).
+
+$|\sigma_f\rr|=|f(\xi_k^m)\Dekta x_{k_0}^m+\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|\geq|f(\xi_k^m)\Dekta x_{k_0}^m|-|\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|>m$ \then $\underset{d<\frac1m}{\sigma_f}>m$ \then при $m\mapsto\infty$ получим противоречие.
+\end{proof}
+\begin{opred}
+Пусть $f(x)$ ограничена на $[a;b]$, и задано размеченное разбиение $\rr$ \then $f(x)$ ограничена на каждом отрезке $\xk$ \then  существует $\underset{x\in\xk}{sup}\{f(x)\}=M_k$, $\underset{x\in\xk}{inf}\{f(x)\}=m_k$. \mybold{Верхней (нижней) интегральной суммой (суммой Дарбу)} $f(x)$ по разбиению $\{x_k\}$ на $[a;b]$  называется выражение:
+
+$\vs:=\sum\limits_{k=1}^nM_k\Delta x_k$
+
+$\ns:=\sum\limits_{k=1}^nm_k\Delta x_k$
+\end{opred}
+\begin{theor}
+6 свойств сумм Дарбу.
+\begin{enumerate}
+\item $\forall\ \rr \ns\leq\sigma_f\rr\leq\vs$
+\item $\forall\ \epsilon>0\ \exists$ разметка $\{\xi_k\}$ данного разбиения $\{x_k\}$, что $\sigma_f\rr-\ns<\epsilon$, $\vs-\sigma_f\rr<\epsilon$
+\item При ризмельчении разбиения $\ns$ не может уменьшиться, $\vs$ -- увеличиться.
+\item При добавлении к разбиению $\{x_k\}$ $q$ новых точек $\vs$ может уменьшиться не более чем на $(M-m)qd$, $d$ -- мелкость $\{x_k\}$. Аналогично для $\ns$.
+\item Пусть $\{x_k\},\ \{y_j\}$ -- 2 разбиения $[a;b]$. $\vs,\ \ns$ и $\vs',\ \ns'$ -- их суммы Дарбу. Тогда $\ns\leq\vs'$, $\vs\geq\ns'$.
+\item В силу 5), $\exists\ sup\{\ns\}=\underline{I}$ -- нижний интеграл Дарбу, $\exists\ inf\{\vs\}=\overline{I}$ -- верхний интеграл Дарбу, причем $\ns\leq\underline{I}\ \leq\ \overline{I}\leq\vs$.
+\end{enumerate}
+\end{theor}
+\begin{proof}
+\begin{enumerate}
+\item Для любого разбиения $\{x_k\}$ и любой разметки $\{\xi_k\}$ $m_k\leq f(\xi_k)\leq M_k$ \then $\ns=\sum\limits^n_{k=1}m_k\Delta x_k\leq\sum\limits^n_{k=1}f(\xi_k)\Delta x_k=\sigma_f\rr\leq\sum\limits^n_{k=1}M_k\Delta x_k=\vs$
+\item По определению $sup$, $\forall\ \epsilon>0$ на каждом $\xk\ \exists\ \xi_k$, что $M_k-f(\xi_k)<\frac\epsilon{b-a},\ 1\leq k\leq n$ \then $\vs-\sum\limits^n_{k=1}f(\xi_k)\Delta x_k=\sum\limits^n_{k=1}(M_k-f(\xi_k))\Delta x_k<\frac\epsilon{b-a}\sum\limits^n_{k=1}\Delta x_k=\epsilon$. Аналогично для $\ns$.
+\item Достаточно доказать, что $\vs$ не увеличивается, а $\ns$ не уменьшается, при добавлении к разбиению $\{x_k\}$ 1 новой точки.
+
+Пусть новая точка $\eta$ добавлена между $x_{k_0-1}$ и $x_{k_0}$. Расмотрим суммы Дарбу.
+
+$\vs=M_{k_0}\Delta x_{k_0}+\sum\limits_{k\neq k_0}M_k\Delta x_k$
+
+$\vs'=M_{k_0}^1(\eta-x_{k_0-1})+M_{k_0}^2(x_{k_0}-\eta)+\sum\limits_{k\neq k_0}M_k\Delta x_k$
+
+Сравним эти два выражения. Заметим, что $M_{k_0}\Delta x_{k_0}=M_{k_0}(\eta-x_{k_0-1})+M_{k_0}(x_{k_0}-\eta)$. Причём очевидно, что $M_{k_0}\geq\underset{x\in[x_{k_0-1};\eta]}{sup}\{f(x)\}=M_{k_0}^1$ и $M_{k_0}\geq\underset{x\in[\eta;x_{k_0}]}{sup}\{f(x)\}=M_{k_0}^2$ \then $\vs\geq\vs'$. Аналогично для $\ns$.
+\item Докажем, что при добавлении 1 новой точки к разбиению $\{x_k\}\ \vs$ может уменьшиться не более, чем на $(M-n)d$, где $M=\underset{x\in[a;b]}{sup}\{f(x)\},\ m=\underset{x\in[a;b]}{inf}\{f(x)\},\ d$ -- мелкость разбиения $\{x_k\}$.
+
+Аналогично доказательству 3), пусть добавлена новая точка $\eta$ между $x_{k_0-1}$ и $x_{k_0}$. Рассмотрим разность $\vs-\vs'$:
+
+$\vs-\vs'=M_{k_0}\Delta x_{k_0}-(M^1_{k_0}(\eta-x_{k_0-1})+M^2_{k_0}(x_{k_0}-\eta))=(M_{k_0}-M^1_{k_0})(\eta-x_{k_0-1})+(M_{k_0}-M^2_{k_0})(x_{k_0}-\eta)\leq(M-m)((\eta-x_{k_0-1})+(x_{k_0}-\eta))=(M-m)\Delta x_{k_0}\leq(M-m)d$
+\item Пусть даны 2 любых разбиения: $\{x_k\},\ \{y_j\}$; $\{z_m\}=\{x_k\}\cup\{y_j\}$. Пусть $\vs,\ns$ -- суммы Дарбу для $\{x_k\}$, $\vs',\ns'$ -- для $\{y_j\}$, $\vs'',\ns''$ -- для $\{z_m\}$.
+
+$\ns\leq\ns''\leq\vs''\leq\vs'$, $\ns'\leq\ns''\leq\vs''\leq\vs$.
+\item Докажем, что $\ns\leq\nis\ \leq\ \vis\leq\vs$.
+
+Предположим противное. $\vis<\nis,\ \nis-\vis=\alpha>0$. По определению $sup,\ inf$ для $\frac\alpha3\ \exists\ \ns$, что $\nis-\frac\alpha3<\ns\leq\nis;\ \exists\ \vs$, что $\vis\leq\vs<\vis+\frac\alpha3$ \then $\vs<\vis+\frac\alpha3<\nis-\frac\alpha3<\ns$ \then противоречие.
+\end{enumerate}
+\end{proof}
+\begin{opred}
+$f(x)$ называется \mybold{интегрируемой по Риману на $[a;b]$}, если $\exists\ \int\limits^b_af(x)dx$. Также используется запись $f\in R[a;b]$.
+\end{opred}
+\section{2 критерия интегрируемости функции по Риману.}
+\begin{theor}Критерий интегрируемости в терминах сумм Дарбу.
+
+Для того, чтобы $f(x)$, ограниченная на $[a;b]$, была интегрируема по Риману, необходимо и достаточно, чтобы $\forall\ \epsilon>0\ \exists\ \{x_k\}$, что $\vs_f-\ns_f<\epsilon$.
+\end{theor}
+\begin{proof}\mybold{Необходимость.}
+
+Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\mapsto0}{lim}
+\end{proof}

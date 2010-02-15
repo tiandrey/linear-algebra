@@ -1,4 +1,4 @@
-\documentclass[draft]{report}
+\documentclass{report}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{amsmath}
@@ -36,6 +36,15 @@
 \newcommand{\SN}{\uparrow\uparrow}
 \newcommand{\PN}{\uparrow\downarrow}
 \newcommand{\xs}{x_{\star}}
+\newcommand{\rr}{(\{x_k\},\{\xi_k\})}
+\newcommand{\xk}{[x_{k-1},x_k]}
+\newcommand{\xmk}{[x^m_{k-1},x^m_k]}
+\newcommand{\xko}{[x_{k_0-1},x_{k_0}]}
+\newcommand{\xmko}{[x^m_{k_0-1},x^m_{k_0}]}
+\newcommand{\vs}{\overline{s}}
+\newcommand{\ns}{\underline{s}}
+\newcommand{\vis}{\overline{I}}
+\newcommand{\nis}{\underline{I}}
 \theoremstyle{remark}
 \newtheorem*{remark}{\mybold{Замечание}}
 \begin{document}
@@ -47,6 +56,5 @@
 Составитель --- Андрей Тихонов (tiacorpo@gmail.com).
 \end{abstract}
 \tableofcontents
-\part{Определенный интеграл}
 \include{Part_I}
 \end{document}
