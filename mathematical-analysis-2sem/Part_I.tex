@@ -42,10 +42,10 @@ $$\int\limits^b_af(x)dx:=\lim\limits_{d\mapsto0}\sum\limits^n_{k=1}f(\xi_k)\Delt
 Если существует $\int\limits_a^bf(x)dx$, то обязательно $f(x)$ ограничена на $[a;b]$.
 \end{theor}
 \begin{proof}
-Предположим противное. Пусть $f(x)$ неограничена на $[a;b]$. Тогда для любого разбиения $[a;b]\ \{x_k\}\ f(x)$ будет неограничена на хотя бы одном отрезке $\xko$ этого разбиения. Выберем последовательность разбиений $\underset{0\leq k\leq n}{\{x_k^m\}}$ с мелкостью $d_m=d_m(\{x_k^m\})<\frac1m$. В каждом из этих разбиений выберем отрезок $\xmko$, где $f(x)$ не ограничена. Теперь подберем разметку так, чтобы интегральные суммы $\sigma_f\rr$ были больше $m$. Выберем $\xi_k$ на всех отрезках $\xmk$, кроме $\xmko$, произвольным образом. А на $\xko$ выберем $\xi_{k_0}$ так, чтобы $|f(\xi_{k_0})|>\frac{m+|\sum\limits_{k\neq k_0}f(\xi_k)\Delta x_k)|}{\Delta x^m_{k_0}}$.
+Предположим противное. Пусть $f(x)$ неограничена на $[a;b]$. Тогда для любого разбиения $\{x_k\}\ f(x)$ будет неограничена на хотя бы одном отрезке $\xko$ этого разбиения. Выберем последовательность разбиений $\underset{0\leq k\leq n}{\{x_k^m\}}$ с мелкостью $d_m=d_m(\{x_k^m\})<\frac1m$. В каждом из этих разбиений выберем отрезок $\xmko$, где $f(x)$ не ограничена. Теперь подберем разметку так, чтобы интегральные суммы $\sigma_f\rr$ были больше $m$. Выберем $\xi_k$ на всех отрезках $\xmk$, кроме $\xmko$, произвольным образом. А на $\xko$ выберем $\xi_{k_0}$ так, чтобы $|f(\xi_{k_0})|>\frac{m+|\sum\limits_{k\neq k_0}f(\xi_k)\Delta x_k)|}{\Delta x^m_{k_0}}$.
 Тогда вспомним неравенство: $|a+b|\geq|a|-|b|$ ($|a|=|(a+b)-b|\leq|a+b|+|b|$ \then $|a|-|b|\leq|a+b|$, ЧТД).
 
-$|\sigma_f\rr|=|f(\xi_k^m)\Dekta x_{k_0}^m+\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|\geq|f(\xi_k^m)\Dekta x_{k_0}^m|-|\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|>m$ \then $\underset{d<\frac1m}{\sigma_f}>m$ \then при $m\mapsto\infty$ получим противоречие.
+$|\sigma_f\rr|=|f(\xi_k^m)\Delta x_{k_0}^m+\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|\geq|f(\xi_k^m)\Delta x_{k_0}^m|-|\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|>m$ \then $\underset{d<\frac1m}{\sigma_f}>m$ \then при $m\mapsto\infty$ получим противоречие.
 \end{proof}
 \begin{opred}
 Пусть $f(x)$ ограничена на $[a;b]$, и задано размеченное разбиение $\rr$ \then $f(x)$ ограничена на каждом отрезке $\xk$ \then  существует $\underset{x\in\xk}{sup}\{f(x)\}=M_k$, $\underset{x\in\xk}{inf}\{f(x)\}=m_k$. \mybold{Верхней (нижней) интегральной суммой (суммой Дарбу)} $f(x)$ по разбиению $\{x_k\}$ на $[a;b]$  называется выражение:
@@ -92,14 +92,66 @@ $\ns\leq\ns''\leq\vs''\leq\vs'$, $\ns'\leq\ns''\leq\vs''\leq\vs$.
 \end{enumerate}
 \end{proof}
 \begin{opred}
-$f(x)$ называется \mybold{интегрируемой по Риману на $[a;b]$}, если $\exists\ \int\limits^b_af(x)dx$. Также используется запись $f\in R[a;b]$.
+$f(x)$ называется \mybold{интегрируемой по Риману на $[a;b]$}, если $\exists\ \int\limits^b_af(x)dx$. Также используется запись $f\in \mathbb{R}[a;b]$.
 \end{opred}
-\section{2 критерия интегрируемости функции по Риману.}
-\begin{theor}Критерий интегрируемости в терминах сумм Дарбу.
+\section{2 критерия интегрируемости функции по Риману}
+\begin{theor}Критерий интегрируемости в терминах сумм Дарбу
 
 Для того, чтобы $f(x)$, ограниченная на $[a;b]$, была интегрируема по Риману, необходимо и достаточно, чтобы $\forall\ \epsilon>0\ \exists\ \{x_k\}$, что $\vs_f-\ns_f<\epsilon$.
 \end{theor}
 \begin{proof}\mybold{Необходимость.}
 
-Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\mapsto0}{lim}
+Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\mapsto0}{\lim}\ \sum\limits^n_{k=1}f(\xi_k)\Delta x_k$ \then по определению $\lim,\ \forall \epsilon>0\ \exists\ \delta=\delta(\frac\epsilon4)>0$, что для любого разбиения $\{x_k\}$ и любой его разметки $\{\xi_k\}$, если $d(\{x_k\})<\delta$ \then $|\sigma_f-I|<\frac\epsilon4$.
+
+По 2 свойству из теоремы 3, $\exists\ \{\xi_k'\},\ \exists\ \{\xi_k''\}$, что при даном разбиении $\{x_k\}$
+
+$\sigma_f'=\sum\limits^n_{k=1}f(\xi_k')\Delta x_k,\ \sigma_f''=\sum\limits^n_{k=1}f(\xi_k'')\Delta x_k$, удовлетворяющие неравенствам:
+
+$\sigma_f'-\ns<\frac\epsilon4,\ \vs-\sigma_f''<\frac\epsilon4$.
+
+При этом выполнены и неравенства:
+
+$|\sigma_f'-I|<\frac\epsilon4,\ |\sigma_f''-I|<\frac\epsilon4$ \then $|\vs-\ns|\leq|\vs-\sigma_f''|+|\sigma''-I|+|I-\sigma'|+|\sigma'-\ns|<\frac\epsilon4+\frac\epsilon4+\frac\epsilon4+\frac\epsilon4=\epsilon$
+\end{proof}
+Для доказательства достаточности нам потребуется доказать следующее утверждение:
+\begin{lemma}Основная лемма Дарбу.
+
+$\nis=\underset{d\mapsto0}{\lim}\{\ns\},\ \vis=\underset{d\mapsto0}{\lim}\{\vs\}$
+\end{lemma}
+\begin{proof}
+По определению $\vis=inf\{\vs\}$ \then $\forall\ \epsilon>0\ \exists$ разбиение $\{x_k\}$, что $\vs$ удовлетворяет неравенству:
+
+$\vis\leq\vs<I+\frac\epsilon2$
+
+Пусть в $\{x_k\}$ имеется $q+1$ точка. Рассмотрим теперь разбиение $\{y_j\}$ с мелкостью
+
+$d(\{y_j\})<\frac\epsilon{2(M+m)(q-1)}=\delta(\epsilon)>0$
+
+Рассмотрим разбиение $\{z_m\}=\{y_j\}\cup\{x_k\}$. В $\{z_m\}$, по сравнению с $\{y_j\}$, добавлено не более, чем $q-1$ точек. Обозначим верхние суммы Дарбу: $\vs'$ - для $\{y_j\}$, $\vs''$ - для $\{z_m\}$.
+
+$\vs''\leq\vs$, $\vs''<\vs'$
+
+$\vs'-\vs''\leq(M-m)(q-1)d<(M-m)(q-1)\frac\epsilon{2(M-m)(q-1)}=\frac\epsilon2$
+
+$I\leq\vs''<I+\frac\epsilon2$ \then $\vis\leq\vs'<\vis+\epsilon$ \then $\vis=\underset{d\mapsto0}{\lim}\ \vs$
+\end{proof}
+\begin{proof}\mybold{Достаточность.}
+
+Дано: $\forall\ \epsilon>0\ \exists\ \{x_k\}$, что $\vs-\ns<\epsilon$ \then $\ns\leq\nis\leq\vis\leq\vs$ \then $\nis=\vis=I$
+
+По основной лемме Дарбу $\underset{d\mapsto0}{\lim}\ \ns=\underset{d\mapsto0}{\lim}\ \vs=I$
+
+По свойству 1 теоремы 3, $\ns\leq\sigma_f(\{x_k\},\{\xi_k\})\leq\vs$ \then $\exists\ \lim\ \sigma_f(\{x_k\},\{\xi_k\})=I$, т. е. $f\in\mathbb{R}[a;b]$
+\end{proof}
+\begin{theor}Критерий интегрируемости в теминах верхних и нижних интегралов Дарбу
+
+$f\in\mathbb{R}[a;b]\ \Leftrightarrow\ \nis=\vis$
+\end{theor}
+\begin{proof}\mybold{Необходимость.}
+
+Пусть $f\in\mathbb{R}[a;b]$ \then по теореме 4 $\forall\ \epsilon\ \exists\ \{x_k\}$, что $\vs-\ns<\epsilon\ \Rightarrow\ \nis=\vis$
+
+\mybold{Достаточность.}
+
+Пусть $\nis=\vis$. По основной лемме Дарбу $\underset{d\mapsto0}{\lim}\ \ns=\underset{d\mapsto0}{\lim}\ \vs=I$. По теореме 3 $\ns\leq\sigma_f\leq\vs$. По теореме о двух милиционерах $\underset{d\mapsto0}{\lim}\ \sigma_f=I$
 \end{proof}
