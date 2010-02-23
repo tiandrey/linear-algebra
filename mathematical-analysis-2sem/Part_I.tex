@@ -1,7 +1,7 @@
 \chapter{Определенный интеграл}
 \section{Основные понятия}
 \begin{opred}
-\mybold{Разбиением отрезка $[a;b]$} называется набор $\underset{0\leq k\leq n}{\{x_k\}}=\{x_0,x_1,\ldots,x_n\}$, где $x_0=a$, $x_n=b$, $x_0<x_1<\ldots<x_n$.
+\mybold{Разбиением отрезка $[a,b]$} называется набор $\underset{0\leq k\leq n}{\{x_k\}}=\{x_0,x_1,\ldots,x_n\}$, где $x_0=a$, $x_n=b$, $x_0<x_1<\ldots<x_n$.
 \end{opred}
 \begin{opred}
 \mybold{Диаметром,} или \mybold{мелкостью разбиения $\{x_k\}$} называется число $d=d(\{x_k\})=\underset{1\leq k\leq n}{max}\{\Delta x_k\}$, $\Delta x_k=x_k-x_{k-1}$.
@@ -16,14 +16,14 @@
 Разбиение $\{z_j\}$ называется \mybold{объединением разбиений $\{x_k\}$ и $\{y_m\}$}, если $\{z_j\}=\{x_k\}\cup\{y_m\}$.
 \end{opred}
 \begin{opred}
-Пусть на $[a;b]$ задана $f(x)$. \mybold{Интегральной суммой для $f(x)$ на отрезке $[a;b]$, составленной по размеченному разбиению $(\{x_k\},\{\xi_k\})$} называется выражение вида $$\sigma_f=\sigma_f(\{x_k\},\{\xi_k\}):=\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
+Пусть на $[a,b]$ задана $f(x)$. \mybold{Интегральной суммой для $f(x)$ на отрезке $[a,b]$, составленной по размеченному разбиению $(\{x_k\},\{\xi_k\})$} называется выражение вида $$\sigma_f=\sigma_f(\{x_k\},\{\xi_k\}):=\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
 \end{opred}
 \begin{opred}
-Число $A$ наывается \mybold{пределом интегральных сумм $f(x)$ на $[a;b]$ при $d\mapsto0$}, где $d$ - мелкость разбиений, если $\forall\ \epsilon>0\ \exists\ \delta=\delta(\epsilon)>0$, что для любого размеченного разбиения $(\{x_k\},\{\xi_k\})$, мелкость которого $d<\delta$, выполнено неравенство: $|\sigma_f\rr-A|<\epsilon$.
+Число $A$ наывается \mybold{пределом интегральных сумм $f(x)$ на $[a,b]$ при $d\mapsto0$}, где $d$ - мелкость разбиений, если $\forall\ \eps>0\ \exists\ \delta=\delta(\eps)>0$, что для любого размеченного разбиения $(\{x_k\},\{\xi_k\})$, мелкость которого $d<\delta$, выполнено неравенство: $|\sigma_f\rr-A|<\eps$.
 $$A=\lim\limits_{d\mapsto0}\sigma_f\rr$$
 \end{opred}
 \begin{opred}
-\mybold{Определенным интегралом} $f(x)$ на отрезке $[a;b]$ называется предел интегральных сумм этой функции на этом отрезке при $d\mapsto0$.
+\mybold{Определенным интегралом} $f(x)$ на отрезке $[a,b]$ называется предел интегральных сумм этой функции на этом отрезке при $d\mapsto0$.
 $$\int\limits^b_af(x)dx:=\lim\limits_{d\mapsto0}\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
 \end{opred}
 \begin{theor}
@@ -31,24 +31,24 @@ $$\int\limits^b_af(x)dx:=\lim\limits_{d\mapsto0}\sum\limits^n_{k=1}f(\xi_k)\Delt
 \end{theor}
 \begin{proof}
 Предположим противное. Пусть существует 2 предела: $A_1<A_2,\ A_2-A_1=\alpha>0$.
-По определению предела, для $\forall\ \epsilon=\frac\alpha3\ \exists\ \delta_1,\delta_2$, что:
+По определению предела, для $\forall\ \eps=\frac\alpha3\ \exists\ \delta_1,\delta_2$, что:
 \begin{enumerate}
-\item для $\forall\ \rr,\ d<\delta_1\colon|\sigma_f\rr-A_1|<\epsilon$
-\item для $\forall\ \rr,\ d<\delta_2\colon|\sigma_f\rr-A_2|<\epsilon$
+\item для $\forall\ \rr,\ d<\delta_1\colon|\sigma_f\rr-A_1|<\eps$
+\item для $\forall\ \rr,\ d<\delta_2\colon|\sigma_f\rr-A_2|<\eps$
 \end{enumerate}
 Тогда для любого размеченного разбиения $\rr$, у которого $d\leq min(\delta_1,\delta_2)$, будет выполнено и 1), и 2) \then $\sigma_f\rr$ попадает одновременно в 2 непересекающихся интервала. Противоречие.
 \end{proof}
 \begin{theor}
-Если существует $\int\limits_a^bf(x)dx$, то обязательно $f(x)$ ограничена на $[a;b]$.
+Если существует $\int\limits_a^bf(x)dx$, то обязательно $f(x)$ ограничена на $[a,b]$.
 \end{theor}
 \begin{proof}
-Предположим противное. Пусть $f(x)$ неограничена на $[a;b]$. Тогда для любого разбиения $\{x_k\}\ f(x)$ будет неограничена на хотя бы одном отрезке $\xko$ этого разбиения. Выберем последовательность разбиений $\underset{0\leq k\leq n}{\{x_k^m\}}$ с мелкостью $d_m=d_m(\{x_k^m\})<\frac1m$. В каждом из этих разбиений выберем отрезок $\xmko$, где $f(x)$ не ограничена. Теперь подберем разметку так, чтобы интегральные суммы $\sigma_f\rr$ были больше $m$. Выберем $\xi_k$ на всех отрезках $\xmk$, кроме $\xmko$, произвольным образом. А на $\xko$ выберем $\xi_{k_0}$ так, чтобы $|f(\xi_{k_0})|>\frac{m+|\sum\limits_{k\neq k_0}f(\xi_k)\Delta x_k)|}{\Delta x^m_{k_0}}$.
+Предположим противное. Пусть $f(x)$ неограничена на $[a,b]$. Тогда для любого разбиения $\{x_k\}\ f(x)$ будет неограничена на хотя бы одном отрезке $\xko$ этого разбиения. Выберем последовательность разбиений $\underset{0\leq k\leq n}{\{x_k^m\}}$ с мелкостью $d_m=d_m(\{x_k^m\})<\frac1m$. В каждом из этих разбиений выберем отрезок $\xmko$, где $f(x)$ не ограничена. Теперь подберем разметку так, чтобы интегральные суммы $\sigma_f\rr$ были больше $m$. Выберем $\xi_k$ на всех отрезках $\xmk$, кроме $\xmko$, произвольным образом. А на $\xko$ выберем $\xi_{k_0}$ так, чтобы $|f(\xi_{k_0})|>\frac{m+|\sum\limits_{k\neq k_0}f(\xi_k)\Delta x_k)|}{\Delta x^m_{k_0}}$.
 Тогда вспомним неравенство: $|a+b|\geq|a|-|b|$ ($|a|=|(a+b)-b|\leq|a+b|+|b|$ \then $|a|-|b|\leq|a+b|$, ЧТД).
 
 $|\sigma_f\rr|=|f(\xi_k^m)\Delta x_{k_0}^m+\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|\geq|f(\xi_k^m)\Delta x_{k_0}^m|-|\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|>m$ \then $\underset{d<\frac1m}{\sigma_f}>m$ \then при $m\mapsto\infty$ получим противоречие.
 \end{proof}
 \begin{opred}
-Пусть $f(x)$ ограничена на $[a;b]$, и задано размеченное разбиение $\rr$ \then $f(x)$ ограничена на каждом отрезке $\xk$ \then  существует $\underset{x\in\xk}{sup}\{f(x)\}=M_k$, $\underset{x\in\xk}{inf}\{f(x)\}=m_k$. \mybold{Верхней (нижней) интегральной суммой (суммой Дарбу)} $f(x)$ по разбиению $\{x_k\}$ на $[a;b]$  называется выражение:
+Пусть $f(x)$ ограничена на $[a,b]$, и задано размеченное разбиение $\rr$ \then $f(x)$ ограничена на каждом отрезке $\xk$ \then  существует $\underset{x\in\xk}{sup}\{f(x)\}=M_k$, $\underset{x\in\xk}{inf}\{f(x)\}=m_k$. \mybold{Верхней (нижней) интегральной суммой (суммой Дарбу)} $f(x)$ по разбиению $\{x_k\}$ на $[a,b]$  называется выражение:
 
 $\vs:=\sum\limits_{k=1}^nM_k\Delta x_k$
 
@@ -58,17 +58,17 @@ $\ns:=\sum\limits_{k=1}^nm_k\Delta x_k$
 6 свойств сумм Дарбу.
 \begin{enumerate}
 \item $\forall\ \rr \ns\leq\sigma_f\rr\leq\vs$
-\item $\forall\ \epsilon>0\ \exists$ разметка $\{\xi_k\}$ данного разбиения $\{x_k\}$, что $\sigma_f\rr-\ns<\epsilon$, $\vs-\sigma_f\rr<\epsilon$
+\item $\forall\ \eps>0\ \exists$ разметка $\{\xi_k\}$ данного разбиения $\{x_k\}$, что $\sigma_f\rr-\ns<\eps$, $\vs-\sigma_f\rr<\eps$
 \item При ризмельчении разбиения $\ns$ не может уменьшиться, $\vs$ -- увеличиться.
 \item При добавлении к разбиению $\{x_k\}$ $q$ новых точек $\vs$ может уменьшиться не более чем на $(M-m)qd$, $d$ -- мелкость $\{x_k\}$. Аналогично для $\ns$.
-\item Пусть $\{x_k\},\ \{y_j\}$ -- 2 разбиения $[a;b]$. $\vs,\ \ns$ и $\vs',\ \ns'$ -- их суммы Дарбу. Тогда $\ns\leq\vs'$, $\vs\geq\ns'$.
+\item Пусть $\{x_k\},\ \{y_j\}$ -- 2 разбиения $[a,b]$. $\vs,\ \ns$ и $\vs',\ \ns'$ -- их суммы Дарбу. Тогда $\ns\leq\vs'$, $\vs\geq\ns'$.
 \item В силу 5), $\exists\ sup\{\ns\}=\underline{I}$ -- нижний интеграл Дарбу, $\exists\ inf\{\vs\}=\overline{I}$ -- верхний интеграл Дарбу, причем $\ns\leq\underline{I}\ \leq\ \overline{I}\leq\vs$.
 \end{enumerate}
 \end{theor}
 \begin{proof}
 \begin{enumerate}
 \item Для любого разбиения $\{x_k\}$ и любой разметки $\{\xi_k\}$ $m_k\leq f(\xi_k)\leq M_k$ \then $\ns=\sum\limits^n_{k=1}m_k\Delta x_k\leq\sum\limits^n_{k=1}f(\xi_k)\Delta x_k=\sigma_f\rr\leq\sum\limits^n_{k=1}M_k\Delta x_k=\vs$
-\item По определению $sup$, $\forall\ \epsilon>0$ на каждом $\xk\ \exists\ \xi_k$, что $M_k-f(\xi_k)<\frac\epsilon{b-a},\ 1\leq k\leq n$ \then $\vs-\sum\limits^n_{k=1}f(\xi_k)\Delta x_k=\sum\limits^n_{k=1}(M_k-f(\xi_k))\Delta x_k<\frac\epsilon{b-a}\sum\limits^n_{k=1}\Delta x_k=\epsilon$. Аналогично для $\ns$.
+\item По определению $sup$, $\forall\ \eps>0$ на каждом $\xk\ \exists\ \xi_k$, что $M_k-f(\xi_k)<\frac\eps{b-a},\ 1\leq k\leq n$ \then $\vs-\sum\limits^n_{k=1}f(\xi_k)\Delta x_k=\sum\limits^n_{k=1}(M_k-f(\xi_k))\Delta x_k<\frac\eps{b-a}\sum\limits^n_{k=1}\Delta x_k=\eps$. Аналогично для $\ns$.
 \item Достаточно доказать, что $\vs$ не увеличивается, а $\ns$ не уменьшается, при добавлении к разбиению $\{x_k\}$ 1 новой точки.
 
 Пусть новая точка $\eta$ добавлена между $x_{k_0-1}$ и $x_{k_0}$. Расмотрим суммы Дарбу.
@@ -77,8 +77,8 @@ $\vs=M_{k_0}\Delta x_{k_0}+\sum\limits_{k\neq k_0}M_k\Delta x_k$
 
 $\vs'=M_{k_0}^1(\eta-x_{k_0-1})+M_{k_0}^2(x_{k_0}-\eta)+\sum\limits_{k\neq k_0}M_k\Delta x_k$
 
-Сравним эти два выражения. Заметим, что $M_{k_0}\Delta x_{k_0}=M_{k_0}(\eta-x_{k_0-1})+M_{k_0}(x_{k_0}-\eta)$. Причём очевидно, что $M_{k_0}\geq\underset{x\in[x_{k_0-1};\eta]}{sup}\{f(x)\}=M_{k_0}^1$ и $M_{k_0}\geq\underset{x\in[\eta;x_{k_0}]}{sup}\{f(x)\}=M_{k_0}^2$ \then $\vs\geq\vs'$. Аналогично для $\ns$.
-\item Докажем, что при добавлении 1 новой точки к разбиению $\{x_k\}\ \vs$ может уменьшиться не более, чем на $(M-n)d$, где $M=\underset{x\in[a;b]}{sup}\{f(x)\},\ m=\underset{x\in[a;b]}{inf}\{f(x)\},\ d$ -- мелкость разбиения $\{x_k\}$.
+Сравним эти два выражения. Заметим, что $M_{k_0}\Delta x_{k_0}=M_{k_0}(\eta-x_{k_0-1})+M_{k_0}(x_{k_0}-\eta)$. Причём очевидно, что $M_{k_0}\geq\underset{x\in[x_{k_0-1},\eta]}{sup}\{f(x)\}=M_{k_0}^1$ и $M_{k_0}\geq\underset{x\in[\eta,x_{k_0}]}{sup}\{f(x)\}=M_{k_0}^2$ \then $\vs\geq\vs'$. Аналогично для $\ns$.
+\item Докажем, что при добавлении 1 новой точки к разбиению $\{x_k\}\ \vs$ может уменьшиться не более, чем на $(M-n)d$, где $M=\underset{x\in[a,b]}{sup}\{f(x)\},\ m=\underset{x\in[a,b]}{inf}\{f(x)\},\ d$ -- мелкость разбиения $\{x_k\}$.
 
 Аналогично доказательству 3), пусть добавлена новая точка $\eta$ между $x_{k_0-1}$ и $x_{k_0}$. Рассмотрим разность $\vs-\vs'$:
 
@@ -92,26 +92,26 @@ $\ns\leq\ns''\leq\vs''\leq\vs'$, $\ns'\leq\ns''\leq\vs''\leq\vs$.
 \end{enumerate}
 \end{proof}
 \begin{opred}
-$f(x)$ называется \mybold{интегрируемой по Риману на $[a;b]$}, если $\exists\ \int\limits^b_af(x)dx$. Также используется запись $f\in \mathbb{R}[a;b]$.
+$f(x)$ называется \mybold{интегрируемой по Риману на $[a,b]$}, если $\exists\ \int\limits^b_af(x)dx$. Также используется запись $f\in \mathbb{R}[a,b]$.
 \end{opred}
 \section{2 критерия интегрируемости функции по Риману}
 \begin{theor}Критерий интегрируемости в терминах сумм Дарбу
 
-Для того, чтобы $f(x)$, ограниченная на $[a;b]$, была интегрируема по Риману, необходимо и достаточно, чтобы $\forall\ \epsilon>0\ \exists\ \{x_k\}$, что $\vs_f-\ns_f<\epsilon$.
+Для того, чтобы $f(x)$, ограниченная на $[a,b]$, была интегрируема по Риману, необходимо и достаточно, чтобы $\forall\ \eps>0\ \exists\ \{x_k\}$, что $\vs_f-\ns_f<\eps$.
 \end{theor}
 \begin{proof}\mybold{Необходимость.}
 
-Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\mapsto0}{\lim}\ \sum\limits^n_{k=1}f(\xi_k)\Delta x_k$ \then по определению $\lim,\ \forall \epsilon>0\ \exists\ \delta=\delta(\frac\epsilon4)>0$, что для любого разбиения $\{x_k\}$ и любой его разметки $\{\xi_k\}$, если $d(\{x_k\})<\delta$ \then $|\sigma_f-I|<\frac\epsilon4$.
+Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\mapsto0}{\lim}\ \sum\limits^n_{k=1}f(\xi_k)\Delta x_k$ \then по определению $\lim,\ \forall \eps>0\ \exists\ \delta=\delta(\frac\eps4)>0$, что для любого разбиения $\{x_k\}$ и любой его разметки $\{\xi_k\}$, если $d(\{x_k\})<\delta$ \then $|\sigma_f-I|<\frac\eps4$.
 
 По 2 свойству из теоремы 3, $\exists\ \{\xi_k'\},\ \exists\ \{\xi_k''\}$, что при даном разбиении $\{x_k\}$
 
 $\sigma_f'=\sum\limits^n_{k=1}f(\xi_k')\Delta x_k,\ \sigma_f''=\sum\limits^n_{k=1}f(\xi_k'')\Delta x_k$, удовлетворяющие неравенствам:
 
-$\sigma_f'-\ns<\frac\epsilon4,\ \vs-\sigma_f''<\frac\epsilon4$.
+$\sigma_f'-\ns<\frac\eps4,\ \vs-\sigma_f''<\frac\eps4$.
 
 При этом выполнены и неравенства:
 
-$|\sigma_f'-I|<\frac\epsilon4,\ |\sigma_f''-I|<\frac\epsilon4$ \then $|\vs-\ns|\leq|\vs-\sigma_f''|+|\sigma''-I|+|I-\sigma'|+|\sigma'-\ns|<\frac\epsilon4+\frac\epsilon4+\frac\epsilon4+\frac\epsilon4=\epsilon$
+$|\sigma_f'-I|<\frac\eps4,\ |\sigma_f''-I|<\frac\eps4$ \then $|\vs-\ns|\leq|\vs-\sigma_f''|+|\sigma''-I|+|I-\sigma'|+|\sigma'-\ns|<\frac\eps4+\frac\eps4+\frac\eps4+\frac\eps4=\eps$
 \end{proof}
 Для доказательства достаточности нам потребуется доказать следующее утверждение:
 \begin{lemma}Основная лемма Дарбу.
@@ -119,39 +119,116 @@ $|\sigma_f'-I|<\frac\epsilon4,\ |\sigma_f''-I|<\frac\epsilon4$ \then $|\vs-\ns|\
 $\nis=\underset{d\mapsto0}{\lim}\{\ns\},\ \vis=\underset{d\mapsto0}{\lim}\{\vs\}$
 \end{lemma}
 \begin{proof}
-По определению $\vis=inf\{\vs\}$ \then $\forall\ \epsilon>0\ \exists$ разбиение $\{x_k\}$, что $\vs$ удовлетворяет неравенству:
+По определению $\vis=inf\{\vs\}$ \then $\forall\ \eps>0\ \exists$ разбиение $\{x_k\}$, что $\vs$ удовлетворяет неравенству:
 
-$\vis\leq\vs<I+\frac\epsilon2$
+$\vis\leq\vs<I+\frac\eps2$
 
 Пусть в $\{x_k\}$ имеется $q+1$ точка. Рассмотрим теперь разбиение $\{y_j\}$ с мелкостью
 
-$d(\{y_j\})<\frac\epsilon{2(M+m)(q-1)}=\delta(\epsilon)>0$
+$d(\{y_j\})<\frac\eps{2(M+m)(q-1)}=\delta(\eps)>0$
 
 Рассмотрим разбиение $\{z_m\}=\{y_j\}\cup\{x_k\}$. В $\{z_m\}$, по сравнению с $\{y_j\}$, добавлено не более, чем $q-1$ точек. Обозначим верхние суммы Дарбу: $\vs'$ - для $\{y_j\}$, $\vs''$ - для $\{z_m\}$.
 
 $\vs''\leq\vs$, $\vs''<\vs'$
 
-$\vs'-\vs''\leq(M-m)(q-1)d<(M-m)(q-1)\frac\epsilon{2(M-m)(q-1)}=\frac\epsilon2$
+$\vs'-\vs''\leq(M-m)(q-1)d<(M-m)(q-1)\frac\eps{2(M-m)(q-1)}=\frac\eps2$
 
-$I\leq\vs''<I+\frac\epsilon2$ \then $\vis\leq\vs'<\vis+\epsilon$ \then $\vis=\underset{d\mapsto0}{\lim}\ \vs$
+$I\leq\vs''<I+\frac\eps2$ \then $\vis\leq\vs'<\vis+\eps$ \then $\vis=\underset{d\mapsto0}{\lim}\ \vs$
 \end{proof}
 \begin{proof}\mybold{Достаточность.}
 
-Дано: $\forall\ \epsilon>0\ \exists\ \{x_k\}$, что $\vs-\ns<\epsilon$ \then $\ns\leq\nis\leq\vis\leq\vs$ \then $\nis=\vis=I$
+Дано: $\forall\ \eps>0\ \exists\ \{x_k\}$, что $\vs-\ns<\eps$ \then $\ns\leq\nis\leq\vis\leq\vs$ \then $\nis=\vis=I$
 
 По основной лемме Дарбу $\underset{d\mapsto0}{\lim}\ \ns=\underset{d\mapsto0}{\lim}\ \vs=I$
 
-По свойству 1 теоремы 3, $\ns\leq\sigma_f(\{x_k\},\{\xi_k\})\leq\vs$ \then $\exists\ \lim\ \sigma_f(\{x_k\},\{\xi_k\})=I$, т. е. $f\in\mathbb{R}[a;b]$
+По свойству 1 теоремы 3, $\ns\leq\sigma_f(\{x_k\},\{\xi_k\})\leq\vs$ \then $\exists\ \lim\ \sigma_f(\{x_k\},\{\xi_k\})=I$, т. е. $f\in\mathbb{R}[a,b]$
 \end{proof}
 \begin{theor}Критерий интегрируемости в теминах верхних и нижних интегралов Дарбу
 
-$f\in\mathbb{R}[a;b]\ \Leftrightarrow\ \nis=\vis$
+$f\in\mathbb{R}[a,b]\ \Leftrightarrow\ \nis=\vis$
 \end{theor}
 \begin{proof}\mybold{Необходимость.}
 
-Пусть $f\in\mathbb{R}[a;b]$ \then по теореме 4 $\forall\ \epsilon\ \exists\ \{x_k\}$, что $\vs-\ns<\epsilon\ \Rightarrow\ \nis=\vis$
+Пусть $f\in\mathbb{R}[a,b]$ \then по теореме 4 $\forall\ \eps\ \exists\ \{x_k\}$, что $\vs-\ns<\eps\ \Rightarrow\ \nis=\vis$
 
 \mybold{Достаточность.}
 
 Пусть $\nis=\vis$. По основной лемме Дарбу $\underset{d\mapsto0}{\lim}\ \ns=\underset{d\mapsto0}{\lim}\ \vs=I$. По теореме 3 $\ns\leq\sigma_f\leq\vs$. По теореме о двух милиционерах $\underset{d\mapsto0}{\lim}\ \sigma_f=I$
 \end{proof}
+\section{Классы интегрируемых функций}
+\begin{theor}
+Если $f(x)$ непрерывна на $[a,b]$, то она интегрируема.
+\end{theor}
+\begin{proof}
+По теорема Кантора $f(x)$ равномерно непрерывна на $[a,b]$, т. е. $\forall\ \eps>0\ \exists\ \delta=\delta(\eps)>0,\ \forall\ x_1,\ x_2\in[a,b]\colon|x_1-x_2|<\delta\Rightarrow|f(x_1)-f(x_2)|<\eps$.
+
+Рассмотрим разбиение $\{x_k\}$ на $[a,b]$ с мелкостью $d\leq\delta(\frac\eps{b-a}$. Тогда $\vs-\ns=\sum\limits^n_{k=1}(M_k-m_k)\Delta x_k$, где $M_k-m_k=\underset{x\in[x_{k-1},x_k]}{sup}\{f(x)\}-\underset{x\in[x_{k-1},x_k]}{inf}\{f(x)\}=\underset{x_1,x_2\in[x_{k-1},x_k]}{sup}\{\underset{\leq\frac\eps{b-a}}{\underbrace{f(x_1)-f(x_2)}}\}\leq\frac\eps{b-a}\ \Rightarrow\ \vs-\ns\leq\sum\limits^n_{k=1}(M_k-m_k)\Delta x_k\leq\frac\eps{b-a}*(b-a)=\eps$ \then по теореме 4 $f\in\mathbb{R}[a,b]$.
+\end{proof}
+\begin{theor}
+Если ограниченная функция $f(x)$ монотонна на $[a,b]$, то она интегрируема.
+\end{theor}
+\begin{proof}
+Пусть $f(x)$ не убывает на $[a,b]$. Для $\forall\ \eps>0$ рассмотрим любое разбиение ${x_k}$ на $[a,b]$ с мелкостью $d\leq\delta(\eps)=\frac\eps{f(b)-f(a)}$. Тогда $\vs-\ns=\sum\limits_{k=1}^n(M_k-m_k)\Delta x_k$.
+
+Так как $f(x)$ не убывает, то $\vs-\ns=\sum\limits^n_{k=1}(M_k-m_k)\underset{\leq d=\delta(\eps)}{\underbrace{\Delta x_k}}\leq\frac\eps{f(b)-f(a)}\sum\limits^n_{k=1}(M_k-m_k)=\frac\eps{f(b)-f(a)}(M_n-m_1)^*=\frac\eps{f(b)-f(a)}(f(b)-f(a))=\eps$.
+
+По 1 критерию интегрируемости $f(x)$ интегрируема.
+
+${}^*\colon$ действительно, $M_k=m_{k+1}$
+\end{proof}
+\begin{opred}
+Функция $f(x)$ называется \mybold{почти везде непрерывной на $[a,b]$}, если для $\forall\ \eps>0$ существует конечный набор интервалов суммарной длины $l<\eps$, покрывающих все точки разрыва $f(x)$.
+\end{opred}
+\begin{theor}
+Если $f(x)$ почти везде непрерывна на $[a,b]$, то она интегрируема.
+\end{theor}
+\begin{proof}
+Для $\forall\ \eps>0$ рассмотрим конечный набор интервалов $J_j=(c_j,d_j)$, сумма длин которых $l=\sum\limits^q_{j=1}|J_j|<\frac\eps{2(M-m)}$, который покрывает все точки разрыва $f(x)$.
+
+Здесь $M=\underset{a\leq x\leq b}{sup}\{f(x)\},\ m=\underset{a\leq x\leq b}{inf}\{f(x)\}$. (можно считать, что $J_j$ не пересекаются)
+
+Тогда $[a,b]\setminus\underset{q}{\overset{j=1}{\cup}}J_j=I$ - объедиение отрезков, $I=\underset{q+1}{\overset{i=1}{\cup}}I_i$.
+
+Рассмотрим $f(x)$ на $I_i$. Она там непрерывна \then по теореме Кантора $f(x)$ равномерно непрерывна на $I_i$, т. е. для $\forall\ \eps>0\ \exists\ \delta=\delta(\frac\eps{2(b-a)})>0$, что для $\forall\ x',x''\in I_i,\ |x'-x''|<\delta_i\ \Rightarrow\ |f(x')-f(x'')|<\frac\eps{2(b-a)}$
+
+Тогда для любого разбиения $\nu_i=\{\nu_{i_k}\}$ отрезка $I_i$ с мелкостью $d_i<\delta_i(\frac\eps{2(b-a)})$ для любых двух точек элементарного отрезка разбиения($[\nu_{i_{k-1}},\nu_{i_k}]$):
+
+$x',x''\in[\nu_{i_{k-1}},\nu_{i_k}]\ \Rightarrow\ |f(x')-f(x'')|<\frac\eps{2(b-a)}$.
+
+Переходя к $sup$, получим:
+
+$$M_{i_k}(=\underset{x\in[\nu_{i_{k-1}},\nu_{i_k}]}{sup}f(x))-m_{i_k}(=\underset{x\in[\nu_{i_{k-1}},\nu_{i_k}]}{inf}f(x))=\underset{x',x''\in[\nu_{i_{k-1}},\nu_{i_k}]}{sup}|f(x')-f(x'')|\leq\frac\eps{2(b-a)}\eqno{(\#)}$$
+
+Возьмем теперь $0<\delta\leq\underset{1\leq i\leq q+1}{min}\{\delta_i\}$ и рассмотрим на любом отрезке $I_i$ разбиение мелкостью $d_i<\delta$ \then для любого $i\colon1\leq \leq q+1$ выполняется $(\#)$
+
+Объединим все эти разбиения. Получится некоторое разбиение $\{y_k\}$ отрезка $[a,b]$, в которое войдут замыкания выброшенных интервалов $J_j$. Пусть $\vs,\ns$ - суммы Дарбу этого разбиения. Тогда рассмотрим их разность$\colon\vs-\ns=$
+
+$=\sum\limits^N_{k=1}(M_k-m_k)\Delta y_k=\sum\limits_{[y_{k-1},y_l]\subset\cup I_i}(M_k-m_k)\Delta y_k+\sum\limits_{[y_{k-1},y_k]\subset\underset{=\cup J_j}{\underbrace{[a,b]\setminus\cup I_i}}}(M_k-m_k)\Delta y_k\leq\frac\eps{2(b-a)}\underset{\leq(b-a)}{\underbrace{\sum\limits_{[y_{k-1},y_l]\subset\cup I_i}\Delta y_k}}+$
+
+$+(M-m)\underset{<\frac\eps{2(M-m)}}{\underbrace{\sum\limits_{[y_{k-1},y_l]\subset\cup J_j}\Delta y_k}}<\frac\eps{2(b-a)}(b-a)+\frac\eps{2(M-m)}(M-m)=\eps$
+\end{proof}
+\begin{theor}
+Верно также следующее утверждение (без доказательства):
+
+Если $f(x)$ интегрируема на $[a,b]$, а $\phi(y)$ - непрерывна на $[m;M]$, то $\phi(f(x))\in\mathbb{R}[a,b]$
+
+Следствие: если $f\in\mathbb{R}[a,b]$, то и $\cfrac1f$ - тоже. ($f(x)\neq0$ на $[a,b]$).
+\end{theor}
+\section{Основные свойства определенных интегралов}
+\begin{theor}7 свойств определенных интегралов
+
+Соглашение: будем считать, что $\int\limits^a_af(x)dx=0$, $\int\limits^a_bf(x)dx=-\int\limits^b_af(x)dx\ (a<b)$
+\begin{enumerate}
+\item Линейность: $\forall\ \alpha,\beta\in\R,\ f,g\in\R[a,b]\colon\int\limits^b_a(\alpha f(x)+\beta g(x))dx=\alpha\int\limits^b_af(x)+\beta\int\limits^b_ag(x)dx$
+\item Интегрируемость произведения: если $f,g\in\R[a,b]$, то $fg\in\R[a,b]$
+\item Аддитивность: если $f\in\R[a,b]$, то $f\in\R[c,d]\ \forall\ [c,d]\subset[a,b]$.
+
+Кроме того, $\forall\ c\in(a,b)\ \int\limits^b_af(x)df=\int\limits^c_af(x)dx+\int\limits^b_cf(x)dx$
+\item[4.а.] Если $f\in\R[a,b]$ и $f(x)\geq0,\ a\leq x\leq b$ \then $\int\limits^b_af(x)df\geq0$
+\item[4.б.] Если $f$ непрерывна и неотрицательна на $[a,b]$, и существует $c,\ a\leq c \leq b,\ f(c)>0$, то $\int\limits^b_af(x)dx>0$
+\item[5.a.] Если $f,g\in\R[a,b],\ f(x)\leq g(x),\ a\leq x\leq b$, то $\int\limits^b_af(x)dx\leq\int\limits^b_ag(x)dx$
+\item[5.б.] Если $f,g$ непрерывны на $[a,b],\ f(x)\leq g(x),\ \exists\ c\in[a,b]\colon f(x)<g(c)$, то $\int\limits^b_af(x)dx<\int\limits^b_ag(x)dx$
+\item[6.] Если $f(x)$ неотрицательна и непрерывна на $[a,b]$ и $\int\limits^b_af(x)dx=0$, то $f(x)\equiv0$ на $[a,b]$
+\item[7.] Если $f\in\R[a,b]$, то $|f|\in\R[a,b]$. Кроме того, $|\int\limits^b_af(x)dx|\leq\int\limits^b_a|f(x)|dx$
+\end{enumerate}
+\end{theor}
