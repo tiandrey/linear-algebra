@@ -19,12 +19,12 @@
 Пусть на $[a,b]$ задана $f(x)$. \mybold{Интегральной суммой для $f(x)$ на отрезке $[a,b]$, составленной по размеченному разбиению $(\{x_k\},\{\xi_k\})$} называется выражение вида $$\sigma_f=\sigma_f(\{x_k\},\{\xi_k\}):=\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
 \end{opred}
 \begin{opred}
-Число $A$ наывается \mybold{пределом интегральных сумм $f(x)$ на $[a,b]$ при $d\mapsto0$}, где $d$ - мелкость разбиений, если $\forall\ \eps>0\ \exists\ \delta=\delta(\eps)>0$, что для любого размеченного разбиения $(\{x_k\},\{\xi_k\})$, мелкость которого $d<\delta$, выполнено неравенство: $|\sigma_f\rr-A|<\eps$.
-$$A=\lim\limits_{d\mapsto0}\sigma_f\rr$$
+Число $A$ наывается \mybold{пределом интегральных сумм $f(x)$ на $[a,b]$ при $d\to0$}, где $d$ - мелкость разбиений, если $\forall\ \eps>0\ \exists\ \delta=\delta(\eps)>0$, что для любого размеченного разбиения $(\{x_k\},\{\xi_k\})$, мелкость которого $d<\delta$, выполнено неравенство: $|\sigma_f\rr-A|<\eps$.
+$$A=\lim\limits_{d\to0}\sigma_f\rr$$
 \end{opred}
 \begin{opred}
-\mybold{Определенным интегралом} $f(x)$ на отрезке $[a,b]$ называется предел интегральных сумм этой функции на этом отрезке при $d\mapsto0$.
-$$\int\limits^b_af(x)dx:=\lim\limits_{d\mapsto0}\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
+\mybold{Определенным интегралом} $f(x)$ на отрезке $[a,b]$ называется предел интегральных сумм этой функции на этом отрезке при $d\to0$.
+$$\int\limits^b_af(x)dx:=\lim\limits_{d\to0}\sum\limits^n_{k=1}f(\xi_k)\Delta x_k$$
 \end{opred}
 \begin{theor}
 Если у $f(x)$ существует предел интегральных сумм, то этот предел -- единственный.
@@ -45,7 +45,7 @@ $$\int\limits^b_af(x)dx:=\lim\limits_{d\mapsto0}\sum\limits^n_{k=1}f(\xi_k)\Delt
 Предположим противное. Пусть $f(x)$ неограничена на $[a,b]$. Тогда для любого разбиения $\{x_k\}\ f(x)$ будет неограничена на хотя бы одном отрезке $\xko$ этого разбиения. Выберем последовательность разбиений $\underset{0\leq k\leq n}{\{x_k^m\}}$ с мелкостью $d_m=d_m(\{x_k^m\})<\frac1m$. В каждом из этих разбиений выберем отрезок $\xmko$, где $f(x)$ не ограничена. Теперь подберем разметку так, чтобы интегральные суммы $\sigma_f\rr$ были больше $m$. Выберем $\xi_k$ на всех отрезках $\xmk$, кроме $\xmko$, произвольным образом. А на $\xko$ выберем $\xi_{k_0}$ так, чтобы $|f(\xi_{k_0})|>\frac{m+|\sum\limits_{k\neq k_0}f(\xi_k)\Delta x_k)|}{\Delta x^m_{k_0}}$.
 Тогда вспомним неравенство: $|a+b|\geq|a|-|b|$ ($|a|=|(a+b)-b|\leq|a+b|+|b|$ \then $|a|-|b|\leq|a+b|$, ЧТД).
 
-$|\sigma_f\rr|=|f(\xi_k^m)\Delta x_{k_0}^m+\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|\geq|f(\xi_k^m)\Delta x_{k_0}^m|-|\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|>m$ \then $\underset{d<\frac1m}{\sigma_f}>m$ \then при $m\mapsto\infty$ получим противоречие.
+$|\sigma_f\rr|=|f(\xi_k^m)\Delta x_{k_0}^m+\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|\geq|f(\xi_k^m)\Delta x_{k_0}^m|-|\sum\limits_{k\neq k_0}f(\xi^m_k)\Delta x^m_k|>m$ \then $\underset{d<\frac1m}{\sigma_f}>m$ \then при $m\to\infty$ получим противоречие.
 \end{proof}
 \begin{opred}
 Пусть $f(x)$ ограничена на $[a,b]$, и задано размеченное разбиение $\rr$ \then $f(x)$ ограничена на каждом отрезке $\xk$ \then  существует $\underset{x\in\xk}{sup}\{f(x)\}=M_k$, $\underset{x\in\xk}{inf}\{f(x)\}=m_k$. \mybold{Верхней (нижней) интегральной суммой (суммой Дарбу)} $f(x)$ по разбиению $\{x_k\}$ на $[a,b]$  называется выражение:
@@ -101,7 +101,7 @@ $f(x)$ называется \mybold{интегрируемой по Риману
 \end{theor}
 \begin{proof}\mybold{Необходимость.}
 
-Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\mapsto0}{\lim}\ \sum\limits^n_{k=1}f(\xi_k)\Delta x_k$ \then по определению $\lim,\ \forall \eps>0\ \exists\ \delta=\delta(\frac\eps4)>0$, что для любого разбиения $\{x_k\}$ и любой его разметки $\{\xi_k\}$, если $d(\{x_k\})<\delta$ \then $|\sigma_f-I|<\frac\eps4$.
+Пусть $\exists\ I=\int\limits^b_af(x)dx=\underset{d\to0}{\lim}\ \sum\limits^n_{k=1}f(\xi_k)\Delta x_k$ \then по определению $\lim,\ \forall \eps>0\ \exists\ \delta=\delta(\frac\eps4)>0$, что для любого разбиения $\{x_k\}$ и любой его разметки $\{\xi_k\}$, если $d(\{x_k\})<\delta$ \then $|\sigma_f-I|<\frac\eps4$.
 
 По 2 свойству из теоремы 3, $\exists\ \{\xi_k'\},\ \exists\ \{\xi_k''\}$, что при даном разбиении $\{x_k\}$
 
@@ -116,7 +116,7 @@ $|\sigma_f'-I|<\frac\eps4,\ |\sigma_f''-I|<\frac\eps4$ \then $|\vs-\ns|\leq|\vs-
 Для доказательства достаточности нам потребуется доказать следующее утверждение:
 \begin{lemma}Основная лемма Дарбу.
 
-$\nis=\underset{d\mapsto0}{\lim}\{\ns\},\ \vis=\underset{d\mapsto0}{\lim}\{\vs\}$
+$\nis=\underset{d\to0}{\lim}\{\ns\},\ \vis=\underset{d\to0}{\lim}\{\vs\}$
 \end{lemma}
 \begin{proof}
 По определению $\vis=inf\{\vs\}$ \then $\forall\ \eps>0\ \exists$ разбиение $\{x_k\}$, что $\vs$ удовлетворяет неравенству:
@@ -133,13 +133,13 @@ $\vs''\leq\vs$, $\vs''<\vs'$
 
 $\vs'-\vs''\leq(M-m)(q-1)d<(M-m)(q-1)\frac\eps{2(M-m)(q-1)}=\frac\eps2$
 
-$I\leq\vs''<I+\frac\eps2$ \then $\vis\leq\vs'<\vis+\eps$ \then $\vis=\underset{d\mapsto0}{\lim}\ \vs$
+$I\leq\vs''<I+\frac\eps2$ \then $\vis\leq\vs'<\vis+\eps$ \then $\vis=\underset{d\to0}{\lim}\ \vs$
 \end{proof}
 \begin{proof}\mybold{Достаточность.}
 
 Дано: $\forall\ \eps>0\ \exists\ \{x_k\}$, что $\vs-\ns<\eps$ \then $\ns\leq\nis\leq\vis\leq\vs$ \then $\nis=\vis=I$
 
-По основной лемме Дарбу $\underset{d\mapsto0}{\lim}\ \ns=\underset{d\mapsto0}{\lim}\ \vs=I$
+По основной лемме Дарбу $\underset{d\to0}{\lim}\ \ns=\underset{d\to0}{\lim}\ \vs=I$
 
 По свойству 1 теоремы 3, $\ns\leq\sigma_f(\{x_k\},\{\xi_k\})\leq\vs$ \then $\exists\ \lim\ \sigma_f(\{x_k\},\{\xi_k\})=I$, т. е. $f\in\mathbb{R}[a,b]$
 \end{proof}
@@ -153,7 +153,7 @@ $f\in\mathbb{R}[a,b]\ \Leftrightarrow\ \nis=\vis$
 
 \mybold{Достаточность.}
 
-Пусть $\nis=\vis$. По основной лемме Дарбу $\underset{d\mapsto0}{\lim}\ \ns=\underset{d\mapsto0}{\lim}\ \vs=I$. По теореме 3 $\ns\leq\sigma_f\leq\vs$. По теореме о двух милиционерах $\underset{d\mapsto0}{\lim}\ \sigma_f=I$
+Пусть $\nis=\vis$. По основной лемме Дарбу $\underset{d\to0}{\lim}\ \ns=\underset{d\to0}{\lim}\ \vs=I$. По теореме 3 $\ns\leq\sigma_f\leq\vs$. По теореме о двух милиционерах $\underset{d\to0}{\lim}\ \sigma_f=I$
 \end{proof}
 \section{Классы интегрируемых функций}
 \begin{theor}
@@ -244,7 +244,7 @@ $+(M-m)\underset{<\frac\eps{2(M-m)}}{\underbrace{\sum\limits_{[y_{k-1},y_l]\subs
 $$
 \sigma_{\alpha f+\beta g}=\sum\limits^n_{k=1}(\alpha f(\xi_k)+\beta g(\xi_k))\Delta x_k=\alpha\sum\limits^n_{k=1}f(\xi_k)\Delta x_k+\beta\sum\limits^n_{k=1}g(\xi_k)\Delta x_k
 $$
-Переходя к пределу при $d\mapsto 0$, получим требуемое равенство.
+Переходя к пределу при $d\to 0$, получим требуемое равенство.
 \item $f,g\in\R[a,b]$ Заметим, что $fg=\frac14((f+g)^2-(f-g)^2)$. По свойству 1, достаточно доказать, что если $f\in\R[a,b]$, то и $f^2\in\R[a,b]$.
 
 Предположим сначала, что $sup\{f(x)\}=M>0$ и $m>0$. Пусть $\vs,\ns$ - суммы Дарбу для $f$ по $\{x_k\}$, а $\vs',\ns'$ - для $f^2$.
@@ -271,7 +271,7 @@ $$
 $$
 \sigma_{f}[a,b]=\sum^n_{k=1}f(\xi_k)\Delta x_k=\sum_{x_k\leq c}f(\xi_k)\Delta x_k+\sum_{x_{k-1}\geq c}f(\xi_k)\Delta x_k
 $$
-Переходя к пределу при $d\mapsto0$, получим требуемое равенство.
+Переходя к пределу при $d\to0$, получим требуемое равенство.
 \end{enumerate}
 \item
 \begin{enumerate}
@@ -283,7 +283,7 @@ $$
 $$
 \sigma_f\rr=\sum^n_{k=1}\underset{\geq0}{\underbrace{f(\xi_k)}}\underset{>0}{\underbrace{\Delta x_k}}\geq0
 $$
-Переходя к пределу при $d\mapsto0$, получим требуемое равенство.
+Переходя к пределу при $d\to0$, получим требуемое равенство.
 \item $f\in \underset{\mbox{непрерывные}}{\underbrace{C[a,b]}},\ f(x)\geq0,\ a\leq x\leq b,\ \exists c\in[a,b]$, что $\underset{=\gamma}{\underbrace{f(c)}}>0$
 
 По теореме о сохранении знака непрерывных функций, $\exists\ \delta>0$, что $f(x)\geq\frac\gamma2$ в $U_\delta(c)$ (Если $c=a$ или $c=b$, то будем иметь в виду правую или левую окрестность $c$). Тогда
@@ -313,7 +313,7 @@ $$
 $$
 |\sigma_f(\{y_j\},\{\xi_j\})|=|\sum^N_{j=1}f(\xi_j)\Delta y_j|\leq\sum^N_{j=1}|f(\xi_j)\Delta y_j|=\sigma_{|f|}(\{y_j\},\{\xi_j\})
 $$
-Переходя к пределу при $d\mapsto0$ в полученном неравенстве, получим требуемое неравенство.
+Переходя к пределу при $d\to0$ в полученном неравенстве, получим требуемое неравенство.
 \end{enumerate}
 \end{proof}
 \mybold{Замечания:}
@@ -339,7 +339,7 @@ $$\underset{=m\int\limits^b_ag(x)dx}{\underbrace{\int\limits^b_amg(x)dx}}\leq\in
 \mybold{Следствия.}
 \begin{enumerate}
 \item Пусть $f(x)\in C[a,b]$. Тогда, так как $m\leq\mu\leq M$, то по непрерывности $f(x)$ для $\forall\ \mu,\ m\leq\mu\leq M,\ \exists\ \xi\in[a,b]\colon f(\xi)=M$ \then формула среднего значения имеет вид $\int\limits^b_af(x)g(x)dx=f(\xi)\int\limits^b_ag(x)dx$.
-\item Пусть $g(x)\equiv1$ на $[a,b],\ f\in\R[a,b]$. Тогда по теореме 11 $\exists\ \mu,\ m\leq\mu\leq M\colon\int\limits^b_af(x)dx=\mu(b-a)\left(=\mu\int\limits^b_a1dx\right)$. Если в этих условиях $f\in C[a,b]$, то $\exists\ \xi\in[a,b]\coon\int\limits^b_af(x)dx=f(\xi)(b-a)$.
+\item Пусть $g(x)\equiv1$ на $[a,b],\ f\in\R[a,b]$. Тогда по теореме 11 $\exists\ \mu,\ m\leq\mu\leq M\colon\int\limits^b_af(x)dx=\mu(b-a)\left(=\mu\int\limits^b_a1dx\right)$. Если в этих условиях $f\in C[a,b]$, то $\exists\ \xi\in[a,b]\colon\int\limits^b_af(x)dx=f(\xi)(b-a)$.
 \end{enumerate}
 \section{Интеграл с переменным верхним(нижним) пределом}
 \begin{opred}
@@ -373,9 +373,9 @@ $$
 $$
 \delta=\Delta x
 $$
-Таким образом, $f(x_0)-\eps<\cfrac{\int\limits^{x_0+\delta}_{x_0}f(x)dx}\delta<f(x_0)+\eps\ \underset{\Delta x\mapsto0}{\Longrightarrow}\ |\cfrac{F(x_0+\Delta x)-F(x_0)}{\Delta x}-f(x_0)|<\eps$ \then
+Таким образом, $f(x_0)-\eps<\cfrac{\int\limits^{x_0+\delta}_{x_0}f(x)dx}\delta<f(x_0)+\eps\ \underset{\Delta x\to0}{\Longrightarrow}\ |\cfrac{F(x_0+\Delta x)-F(x_0)}{\Delta x}-f(x_0)|<\eps$ \then
 
-$\exists\ \underset{=F'(x_0)}{\underbrace{\underset{\Delta x\mapsto 0}{lim}\cfrac{F(x_0+\Delta x)-F(x_0)}{\Delta x}}}=f(x_0)$, т. е. $\exists\ F'(x_0)=f(x_0)$.
+$\exists\ \underset{=F'(x_0)}{\underbrace{\underset{\Delta x\to 0}{lim}\cfrac{F(x_0+\Delta x)-F(x_0)}{\Delta x}}}=f(x_0)$, т. е. $\exists\ F'(x_0)=f(x_0)$.
 \end{proof}
 \mybold{Замечание}
 
