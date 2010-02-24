@@ -351,7 +351,8 @@ $F(x):=\int\limits^x_af(t)dt,\ a\leq x\leq b\ \left(G(x):=\int\limits^b_xf(t)dt,
 Если $f\in\R[a,b]$, то $F(x)=\int\limits^x_af(t)dt$ непрерывен на $[a,b]$.
 \end{theor}
 \begin{proof}
-$|\Delta F|=|F(x+\Delta x)-F(x)|=|\int\limits_a^{x+\Delta x}f(t)dt-\int\limits^x_af(t)dt=|\int\limits^{x+\Delta x}_xf(t)dt|\leq\int\limits^{x+\Delta x}_x|f(t)|dt\leq\left(|f(t)|\leq Q,\ a\leq t\leq b\right)\int\limits^{x+\Delta x}_xQdt=Q\int\limits^{x+\Delta x}_x1dt=Q\Delta x$ \then $F(x)$ непрерывен в $\forall\ x$.
+$|\Delta F|=|F(x+\Delta x)-F(x)|=|\int\limits_a^{x+\Delta x}f(t)dt-\int\limits^x_af(t)dt=|\int\limits^{x+\Delta x}_xf(t)dt|\leq\int\limits^{x+\Delta x}
+_x|f(t)|dt\leq\left(|f(t)|\leq Q,\ a\leq t\leq b\right)\int\limits^{x+\Delta x}_xQdt=Q\int\limits^{x+\Delta x}_x1dt=Q\Delta x$ \then $F(x)$ непрерывен в $\forall\ x$.
 
 Если $\Delta x<0$, то $|\Delta F|=|-\int\limits^x_{x+\Delta x}f(t)dt|=|\int^{x+\Delta x}_{x}f(t)dt|$.
 \end{proof}
@@ -360,4 +361,38 @@ $|\Delta F|=|F(x+\Delta x)-F(x)|=|\int\limits_a^{x+\Delta x}f(t)dt-\int\limits^x
 \end{theor}
 \begin{proof}
 Из условия непрерывности $f(x)$ в точке $x_0$ следует, что $\forall\ \eps>0\ \exists\ \delta=\delta(\eps)>0\colon x-x_0=\Delta x<\delta$ \then $f(x_0)-\eps<f(x)<f(x_0)+\eps$
+$$
+\int^{x_0+\delta}_{x_0}(f(x_0)-\eps)dx<\int^{x_0+\delta}_{x_0}f(x)dx<\int^{x_0+\delta}_{x_0}(f(x_0)+\eps)dx
+$$
+$$
+(f(x_0)-\eps)\delta<\int^{x_0+\delta}_{x_0}f(x)dx<(f(x_0)+\eps)\delta
+$$
+$$
+f(x_0)-\eps<\cfrac{\int^{x_0+\delta}_{x_0}f(x)dx}\delta<f(x_0)+\eps
+$$
+$$
+\delta=\Delta x
+$$
+Таким образом, $f(x_0)-\eps<\cfrac{\int\limits^{x_0+\delta}_{x_0}f(x)dx}\delta<f(x_0)+\eps\ \underset{\Delta x\mapsto0}{\Longrightarrow}\ |\cfrac{F(x_0+\Delta x)-F(x_0)}{\Delta x}-f(x_0)|<\eps$ \then
+
+$\exists\ \underset{=F'(x_0)}{\underbrace{\underset{\Delta x\mapsto 0}{lim}\cfrac{F(x_0+\Delta x)-F(x_0)}{\Delta x}}}=f(x_0)$, т. е. $\exists\ F'(x_0)=f(x_0)$.
+\end{proof}
+\mybold{Замечание}
+
+Если $f(x)$ непрерывна в точке $a$ справа (в точке $b$ слева), то аналогично можно показать, что $\exists\ F'(a+0)=f(a)\ \left(\exists\ F'(b-0)=f(b)\right)$
+\begin{theor}Вторая теорема о среднем для определенного интеграла.
+
+Пусть $f(x)\in\R[a,b]$, а $g(x)$ монотонна на $[a,b]$. Тогда $\exists\ \xi\in(a,b)$, что
+$$
+\int\limits^b_af(x)g(x)dx=g(a)\int\limits^\xi_af(x)dx+g(b)\int\limits_\xi^bf(x)dx\eqno{(\heartsuit)(\mbox{извините, нет ,,цветочка''})}
+$$
+\mybold{Замечание.}
+
+Если $g(x)\geq0$ и не возрастает, или $g(x)\leq0$ и не убывает, то $(\heartsuit)$ имеет вид
+$$
+\int\limits^b_af(x)g(x)dx=g(a)\int\limits^\xi_af(x)dx
+$$
+\end{theor}
+\begin{proof}
+Эта теорема без доказательства.
 \end{proof}
