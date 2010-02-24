@@ -224,11 +224,140 @@ $+(M-m)\underset{<\frac\eps{2(M-m)}}{\underbrace{\sum\limits_{[y_{k-1},y_l]\subs
 \item Аддитивность: если $f\in\R[a,b]$, то $f\in\R[c,d]\ \forall\ [c,d]\subset[a,b]$.
 
 Кроме того, $\forall\ c\in(a,b)\ \int\limits^b_af(x)df=\int\limits^c_af(x)dx+\int\limits^b_cf(x)dx$
-\item[4.а.] Если $f\in\R[a,b]$ и $f(x)\geq0,\ a\leq x\leq b$ \then $\int\limits^b_af(x)df\geq0$
-\item[4.б.] Если $f$ непрерывна и неотрицательна на $[a,b]$, и существует $c,\ a\leq c \leq b,\ f(c)>0$, то $\int\limits^b_af(x)dx>0$
-\item[5.a.] Если $f,g\in\R[a,b],\ f(x)\leq g(x),\ a\leq x\leq b$, то $\int\limits^b_af(x)dx\leq\int\limits^b_ag(x)dx$
-\item[5.б.] Если $f,g$ непрерывны на $[a,b],\ f(x)\leq g(x),\ \exists\ c\in[a,b]\colon f(x)<g(c)$, то $\int\limits^b_af(x)dx<\int\limits^b_ag(x)dx$
-\item[6.] Если $f(x)$ неотрицательна и непрерывна на $[a,b]$ и $\int\limits^b_af(x)dx=0$, то $f(x)\equiv0$ на $[a,b]$
-\item[7.] Если $f\in\R[a,b]$, то $|f|\in\R[a,b]$. Кроме того, $|\int\limits^b_af(x)dx|\leq\int\limits^b_a|f(x)|dx$
+\item
+\begin{enumerate}
+\item Если $f\in\R[a,b]$ и $f(x)\geq0,\ a\leq x\leq b$ \then $\int\limits^b_af(x)df\geq0$
+\item Если $f$ непрерывна и неотрицательна на $[a,b]$, и существует $c,\ a\leq c \leq b,\ f(c)>0$, то $\int\limits^b_af(x)dx>0$
+\end{enumerate}
+\item
+\begin{enumerate}
+\item Если $f,g\in\R[a,b],\ f(x)\leq g(x),\ a\leq x\leq b$, то $\int\limits^b_af(x)dx\leq\int\limits^b_ag(x)dx$
+\item Если $f,g$ непрерывны на $[a,b],\ f(x)\leq g(x),\ \exists\ c\in[a,b]\colon f(x)<g(c)$, то $\int\limits^b_af(x)dx<\int\limits^b_ag(x)dx$
+\end{enumerate}
+\item Если $f(x)$ неотрицательна и непрерывна на $[a,b]$ и $\int\limits^b_af(x)dx=0$, то $f(x)\equiv0$ на $[a,b]$
+\item Если $f\in\R[a,b]$, то $|f|\in\R[a,b]$. Кроме того, $|\int\limits^b_af(x)dx|\leq\int\limits^b_a|f(x)|dx$
 \end{enumerate}
 \end{theor}
+\begin{proof}$\phantom{Хуй!}$
+\begin{enumerate}
+\item Рассмотрим интегральные суммы функций $f,g,\alpha f,\beta g$ по некоторому размеченному разбиению $\rr$:
+$$
+\sigma_{\alpha f+\beta g}=\sum\limits^n_{k=1}(\alpha f(\xi_k)+\beta g(\xi_k))\Delta x_k=\alpha\sum\limits^n_{k=1}f(\xi_k)\Delta x_k+\beta\sum\limits^n_{k=1}g(\xi_k)\Delta x_k
+$$
+Переходя к пределу при $d\mapsto 0$, получим требуемое равенство.
+\item $f,g\in\R[a,b]$ Заметим, что $fg=\frac14((f+g)^2-(f-g)^2)$. По свойству 1, достаточно доказать, что если $f\in\R[a,b]$, то и $f^2\in\R[a,b]$.
+
+Предположим сначала, что $sup\{f(x)\}=M>0$ и $m>0$. Пусть $\vs,\ns$ - суммы Дарбу для $f$ по $\{x_k\}$, а $\vs',\ns'$ - для $f^2$.
+$$
+\vs'-\ns'=\sum(\tilde{M}_k-\tilde{m}_k)\Delta x_k=\sum(M^2_k-m^2_k)\Delta x_k=\sum\underset{\leq2M}{\underbrace{(M_k+m_k)}}(M_k-m_k)\Delta x_k\leq2M\underset{\vs-\ns}{\underbrace{\sum(M_k-m_k)\Delta x_k}}<\eps
+$$
+при достаточно мелком разбиении, при котором $\vs-\ns<\frac\eps{2M}$.
+
+Пусть теперь $M,m$ не обязательно больше нуля. Рассмотрим $\tilde{f}(x)=f(x)+\lambda$, где $\lambda\in\R$, что $inf\{\tilde{f}(x)\}>0$. По предыдущему рассуждению $\tilde{f}^2$ интегрируема. Но тогда $\tilde{f}^2(x)=f^2(x)+2\lambda f(x)+\lambda^2$ \then $f^2(x)=\tilde{f}^2(x)-2\lambda f(x)-\lambda^2$ интегрируема как линейная комбинация интегрируемых функций.
+\item
+\begin{enumerate}
+\item Пусть $a\leq c\leq d\leq b$.
+
+Рассмотрим любое разбиение $\{x_k\}$ на $[a,b]$, содержащее точки $c$ и $d$.
+$$
+(\vs-\ns)_{[a,b]}=\sum_{c<x_{k-1}\leq x_k<d}(M_k-m_k(\Delta x_k+\sum_{\underset{=\gamma>0}{\underbrace{[x_{k-1},x_k]\in[a,b]\setminus(c,d)}}}(M_k-m_k)\Delta x_k
+$$
+При этом
+$$
+(\vs-\ns)_{[c,d]}=(\vs-\ns)_{[a,b]}-\gamma\leq(\vs-\ns)_{[a,b]}<\eps
+$$
+при достаточно малой мелкости разбиения $\{x_k\}$.
+\item Для любого $c\colon a<c<b$ по предыдущему доказательству $f$ интегрируема на $[a,c]$ и $[c,b]$. Пусть задано размеченное разбиение $\rr,\ c\in\{x_k\}$:
+$$
+\sigma_{f}[a,b]=\sum^n_{k=1}f(\xi_k)\Delta x_k=\sum_{x_k\leq c}f(\xi_k)\Delta x_k+\sum_{x_{k-1}\geq c}f(\xi_k)\Delta x_k
+$$
+Переходя к пределу при $d\mapsto0$, получим требуемое равенство.
+\end{enumerate}
+\item
+\begin{enumerate}
+\item
+$$
+f(x)\geq0,\ a\leq x\leq b\ \overset{?}{\Rightarrow}\ \int\limits^b_af(x)dx\geq0
+$$
+Любая интегральная сумма:
+$$
+\sigma_f\rr=\sum^n_{k=1}\underset{\geq0}{\underbrace{f(\xi_k)}}\underset{>0}{\underbrace{\Delta x_k}}\geq0
+$$
+Переходя к пределу при $d\mapsto0$, получим требуемое равенство.
+\item $f\in \underset{\mbox{непрерывные}}{\underbrace{C[a,b]}},\ f(x)\geq0,\ a\leq x\leq b,\ \exists c\in[a,b]$, что $\underset{=\gamma}{\underbrace{f(c)}}>0$
+
+По теореме о сохранении знака непрерывных функций, $\exists\ \delta>0$, что $f(x)\geq\frac\gamma2$ в $U_\delta(c)$ (Если $c=a$ или $c=b$, то будем иметь в виду правую или левую окрестность $c$). Тогда
+$$
+\int_a^b=\underset{\geq0}{\underbrace{\int_a^{c-\delta}f(x)dx}}+\underset{>\frac\gamma22\delta>0}{\underbrace{\int_{c-\delta}^{c+\delta}f(x)dx}}+\underset{\geq0}{\underbrace{\int^b_{c+\delta}f(x)dx}}>0
+$$
+\end{enumerate}
+\item
+\begin{enumerate}
+\item Пусть $f,g\in\R[a,b],\ f(x)\leq g(x)\ \forall\ x\in[a,b]$. Для доказательством воспользуемся свойством 4.а для функции $\phi(x)=g(x)-f(x)\geq0$.
+\item Пусть $f,g\in C[a,b],\ f(x)\leq g(x),\ \exists c\in[a,b]\colon f(c)<g(c)$. Для доказательства воспользуемся свойством 4.б для функции $\phi(x)=g(x)-f(x)\geq0,\ \phi(c)>0$.
+\end{enumerate}
+\item Пусть $f\in C[a,b],\ f(x)\geq0\ \forall\ x\in[a,b],\ \int\limits^b_af(x)dx=0$. Для доказательства предположим противное, т.е. пусть $\exists\ c\in[a,b]\colon f(c)>0$. Но тогда по свойству 4.б $\int\limits^b_af(x)dx>0$. Противоречие.
+\item Пусть $f\in\R[a,b]$. Для доказательства воспользуемся неравенством $||a|-|b||\leq|a-b|$. В частности, $|a|-|b|\leq|a-b|$. Обозначим, как выше, для разбиения $\{x_k\}$ на $[a,b]\ M_k,\ m_k$ -- $sup,\ inf\ f(x)$ на $[x_{k-1},x_k]$.
+
+$\tilde{M}_k,\ \tilde{m}_k$ -- $sup,\ inf\ |f(x)|$ на $[x_{k-1},x_k]$. В силу равенства, $\forall\ x',x''\in[x_{k-1},x_k]\colon||f(x')|-|f(x'')||\leq|f(x')-f(x'')|$. Переходя к $sup$ этих разносткй, получим:
+$$
+\underset{=\tilde{M}_k-\tilde{m}_k}{\underbrace{\underset{x',x''\in[x_{k-1},x_k]}{sup}\{||f(x')|-|f(x'')||\}}}\leq \underset{=M_k-m_k}{\underbrace{\underset{x',x''\in[x_{k-1},x_k]}{sup}\{|f(x')-f(x'')|\}}}
+$$
+Рассмотри разности сумм Дарбу: $\vs,\ns$ -- для $f(x)$ на $\{x_k\}$, $\vs',\ns'$ -- для $|f(x)|$ на $\{x_k\}$.
+$$
+\vs'-\ns'=\sum^n_{k=1}(\tilde{M}_k-\tilde{m}_k)\Delta x_k\leq\sum^n_{k=1}(M_k-m_k)\Delta x_k=\vs-\ns<\eps\ \forall\ \eps>0
+$$
+По критерию интегрируемости $f\ \exists\ \{x_k\}\colon\forall\ \eps>0\ \exists\ \{x_k\}$ на $[a,b]\colon\vs'-\ns'<\eps$ \then по критерию интегрируемости $|f(x)|$ интегрируема на $[a,b]$.
+
+Рассмотрим интегральные суммы по некоторому размеченному разбиению $(\{y_j\},\{\xi_j\})$:
+$$
+|\sigma_f(\{y_j\},\{\xi_j\})|=|\sum^N_{j=1}f(\xi_j)\Delta y_j|\leq\sum^N_{j=1}|f(\xi_j)\Delta y_j|=\sigma_{|f|}(\{y_j\},\{\xi_j\})
+$$
+Переходя к пределу при $d\mapsto0$ в полученном неравенстве, получим требуемое неравенство.
+\end{enumerate}
+\end{proof}
+\mybold{Замечания:}
+\begin{enumerate}
+\item Обратное утверждение к свойству 7, вообще говоря, неверно. Пример:
+
+Рассмотрим функцию Дирихле: $$D(x)=\left\{\begin{matrix}&-1,&x\in\mathbb{Q}\\&1,&x\in\mathbb{R}\end{matrix}\right.$$
+$D(x)$ не интегрируема, так как $\forall\{x_k\}$ на $[a,b]\ \forall\{\xi_k\}$ -- рациональные точки и $\forall\{j_k\}$ -- иррациональные точки \then $\sigma_D\rr=\sum\limits^n_{k=1}(-1)\Delta x_k=-(b-a);\ \sigma_D(\{x_k\},\{j_k\})=\sum\limits^n_{k=1}\Delta x_k=b-a$, причем $\{x_n\}$ может быть любой мелкости \then $\nexists\ \int\limits^b_aD(x)dx$. Однако $|D(x)|=1$ на $[a,b]$ \then $\int\limits^b_a|D(x)|dx=b-a$.
+\item Композиция двух интегрируемых на $[a,b]$ функций не обязательно интегируема.
+\end{enumerate}
+\begin{theor}Первая теорема о среднем для определенного интеграла.
+
+Пусть $f\in\R[a,b],\ g(x)$ не меняет знак на $[a,b]$. Тогда $\exists\ \mu\in[m,M]\colon\int\limits^b_af(x)g(x)dx=\mu\int\limits^b_ag(x)dx$
+\end{theor}
+\begin{proof}
+Пусть $g(x)\geq0$ на $[a,b]$. Так как $m\leq f(x)\leq M$, то $mg(x)\leq f(x)g(x)\leq Mg(x),\ a\leq x\leq b$. Тогда по~свойству 5
+$$\underset{=m\int\limits^b_ag(x)dx}{\underbrace{\int\limits^b_amg(x)dx}}\leq\int\limits^b_af(x)g(x)dx\leq\underset{=M\int\limits^b_ag(x)dx}{\underbrace{\int\limits^b_aMg(x)dx}}\eqno{(\#)}$$ Полагая, что $\int\limits^b_ag(x)dx\neq0$, получим $m\leq\underset{=\mu}{\underbrace{\frac{\int\limits^b_af(x)g(x)dx}{\int\limits^b_ag(x)dx}}}\leq M$, то~есть $\int\limits^b_af(x)g(x)dx=\mu\int\limits^b_ag(x)dx$.
+
+Если $g(x)dx\equiv0$, то имеем в $(\#)$ все части равные 0, т. е. $\int\limits^b_af(x)g(x)dx=0$. Поэтому равенство $\int\limits^b_a\underset{=0}{\underbrace{f(x)g(x)}}dx=\mu\int\limits^b_ag(x)dx$ верно при любом $\mu$.
+
+Если $f(x)\leq0$ на $[a,b]$, то рассмотрим $(-g(x))\geq0$. Для нее формула верна: $\exists\ \mu,\int\limits^b_af(x)(-g(x))dx=\mu\int\limits^b_a(-g(x))dx$. Вынесем $(-1)$ и сократим \then ЧТД.
+\end{proof}
+\mybold{Следствия.}
+\begin{enumerate}
+\item Пусть $f(x)\in C[a,b]$. Тогда, так как $m\leq\mu\leq M$, то по непрерывности $f(x)$ для $\forall\ \mu,\ m\leq\mu\leq M,\ \exists\ \xi\in[a,b]\colon f(\xi)=M$ \then формула среднего значения имеет вид $\int\limits^b_af(x)g(x)dx=f(\xi)\int\limits^b_ag(x)dx$.
+\item Пусть $g(x)\equiv1$ на $[a,b],\ f\in\R[a,b]$. Тогда по теореме 11 $\exists\ \mu,\ m\leq\mu\leq M\colon\int\limits^b_af(x)dx=\mu(b-a)\left(=\mu\int\limits^b_a1dx\right)$. Если в этих условиях $f\in C[a,b]$, то $\exists\ \xi\in[a,b]\coon\int\limits^b_af(x)dx=f(\xi)(b-a)$.
+\end{enumerate}
+\section{Интеграл с переменным верхним(нижним) пределом}
+\begin{opred}
+\mybold{Интегралом с переменным верхним(нижним) пределом от $f(x)$} называется функция
+
+$F(x):=\int\limits^x_af(t)dt,\ a\leq x\leq b\ \left(G(x):=\int\limits^b_xf(t)dt,\ a\leq x\leq b\right)$
+\end{opred}
+\begin{theor}
+Если $f\in\R[a,b]$, то $F(x)=\int\limits^x_af(t)dt$ непрерывен на $[a,b]$.
+\end{theor}
+\begin{proof}
+$|\Delta F|=|F(x+\Delta x)-F(x)|=|\int\limits_a^{x+\Delta x}f(t)dt-\int\limits^x_af(t)dt=|\int\limits^{x+\Delta x}_xf(t)dt|\leq\int\limits^{x+\Delta x}_x|f(t)|dt\leq\left(|f(t)|\leq Q,\ a\leq t\leq b\right)\int\limits^{x+\Delta x}_xQdt=Q\int\limits^{x+\Delta x}_x1dt=Q\Delta x$ \then $F(x)$ непрерывен в $\forall\ x$.
+
+Если $\Delta x<0$, то $|\Delta F|=|-\int\limits^x_{x+\Delta x}f(t)dt|=|\int^{x+\Delta x}_{x}f(t)dt|$.
+\end{proof}
+\begin{theor}
+Пусть $f(x)\in\R[a,b]$ и непрерывна в точке $x_0\in(a,b)$. Тогда $\int\limits^x_af(t)dt=F(x)$ дифференцируема в точке $x_0$, и $F'(x_0)=f(x_0)$.
+\end{theor}
+\begin{proof}
+Из условия непрерывности $f(x)$ в точке $x_0$ следует, что $\forall\ \eps>0\ \exists\ \delta=\delta(\eps)>0\colon x-x_0=\Delta x<\delta$ \then $f(x_0)-\eps<f(x)<f(x_0)+\eps$
+\end{proof}
