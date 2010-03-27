@@ -396,3 +396,144 @@ $$
 \begin{proof}
 Эта теорема без доказательства.
 \end{proof}
+Следствие теоремы 14.
+Если $f(x)\in\mathbb{C}[a,b]$, то $\Phi(\xi)=\int\limits^\xi_af(x)dx$ явдяется ее первообразной. $\Phi'(x)=f(x),\ x\in[a,b]$.
+\begin{theor}Формула Ньютона-Лейбница.
+
+Пусть $f\in\mathbb{c}[a,b]$, и $\Phi(x)$ - некоторая ее первообразная. Тогда $\int\limits^b_af(x)dx=\Phi(b)-\Phi(a)=\Phi(x)\raz ab$.
+\end{theor}
+\begin{proof}
+По бредыдущему следствию, у $f(x)$ есть первообразная $F(\xi)=\int\limits_a^\xi f(x)dx$. Тогда $\Phi(x)=f(x)+C$, и $\int\limits^b_af(x)dx=\left(\int\limits^b_a-\int\limits^a_a\right)f(x)dx=F(b)-F(a)=\Phi(b)-C-(\Phi(a)-C)=\Phi(b)-\Phi(a)$
+\end{proof}
+\begin{remark} Наличие у $f(x)$ первообразной и её интерируемость не следуют друг из друга.
+
+Пример:
+\begin{enumerate}
+\item $f(x)=\left\{\begin{matrix}x^2sin\frac1{x^2},&x\in(0,1)\\0,&x=0\end{matrix}\right.$
+
+$f'(x)=\left\{\begin{matrix}2xsin\frac1{x^2}-\frac2xcos\frac1{x^2},&x\in(0,1)\\0,&x=0\end{matrix}\right.$
+
+
+$\int\limits^1_0f'(x)dx$ не существует, т. к. $f'(x)$ не ограничена. Однако существует ее первообразная $f(x)$.
+\item $R(x)=\left\{\begin{matrix}0,&x\ -\mbox{иррационален}}\\\frac1n,&x=\frac mn\ -\ \mbox{несократимая дробь}\end{matrix}\right.$ - функция Римана
+
+Можно показать, что у этой функции следующие свойства:
+\begin{enumerate}
+\item $R(x)$ непрерывна в иррациональный точках
+\item имеет разрывы первого рода во всех рациональных точках
+\item она интегрируема, и $\int\limits^1_0R(x)dx=0$
+\item $R(x)$ не имеет первообразной (если бы она была, то $R(x)=F'(x)$, но тогда не было бы разрывов первого рода)
+\end{enumerate}
+\end{enumerate}
+\end{remark}
+\section{Основные приемы вычислния определенного интеграла Римана}
+\begin{enumerate}
+\item Замена переменной
+\begin{theor} Пусть $f(x)\in\mathbb{C}[a,b],\ x=\phi(t)\in\R[a,b]$, и $\phi'(t)\in\mathbb{C}[\alpha,\beta]$, причем $\phi(\alpha)=\underset{\alpha\leq t\leq\beta}{inf}\{\phi(t)\}=a,\newline\phi(\beta)=\underset{\alpha\leq t\leq\beta}{sup}\{\phi(t)\}=b$. Тогда $\int\limits^b_af(x)dx=\int\limits^\beta_\alpha f(\phi(t))\phi'(t)dt$
+\end{theor}
+\begin{proof}
+Пусть $F(x)$ - первообразная для $f(x)$. Тогда $\int\limits^b_af(x)dx=F(x)-F(a)=F(\phi(\beta))-F(\phi(\alpha))$. Покажем, что $F(\phi(t))$ является первообразной для $f(\phi(t))\phi'(t)$. В самом деле, $(F(\phi(t)))'=F'(x)\phi'(t)=f(x)\phi'(t)=f(\phi(t))\phi'(t)$ \then по формуле Ньютона-Лейбница $\int\limits^b_af(\phi(t))\phi'(t)dt=F(\phi(\beta))-F(\phi(\alpha))=F(b)-F(a)=\int\limits^v_af(x)dx$
+\end{proof}
+\item Интегрирование по частям
+\begin{theor} Пусть $u(x),\ v(x),\ u'(x),\ v'(x)\in\mathbb{C}[a,b]$. Тогда верна формула интегрирования по частям:
+$$
+\int\limits^b_au(x)v'(x)dx=u(x)v(x)\raz{a}{b}-\int\limits^b_av(x)u'(x)dx
+$$
+\end{theor}
+\begin{proof}
+Заметим, что $u(x)v(x)$ - первообразная для $f(x)=u'(x)v(x)+u(x)v'(x)$. Тогда по формуле Ньютона-Лейбница имеем:
+$$
+\int\limits^b_af(x)=\int\limits^b_a(u'(x)v(x)+u(x)v'(x))dx=u(x)v(x)\raz ab\ \Longrightarrow\ \int\limits^b_au(x)v'(x)dx=u(x)v(x)\raz ab-\int\limits^b_av(x)u'(x)dx
+$$
+\end{proof}
+\end{enumerate}
+\section{Приложение определенного интеграла}
+I. Длина кривой.
+
+\begin{opred}
+\mybold{(Непрерывной) плоской кривой} называется ГМТ на плоскости следующего вида: $K=\{(x,y)|x=\phi(t),\ y=\psi(t),\ t\in[\alpha,\beta]\}$, где $\phi(t),\ \psi(t)\in\mathbb{C}[\alpha,\beta]$.
+\end{opred}
+\begin{opred}
+Точка $A(x_0,y_0)\in K$ называется \mybold{кратной для $K$}, если $\exists\ t_1\neq t_2\in[\alpha,\beta]\colon\phi(t_1)=\phi(t_2)=x_0$, $\psi(t_1)=\psi(t_2)=y_0$.
+\end{opred}
+\begin{opred}
+Кривая $K$ называется \mybold{простой}, если у нее нет кратных точек.
+\end{opred}
+\begin{opred}
+Кривая $K$ называется \mybold{простой замкнутой}, если у нее существует единственная кратная точка $A(x_0,y_0)=K(\alpha)=K(\beta)$, и $\forall\ t\neq\alpha,\neq\beta\ K(t)\neq A$.
+\end{opred}
+\begin{opred}
+Кривая $K$ называется \mybold{параметризуемой}, если существует разбиение $[\alpha,\beta]$ на части:
+
+$[\alpha,\beta]=\ind{k=1}n\cup[t_{k-1},t_k]$, где $t_0=\alpha<t_1<\ldots<t_{n-1}<t_n=\beta$, такое, что любой участок $K_k$, соответствующий $[t_{k-1},t_k]$, является простой кривой.
+\end{opred}
+\begin{opred}
+Функция $\phi(t)$ называется \mybold{кусочно-линейной на $[\alpha,\beta]$}, если существует разбиение $\{t_k\},\ t_0=\alpha,\ t_n=\beta$, что $\phi(t)=a_kt+b_k,\ t\in[t_{k-1},t_k];\ a_k,\ b_k\in\R$
+\end{opred}
+\begin{opred}
+Кривая $T$ называется \mybold{ломаной}, если она задана с помощью кусочно-линейных функций на некотором разбиении $\{t_k\}$ отрезка $[\alpha,\beta]$, т.е. $T=\{(x,y)|x=\phi(t),\ y=\psi(t),\ t\in[\alpha,\beta]$, где $\phi(t)$ и $\psi(t)$ -кусочно-линейные функции, соответствующие $\{t_k\}$. При этом точки $T_k$ называются узлами этой ломаной, а участки $T$, соответствующие $[t_{k-1},t_k]$, называются ее звеньями.
+\end{opred}
+\begin{opred}
+Говорят, что \mybold{ломаная $T[\alpha,\beta]$ вписана в кривую $K[\alpha,\beta]$}, если $\forall\ T_k\in K$.
+\end{opred}
+\begin{remark}
+Заметим, что длина ломаной $T$ равна сумме длин ее звеньев.
+\end{remark}
+\begin{opred}
+Длина ломаной $T\colon|T|:=\ind{k=1}n\sum|T_k|=\ind{k=1}n\sum\sqrt{(\phi(t_k)-\phi(t_{k-1}))^2+(\psi(t_k)-\psi(t_{k-1}))^2}$
+\end{opred}
+\begin{remark}
+Заметим, что:
+\begin{enumerate}
+\item если ломаные $T,\ T'$ вписаны в кривую $K$, и $T'$ получена из $T$ добавлением конечного числа новых узлов, то $|T'|\geq|T|$.
+\item $|T|$ не зависит от параметризации. Т.е. если $T=T(\phi(t),\psi(t)),\ t=\gamma(s),\ s\in[s_0,s_n]$, и $\gamma$ - строго монотонная функция, $\gamma(s_k)=t_k\ \forall\ 0\leq k\leq n;\ \tilde{T}=T(f(s),g(s))$, где $f(s)=\phi(\gamma(s)), g(s)=\psi(\gamma(s)).\ |T|=|\tilde{T}|$, т.к. они вычислены через координаты вершин. А вершины у $T$ и $\tilde{T}$ одни и те же.
+\end{enumerate}
+\end{remark}
+\begin{opred}
+Кривая $K$ называется \mybold{спрямляемой}, если существует $\ind{T\prec K}{}{sup}|T|=|K|$ - длина $K$.
+\end{opred}
+\begin{lemma}
+Если $K=K_1\ind{[\alpha,\beta]}{}\cup K_2$, где $K_1$ соответствует $[\alpha,\xi)$, а $K_2-[\xi,\beta],\ K$ - простая и спрямляемая, то и $K_1,K_2$ - тоже спрямляемые, и $|K_1|+|K_2|=|K|$.
+\end{lemma}
+\begin{proof}
+Так как $K$ спрямляема, то $\forall\ \eps>0\ \exists\ T\prec K$, что $|T|\leq|K|$, и $|T|>|K|-\eps$. Добавив к $T$ вершину $c=c(\phi(\xi),\psi(\xi))$, получим ломаную $\tilde{T}$, $|\tilde{T}|\geq|T|$ \then $|K|\geq|\tilde{T}>|K|-\eps$. //unimplemented yet и наврядли будет implemented до коллоквиума
+\end{proof}
+\section{Несобственный интеграл I рода}
+\begin{opred}
+Пусть $f(x)$ ограничена на $[a,+\infty]$ и интегрируема на любом отрезке $[a,A]$. \mybold{Несобственным интегралом I рода от $f(x)$ на $[a,+\infty]$ называется $\ind{a}{+\infty}{\int}f(x)dx:=\ind{A\to+\infty}{}{lim}\ind{a}{A}{\int}f(x)dx$.} Если этот предел существует и конечен, то говорят, что несобственный интеграл сходится, иначе - расходится.
+\end{opred}
+\begin{remark}
+Аналогично определяется $\ind{-\infty}{a}{\int}f(x)dx$.
+$$
+\mint{-\infty}{+\infty}=\mlim{B\to-\infty}\mint{B}{a}f(x)dx+\mlim{A\to+\infty}\mint{a}{A}f(x)dx
+$$
+Все интегалы вида $\mint{a}{+\infty},\mint{-\infty}{a},\mint{-\infty}{+\infty}$ называются несобственными интегралами I рода.
+\end{remark}
+\begin{remark}
+\mybold{Формула Ньютона-Лейбница для несобственных интегралов I рода}
+
+Из определения несобственного интеграла следует, что если $f(x)$ непрерывна на $[a,+\infty],[-\infty,a]$ или $[-\infty,+\infty]$ и $F(x)$ - ее первообразная, то
+$$
+\mint{a}{+\infty}f(x)dx=\mlim{A\to+\infty}\mint{a}{A}=\mlim{A\to+\infty}(F(A)-F(a))=F(x)\raz{a}{+\infty}
+$$
+\end{remark}
+\begin{opred}\mybold{Интегралом Дирихле I рода} называется следующий интеграл: $\mint{1}{+\infty}\cfrac{dx}{x^\alpha}$
+\end{opred}
+\begin{remark}
+При каких $\alpha$ интеграл Дирихле I рода сходится, а при каких - расходится?
+$$
+\mint{1}{A}\cfrac{dx}{x^\alpha}=\left\{\begin{matrix}
+\cfrac{x^{1-\alpha}}{1-\alpha},&\alpha\neq1\\
+ln|x|\raz{1}{A},&\alpha=1
+\end{matrix}
+\right.\Rightarrow
+\mint{1}{+\infty}\cfrac{dx}{x^\alpha}=\left\{\begin{matrix}
+\mlim{A\to+\infty}(\cfrac{A^{1-\alpha}}{1-\alpha}-\cfrac1{1-\alpha})=\left\{\begin{matrix}
++\infty,&\alpha<1\\
+\cfrac1{\alpha-1},&\alpha>1
+{\end{matrix}\right.\\
+\mlim{A\to+\infty}(ln|A|-0)=+\infty
+\end{matrix}\right.
+$$
+Вывод: $\mint1{+\infty}\cfrac{dx}{x^\alpha}$ сходится тогда и только тогда, когда $\alpha>1$.
+\end{remark}
