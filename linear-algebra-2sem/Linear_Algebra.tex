@@ -1,0 +1,61 @@
+\documentclass[draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{easybmat}
+\newtheorem*{lemma}{Лемма}
+\newtheorem{theor}{Теорема}
+\newtheorem*{opred}{Определение}
+\newtheorem*{stat}{Утверждение}
+\textwidth=190mm % 210
+\oddsidemargin=-15.4mm
+\textheight=267mm % 297
+\topmargin=-15.4mm
+\headheight=10mm
+\hoffset=0mm
+\voffset=-20mm
+\parindent=0in
+\newcommand{\mybold}[1]{{\bfseries{#1}}}
+\newcommand{\rmatrix}[3]{${#1\in\mathbb{R}^{#2\times{}#3}}$}
+\newcommand{\rmatrixof}[4]{${#1=(#2)\in\mathbb{R}^{#3\times{}#4}}$}
+\newcommand{\cmatrix}[3]{${#1\in\mathbb{C}^{#2\times{}#3}}$}
+\newcommand{\cmatrixof}[4]{${#1=(#2)\in\mathbb{C}^{#3\times{}#4}}$}
+\newcommand{\epofs}{\xrightarrow[\mbox{строк}]{\mbox{ЭП}}}
+\newcommand{\epofc}{\xrightarrow[\mbox{столбцов}]{\mbox{ЭП}}}
+\newcommand{\ep}{\xrightarrow{\mbox{ЭП}}}
+\newcommand{\then}{\ensuremath{\Rightarrow\ }}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\V}{\ensuremath{\mathbb{V}}}
+\newcommand{\W}{\mathbb{W}}
+\renewcommand{\P}{\ensuremath{\mathbb{P}}}
+\newcommand{\T}{\Theta}
+\newcommand{\va}{\bar{a}}
+\newcommand{\vb}{\bar{b}}
+\newcommand{\vc}{\bar{c}}
+\newcommand{\vx}{\bar{x}}
+\newcommand{\vo}{\bar{0}}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\SN}{\uparrow\uparrow}
+\newcommand{\PN}{\uparrow\downarrow}
+\newcommand{\eps}{\varepsilon}
+\theoremstyle{remark}
+\newtheorem*{remark}{\mybold{Замечание}}
+\newtheorem*{effect}{\mybold{Следствие}}
+\begin{document}
+\begin{abstract}
+Лекции по линейной алгебре 2 семестра потока бакалавров ВМК МГУ.
+
+Лектор --- Полосин Алексей Андреевич.
+
+Составитель --- Андрей Тихонов (tiacorpo@gmail.com).
+\end{abstract}
+\tableofcontents
+\include{Part_I}
+\end{document}

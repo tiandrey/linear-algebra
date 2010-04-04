@@ -1,0 +1,66 @@
+\documentclass[draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{easybmat}
+\newtheorem*{lemma}{Лемма}
+\newtheorem{theor}{Теорема}
+\newtheorem*{opred}{Определение}
+\textwidth=190mm % 210
+\oddsidemargin=-15.4mm
+\textheight=267mm % 297
+\topmargin=-15.4mm
+\headheight=10mm
+\hoffset=0mm
+\voffset=-20mm
+\parindent=0in
+\newcommand{\mybold}[1]{{\bfseries{#1}}}
+\newcommand{\rmatrix}[3]{${#1\in\mathbb{R}^{#2\times{}#3}}$}
+\newcommand{\rmatrixof}[4]{${#1=(#2)\in\mathbb{R}^{#3\times{}#4}}$}
+\newcommand{\epofs}{\xrightarrow[\mbox{строк}]{\mbox{ЭП}}}
+\newcommand{\epofc}{\xrightarrow[\mbox{столбцов}]{\mbox{ЭП}}}
+\newcommand{\ep}{\xrightarrow{\mbox{ЭП}}}
+\newcommand{\then}{$\Rightarrow\ $}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\T}{\Theta}
+\newcommand{\va}{\bar{a}}
+\newcommand{\vb}{\bar{b}}
+\newcommand{\vc}{\bar{c}}
+\newcommand{\vx}{\bar{x}}
+\newcommand{\vo}{\bar{0}}
+\newcommand{\SN}{\uparrow\uparrow}
+\newcommand{\PN}{\uparrow\downarrow}
+\newcommand{\xs}{x_{\star}}
+\newcommand{\rr}{(\{x_k\},\{\xi_k\})}
+\newcommand{\xk}{[x_{k-1},x_k]}
+\newcommand{\xmk}{[x^m_{k-1},x^m_k]}
+\newcommand{\xko}{[x_{k_0-1},x_{k_0}]}
+\newcommand{\xmko}{[x^m_{k_0-1},x^m_{k_0}]}
+\newcommand{\vs}{\overline{s}}
+\newcommand{\ns}{\underline{s}}
+\newcommand{\vis}{\overline{I}}
+\newcommand{\nis}{\underline{I}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ind}[3]{\underset{#1}{\overset{#2}{#3}}}
+\newcommand{\raz}[2]{\underset{#1}{\overset{#2}{|}}}
+\newcommand{\mint}[2]{\ind{#1}{#2}{\int}}
+\newcommand{\mlim}[1]{\ind{#1}{}{lim}}
+\theoremstyle{remark}
+\newtheorem*{remark}{\mybold{Замечание}}
+\begin{document}
+\begin{abstract}
+Лекции по математическому анализу 2 семестра потока бакалавров ВМК МГУ.
+
+Лектор --- Фоменко Татьяна Николаевна.
+
+Составитель --- Андрей Тихонов (tiacorpo@gmail.com).
+\end{abstract}
+\tableofcontents
+\include{Part_I}
+\end{document}
