@@ -1,0 +1,182 @@
+\documentclass[draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{easybmat}
+\newtheorem*{lemma}{Лемма}
+\newtheorem{theor}{Теорема}
+\newtheorem*{opred}{Определение}
+\textwidth=190mm % 210
+\oddsidemargin=-15.4mm
+\textheight=267mm % 297
+\topmargin=-15.4mm
+\headheight=10mm
+\hoffset=0mm
+\voffset=-20mm
+\parindent=0in
+\newcommand{\mybold}[1]{{\bfseries{#1}}}
+\newcommand{\rmatrix}[3]{${#1\in\mathbb{R}^{#2\times{}#3}}$}
+\newcommand{\rmatrixof}[4]{${#1=(#2)\in\mathbb{R}^{#3\times{}#4}}$}
+\newcommand{\epofs}{\xrightarrow[\mbox{строк}]{\mbox{ЭП}}}
+\newcommand{\epofc}{\xrightarrow[\mbox{столбцов}]{\mbox{ЭП}}}
+\newcommand{\ep}{\xrightarrow{\mbox{ЭП}}}
+\newcommand{\then}{$\Rightarrow\ $}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\T}{\Theta}
+\newcommand{\va}{\bar{a}}
+\newcommand{\vb}{\bar{b}}
+\newcommand{\vc}{\bar{c}}
+\newcommand{\vx}{\bar{x}}
+\newcommand{\vo}{\bar{0}}
+\newcommand{\SN}{\uparrow\uparrow}
+\newcommand{\PN}{\uparrow\downarrow}
+\newcommand{\xs}{x_{\star}}
+\newcommand{\rr}{(\{x_k\},\{\xi_k\})}
+\newcommand{\xk}{[x_{k-1},x_k]}
+\newcommand{\xmk}{[x^m_{k-1},x^m_k]}
+\newcommand{\xko}{[x_{k_0-1},x_{k_0}]}
+\newcommand{\xmko}{[x^m_{k_0-1},x^m_{k_0}]}
+\newcommand{\vs}{\overline{s}}
+\newcommand{\ns}{\underline{s}}
+\newcommand{\vis}{\overline{I}}
+\newcommand{\nis}{\underline{I}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ind}[3]{\underset{#1}{\overset{#2}{#3}}}
+\newcommand{\raz}[2]{\underset{#1}{\overset{#2}{|}}}
+\newcommand{\mint}[2]{\ind{#1}{#2}{\int}}
+\newcommand{\mlim}[1]{\ind{#1}{}{lim}}
+\newcommand{\LRA}{\Leftrightarrow}
+\renewcommand{\bar}{\overline}
+\theoremstyle{remark}
+\newtheorem*{remark}{\mybold{Замечание}}
+\begin{document}
+\tableofcontents
+\chapter{Комплексные числа и функции комплексной переменной}
+\section{Комплексные числа и их свойства}
+\begin{opred}
+Комплексное число $z=(x;y), x,y\in\R$
+
+$x=Re z$ - действительная часть $z$
+
+$y=Im z$ - мнимая часть $z$
+\end{opred}
+
+$z_1=z_2 \Leftrightarrow x_1=x_2, y_1=y_2$
+\subsection{Арифметические операции}
+$z_1+z_2=(x_1+x_2,y_1+y_2)$
+
+$z_1z_2=(x_1x_2-y_1y_2,x_1y_2+x_2y_1)$
+
+Вычитание - обратное к сложению
+
+Деление - обратное к умножению
+
+$z=\cfrac{z_1}{z_2} \LRA z_1=z*z_2$
+
+$0=(0;0)$
+
+$1=(1;0)$
+
+$a\in\R\LRA a=(a;0)$
+
+$\{z\}=\C$ - поле комплексных чисел
+
+$\R$ - поле действ. чисел - подполе $\C$
+\subsection{Комплексное сопряжение}
+
+$\bar{z}=(x;-y)$ - компл. сопр. к $z$
+
+Св-ва:
+\begin{enumerate}
+\item$\bar{\left(\bar{z}\right)}=z$
+\item$z\bar{z}=(x^2+y^2;0)$
+\item$z=\bar{z}\LRA z\in\R$
+\item$\bar{z_1\pm z_2}=\bar{z_1}\pm\bar{z_2}$
+\item$\bar{z1*z2}=\bar{z1}*\bar{z2}$
+\item$\bar{\left(\cfrac{z1}{z2}\right)}=\cfrac{\bar{z1}}{\bar{z2}}$
+\end{enumerate}
+\subsection{Геометрическая интерпретация}
+
+$z=(x,y)=(r,\phi)$
+
+$r=\sqrt{x^2+y^2}$
+
+$cos\phi=\cfrac{x}{\sqrt{x^2+y^2}}, sin\phi=\cfrac{y}{\sqrt{x^2+y^2}}, z\neq0$
+
+$z=0\LRA r=0$
+
+$x=r\  \cos\phi, y=r\ \cos\phi$
+
+$\phi\in\Phi=Arg=\{\phi_0+2\pi k,\ k\in\Z\}$
+
+$\phi_0=arg\ z,\ \phi_0\in[0;2\pi]$
+
+Мн-во точек (векторов) с арифмитическими операциями: сложение и умножение на действительное число $\lambda z=(\lambda x, \lambda y)$ -- линейное пространство
+
+$||z_1-z_2||=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$ - Евклидово пространство
+
+\subsection{Алгебраическая форма комплексных чисел}
+
+В линейном пространстве $\forall z$
+
+$z=x\bar{e}_1+y\bar{e}_2$
+
+$\bar{e}_1,\bar{e}_2$ - векторы системы координат
+
+$\bar{e}_1=(1,0)=1$
+
+$\bar{e}_2=(0,1)=i$
+
+$i^2=(-1,0)=-1$
+
+\subsection{Тригонометрическая форма}
+
+$r=\sqrt{x^2+y^2}/=|z|/$
+
+$\phi\in Arg\ z$
+
+$x=r\cos\phi, y=r\sin\phi$
+
+$z=r(\cos\phi+i\sin\phi)$
+
+Утверждение (свойства модуля):
+\begin{enumerate}
+\item$|z|\geq0; |z|=0\LRA z=0$
+\item$|\bar{z}|=|z|$
+\item$|-z|=|z|$
+\item$z\bar{z}=|z|^2$
+\item$|z_1z_2|=|z_1||z_2|$
+\item$\left|\cfrac{z_1}{z_2}\right|=\cfrac{|z_1|}{|z_2|}$
+\item$|z_1+z_2|\leq|z_1|+|z_2|;\ |z_1-z_2|\leq|z_1|+|z_2|$
+\item$|Re\ z|\leq|z|;\ |Im\ z|\leq|z|$
+\item$|z_1-z_2|\geq\left||z_1|-|z_2|\right|$
+\end{enumerate}
+\subsection{Показательная форма}
+$e^{i\phi}=\cos\phi+i\sin\phi$ (Формула Эйлера)
+
+$e^{-i\phi}=\cos\phi-i\sin\phi$
+
+$z=re^{i\phi}; r=|z|, \phi\in Arg\ z (z\neq0);\ \bar{z}=re^{-i\phi}$
+
+$z=0\LRA r=0$
+
+Утверждение:
+\begin{enumerate}
+\item$e^{i\phi_1}e^{i\phi_2}=e^{i(\phi_1+\phi_2)}$
+\item$\cfrac{e^{i\phi_1}}{e^{i\phi_2}}=e^{i(\phi_1-\phi_2)}$
+\item$\left(e^{i\phi}\right)^n=e^{in\phi},\ n\in\Z$
+\item$\left|e^{i\phi}\right|=1$
+\item$e^{i(\phi+2\pi k)}=e^{i\phi},\ k\in\Z$
+\end{enumerate}
+\begin{proof}
+1) $e^{i\phi_1}e^{i\phi_2}=(\cos\phi_1+i\sin\phi_1)(\cos\phi_2+i\sin\phi_2)=\cos\phi_1\cos\phi_2-\sin\phi_1\sin\phi_2+i(\sin\phi_1\cos\phi_2+\sin\phi_2\cos\phi_1)=\cos(\phi_1+\phi_2)+i\sin(\phi_1+\phi_2)=e^{i(\phi_1+\phi_2)}$
+\end{proof}
+\end{document}

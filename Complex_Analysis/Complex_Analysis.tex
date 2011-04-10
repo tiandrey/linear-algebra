@@ -1,0 +1,1572 @@
+\documentclass[draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\textwidth=195mm % 210
+\oddsidemargin=-17.9mm
+\textheight=272mm % 297
+\topmargin=-17.9mm
+\headheight=10mm
+\hoffset=0mm
+\voffset=-20mm
+\parindent=0in
+
+\newcommand{\rra}{\rightrightarrows}
+\newcommand{\rrae}[1]{\underset{#1}{\rightrightarrows}}
+\newcommand{\forcenewline}{$\phantom{\mbox{newline}}$}
+\newcommand{\dd}{\partial}
+\newcommand{\then}{\ \Rightarrow\ }
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ind}[3]{\underset{#1}{\overset{#2}{#3}}}
+\newcommand{\mint}[2]{\underset{#1}{\overset{#2}{\int}}}
+\newcommand{\moint}[1]{\underset{#1}{\oint}}
+\newcommand{\msum}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\mlim}[1]{\underset{#1}{\lim}}
+\newcommand{\mmax}[1]{\underset{#1}{\max}}
+\newcommand{\mmin}[1]{\underset{#1}{\min}}
+\newcommand{\LRA}{\Leftrightarrow}
+\newcommand{\epsdelta}{\forall \e>0\ \exists \delta(\e)>0\colon}
+\renewcommand{\bar}{\overline}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\newcommand{\Ln}{\mathop{\mathrm{Ln}}\nolimits}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
+\newcommand{\diam}{\mathop{\mathrm{diam}}\nolimits}
+\newcommand{\Int}{\mathop{\mathrm{int}}\nolimits}
+\newcommand{\Ext}{\mathop{\mathrm{ext}}\nolimits}
+
+\newcommand{\ninf}[1]{\underset{n\to\infty}{#1}}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\newcommand{\G}{\Gamma}
+\renewcommand{\f}{\phi}
+\renewcommand{\d}{\delta}
+\renewcommand{\l}{\lambda}
+\renewcommand{\L}{\Lambda}
+\renewcommand{\r}{\rho}
+\newcommand{\D}{\Delta}
+\newcommand{\e}{\varepsilon}
+\newcommand{\E}{\ \exists}
+\newcommand{\F}{\ \forall}
+\newcommand{\z}{\bar{z}}
+\renewcommand{\o}{\bar{o}}
+\newcommand{\rd}{\underset{n=1}{\overset{\infty}{\sum}}}
+\newcommand{\CC}{\bar{\C}}
+\newcommand{\sys}[1]{\left\{\begin{matrix}#1\end{matrix}\right.}
+\newcommand{\bsys}[1]{\left.\begin{matrix}#1\end{matrix}\right\}}
+\newcommand{\mat}[1]{\begin{matrix}#1\end{matrix}}
+\newcommand{\opr}[1]{\begin{opred}#1\end{opred}}
+
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{theor}{Теорема}
+\newtheorem*{theor*}{Теорема}
+\newtheorem*{opred}{Определение}
+\theoremstyle{remark}
+\newtheorem*{remark}{\mybold{Замечание}}
+
+\begin{document}
+\tableofcontents
+\chapter{Комплексные числа и функции комплексной переменной}
+\section{Комплексные числа и их свойства}
+\opr{Комплексное число $z=(x;y), x,y\in\R$
+
+$x=\Re z$ - действительная часть $z$
+
+$y=\Im z$ - мнимая часть $z$}
+
+$z_1=z_2 \LRA x_1=x_2, y_1=y_2$
+\subsection{Арифметические операции}
+$z_1+z_2=(x_1+x_2,y_1+y_2)$
+
+$z_1z_2=(x_1x_2-y_1y_2,x_1y_2+x_2y_1)$
+
+Вычитание - обратное к сложению
+
+Деление - обратное к умножению
+
+$z=\cfrac{z_1}{z_2} \LRA z_1=z*z_2$
+
+$0=(0;0)$
+
+$1=(1;0)$
+
+$a\in\R\LRA a=(a;0)$
+
+$\{z\}=\C$ - поле комплексных чисел
+
+$\R$ - поле действ. чисел - подполе $\C$
+\subsection{Комплексное сопряжение}
+
+$\bar{z}=(x;-y)$ - компл. сопр. к $z$
+
+{\bfseries Свойства:}
+\begin{enumerate}
+\item$\bar{\left(\bar{z}\right)}=z$
+\item$z\bar{z}=(x^2+y^2;0)$
+\item$z=\bar{z}\LRA z\in\R$
+\item$\bar{z_1\pm z_2}=\bar{z_1}\pm\bar{z_2}$
+\item$\bar{z1*z2}=\bar{z1}*\bar{z2}$
+\item$\bar{\left(\cfrac{z1}{z2}\right)}=\cfrac{\bar{z1}}{\bar{z2}}$
+\end{enumerate}
+\subsection{Геометрическая интерпретация}
+
+$z=(x,y)=(r,\phi)$
+
+$r=\sqrt{x^2+y^2}$
+
+$\left\{\begin{matrix}
+\cos\phi=\cfrac{x}{\sqrt{x^2+y^2}} \\
+\sin\phi=\cfrac{y}{\sqrt{x^2+y^2}}
+\end{matrix}\right.\,,\ z\neq0$
+
+$z=0\LRA r=0$
+
+$\left\{\begin{matrix}
+x=r\cos\phi\\
+y=r\cos\phi
+\end{matrix}\right.$
+
+$\phi\in\Phi=\Arg z=\{\phi_0+2\pi k,\ k\in\Z\}$
+
+$\phi_0=\arg z,\ \phi_0\in[0;2\pi]$
+
+Множество точек (векторов) с арифметическими операциями: сложение и умножение на действительное число $\lambda z=(\lambda x, \lambda y)$ -- линейное пространство.
+
+Если $||z_1-z_2||=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$, то это евклидово пространство.
+
+Sample: доказать, что $|z_1+z_2|^2+|z_1-z_2|^2=2(|z_1|^2+|z_2|^2)$ (используя правило параллелограма и тот факт, что сумма квадратов диагоналей параллелограма равна двойной сумме квадратов сторон)
+
+\subsection{Алгебраическая форма комплексных чисел}
+
+В линейном пространстве $\forall z$
+
+$z=x\bar{e}_1+y\bar{e}_2$
+
+$\bar{e}_1,\bar{e}_2$ - векторы системы координат
+
+$\bar{e}_1=(1,0)=1$
+
+$\bar{e}_2=(0,1)=i$
+
+$i^2=(-1,0)=-1$
+
+\subsection{Тригонометрическая форма}
+
+$r=\sqrt{x^2+y^2}/=|z|/$
+
+$\phi\in \Arg z$
+
+$x=r\cos\phi, y=r\sin\phi$
+
+$z=r(\cos\phi+i\sin\phi)$
+
+{\bfseries Утверждение (свойства модуля):}
+\begin{enumerate}
+\item$|z|\geq0; |z|=0\LRA z=0$
+\item$|\bar{z}|=|z|$
+\item$|-z|=|z|$
+\item$z\bar{z}=|z|^2$
+\item$|z_1z_2|=|z_1||z_2|$
+\item$\left|\cfrac{z_1}{z_2}\right|=\cfrac{|z_1|}{|z_2|}$
+\item$|z_1+z_2|\leq|z_1|+|z_2|;\ |z_1-z_2|\leq|z_1|+|z_2|$
+\item$|Re\ z|\leq|z|;\ |Im\ z|\leq|z|$
+\item$|z_1-z_2|\geq\bigl||z_1|-|z_2|\bigr|$
+\end{enumerate}
+\begin{proof}
+$|z_1|=|z_1-z_2+z_2|\leq|z_1-z_2|+|z_2|$
+\end{proof}
+
+\subsection{Показательная форма}
+
+$e^{i\phi}=\cos\phi+i\sin\phi$ (Формула Эйлера)
+
+$e^{-i\phi}=\cos\phi-i\sin\phi$
+
+$z=re^{i\phi}; r=|z|, \phi\in\Arg z (z\neq0);\ \bar{z}=re^{-i\phi}$
+
+$z=0\LRA r=0$
+
+{\bfseries Утверждение:}
+\begin{enumerate}
+\item$e^{i\phi_1}e^{i\phi_2}=e^{i(\phi_1+\phi_2)}$
+\item$\cfrac{e^{i\phi_1}}{e^{i\phi_2}}=e^{i(\phi_1-\phi_2)}$
+\item$\left(e^{i\phi}\right)^n=e^{in\phi},\ n\in\Z$
+\item$\left|e^{i\phi}\right|=1$
+\item$e^{i(\phi+2\pi k)}=e^{i\phi},\ k\in\Z$
+\end{enumerate}
+\forcenewline
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item[1.] $e^{i\phi_1}e^{i\phi_2}=(\cos\phi_1+i\sin\phi_1)(\cos\phi_2+i\sin\phi_2)=\cos\phi_1\cos\phi_2-\sin\phi_1\sin\phi_2+i(\sin\phi_1\cos\phi_2+\sin\phi_2\cos\phi_1)=\cos(\phi_1+\phi_2)+i\sin(\phi_1+\phi_2)=e^{i(\phi_1+\phi_2)}$
+\item[4.] $|e^{i\phi}|=|\cos\phi+i\sin\phi|=\sqrt{\cos^2\phi+\sin^2\phi}=1$
+\end{enumerate}
+\end{proof}
+
+\subsection{Извлечение корня $n$-й степени}
+
+\opr{$z=\sqrt[n]{c}\ (n\in\N,\ n>1)\LRA z^n=c$}
+\begin{enumerate}
+\item$\sqrt[n]{0}=0$
+\item$c\neq0$
+
+$c=\rho e^{i\alpha}$
+
+$z=re^{i\phi}$
+
+$z^n=c\LRA r^ne^{in\phi}=\rho e^{i\alpha}\then\left\{\begin{matrix}
+r^n=\rho \\
+n\phi=\alpha+2\pi k
+\end{matrix}\right.$
+
+$\sqrt[n]{c}=\sqrt[n]{\rho}e^{i\frac{\alpha+2\pi k}{n}},\ k=0,1,\ldots,n-1$
+\end{enumerate}
+
+\section{Расширенная комплексная плоскость. Кривые. Множества на комплексной плоскости.}
+
+\subsection{Расширенная комплексная плоскость}
+
+\begin{opred}
+Расширенная комплексная плоскость $\bar{\C}=\C\cup\{\infty\}$
+\end{opred}
+Модель расширенной комплексной плоскости - сфера Римана $S$.
+
+{\bfseries Утверждение.}
+
+Пусть $N\leftrightarrow M$. Тогда
+
+$\xi=\cfrac{x}{1+|z|^2}, \eta=\cfrac{y}{1+|z|^2}, \zeta=\cfrac{|z|^2}{1+|z|^2}$ (1)
+
+$x=\cfrac{\xi}{1-\zeta}, y=\cfrac{\eta}{1-\zeta}$ (2)
+\begin{proof}
+$N(x,y,0)$
+
+$\vec{PM}=(\xi,\eta,\zeta-1)$
+
+$\vec{PN}=(x,y,-1)$
+
+$\vec{PM}||\vec{PN}\then\exists k\neq0$, что $\cfrac\xi x=\cfrac\eta y=\cfrac{\zeta-1}{-1}=k$ (3) $\then\zeta=1-k,\xi=kx, \eta=ky$
+
+$S\colon\xi^2+\eta^2+\left(\zeta-\frac12\right)^2=\left(\frac12\right)^2$
+
+$\xi^2+\eta^2+\zeta^2=\zeta$
+
+$k^2(x^2+y^2)+(1-k)^2=1-k$
+
+$k=\cfrac1{1+x^2+y^2}=\cfrac1{1+|z|^2}$
+
+$\xi=\cfrac{x}{1+|z|^2}, \eta=\cfrac{y}{1+|z|^2}, \zeta=\cfrac{|z|^2}{1+|z|^2}$
+\end{proof}
+{\bfseries Замечания:}
+\begin{enumerate}
+\item $\infty$ - одна на $\bar{\C}$
+\item Множество окружностей на $S\ \leftrightarrow$ множество окружностей и прямых $\bar{\C}$
+\item Любая окружность на $S$, не проходящая через точку $P$, соответствует окружности $\bar{\C}$; любая окружность на $S$, проходящая через точку $P$, соответствует прямой $\bar{\C}$
+\end{enumerate}
+
+\subsection{Кривые на плоскости}
+
+Пусть $x(t),y(t),t\in[\alpha,\beta]$ - вещественные непрерывные функции.
+
+$\gamma\colon\left\{\begin{matrix}z(t)=x(t)+iy(t) \\ t\in[\alpha,\beta]\end{matrix}\right.$ (4)
+
+Уравнение (4) задает непрерывную кривую на плоскости.
+
+На $\gamma$ в силу (4) индуцировано направление, соответствующее изменению параметра $t$.
+
+\opr{$z(\alpha)$ - начальная точка $\gamma$, $z(\beta)$ - конечная точка $\gamma$.}
+
+Кривая, которая отличается от $\gamma$ только направлением, обозначается $\gamma^{-1}$.
+
+\opr{Если $\exists\ t_1\neq t_2$, что $z(t_1)=z(t_2)$, то это точка самоперемечения кривой $\gamma$ (кроме $t_1=\alpha,t_2=\beta$ и наоборот).}
+\opr{Простая (жорданова) кривая - непрерывная кривая без точек самопересечения.}
+\opr{Если $z(\alpha)=z(\beta)$, то $\gamma$ - замкнутая кривая.}
+\opr{Кривая $\g$ - гладкая, если $x,y\in\C^1[\a,\b]$, причем $(x'(t))^2+(y'(t))^2\neq0$. Иначе говоря, $\exists z'(t), t\in[\a,\b]$, причем $z'(t)\neq0$.}
+{\bfseries Замечание:}
+
+Если кривая замкнута, то для гладкости необходимо дополнительное равенство $z'(\a+0)=z'(\b-0)$.
+
+\opr{Непрерывная кривая называется кусочно-гладкой, если она состоит из конечного числа гладких кусков.}
+\opr{Замкнутая простая кусочно-гладкая кривая называется замкнутым контуром.}
+
+\subsection{Множества на комплексной плоскости}
+
+$E\neq\varnothing$
+
+$d=\diam E=\underset{z_1,z_2\in E}{sup}|z_1-z_2|$
+
+Круговые окрестности:
+
+$z_0\neq\infty$
+
+$K_\varepsilon(z_0)=\left\{z\colon|z-z_0|<\varepsilon\right\}$
+
+Проколотая окрестность: $\dot{K}_\varepsilon(z_0)=\bigl\{z\colon0<|z-z_0|<\varepsilon\bigr\}$
+
+$z_0=\infty$
+
+$K_B(\infty)=\bigl\{z\colon|z|>B\bigr\}$
+
+$\dot{K}_B(\infty)=\bigl\{z\colon B<|z|<\infty\bigr\}$
+
+\opr{Внутренняя точка - точка, у которой есть окрестность, содержащая только точки, принадлежащие множеству.}
+\opr{Внешняя точка - точка, у которой есть окрестность, содержащая только точки, не принадлежащие множеству.}
+\opr{Граничная точка - точка, в любой ненулевой окрестности которой есть как внешние, так и внутренние точки.}
+\opr{Предельная точка - точка, в любой ненулевой окрестности которой бесконечно много внутренних точек.}
+\opr{Открытое множество - множество, все точки которого внутренние.}
+\opr{Замкнутое множество - множество, содержащее все свои предельные точки.}
+\opr{Связное множество - множество, для любых двух точек которого существует непрерывная кривая, принадлежащая данному множеству, соединяющая эти точки.}
+\opr{Область - непустое открытое связное множество.}
+\begin{theor}[Жордан]
+Всякая непрерывная простая замкнутая кривая $\g$ разбивает $\bar{\C}$ на две области: внутреннюю ($\Int\g$) с границей $\g$ и внешнюю ($\Ext\g$) с границей $\g$, содержащую точку $\infty.$
+\end{theor}
+\opr{Односвязное множество - такое множество, с которым любой замкнутый контур непрерывной деформацией может быть стянут к точке, приналежащей множеству.
+
+Alternative one: односвязное множество - множество, в котором для любого замкнутого контура, принадлежащего множеству, его внутренняя область тоже принадлежит множеству.}
+\#fuzzy: Связность - количество границ.
+
+\subsection{Задание множеств на комплексной плоскости}
+
+Уравнение прямой:
+
+$bx+cy+d=0,\ b^2+c^2>0$
+
+$\sys{z=x+iy \\ \z=x-iy}\LRA\sys{x=\frac{z+\bar{z}}{2}\\y=\frac{z-\bar{z}}{2}}$
+
+$b(z+\bar{z})-i(z-\bar{z})c+2d=0$
+
+$\bar{B}z+B\bar{z}+D=0$ (5)
+
+$B=b+ic, D=2d, B\bar{B}\neq0\ /B\neq0/$
+
+Уравнение окружности:
+
+$a(x^2+y^2)+2bx+2cy+d=0\ (a\neq0)$
+
+$\left(x+\frac ba\right)^2+\left(y+\frac ca\right)^2=\frac{b^2+c^2-ad}{a^2}\ /b^2+c^2-ad>d/$
+
+$Az\z+\bar{B}z+B\z+D=0$ (6)
+
+$A=a,\ D=d,\ B=b+ic$
+
+\section{Числовые последовательности и ряды}
+
+\subsection{Сходимость}
+
+$\{z_n\}\in\C,\ z_n=x_n+iy_n$
+
+\opr{$\ninf{\{z_n\}\to z_0}\ (z_0\neq\infty)\ /\ninf{\lim}z_n=z_0/\ \LRA\ \forall \e>0\ \exists N\ \forall n>N\ |z_n-z_0|<\e$
+}
+
+\opr{$\{z_n\}$ - бесконечно большая последовательность $\LRA\ \forall B>0\ \exists N\colon \forall n>N\ |z_n|>B$}
+
+\begin{theor}
+$\ninf{z_n\to z_0}\LRA\sys{x_n\to x_0 \\ y_n\to y_0},n\to\infty$
+\end{theor}
+
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item $|x|\leq|z|$
+$|y|\leq|z|$
+\item $\forall\e\ \exists N,\,\forall n>N\colon
+\sys{|x_n-x_0|<\cfrac\e{\sqrt{2}} \\ |y_n-y_0|<\cfrac\e{\sqrt{2}}}$
+
+$|z_n-z_0|=\sqrt{(x_n-x_0)^2+(y_n-y_0)^2}<\e$
+\end{enumerate}
+\end{proof}
+
+{\bfseries Замечание.}
+
+Для $z_0=\infty$ теорема не выполняется.
+
+{\bfseries Утверждение 1.}
+
+$z_n=r_ne^{i\f_n}$
+
+Если $\sys{r_n\to r_0 \\ \f_n \to \f_0},\ n\to\infty\ \then\ z_n\to z_0=r_0e^{i\f_0}$
+
+\begin{proof}
+$z_n=r_ne^{i\f_n}=r_n(\cos\f_n+i\sin\f_n)$
+
+$\sys{x_n=r_n\cos\f_n\to x_0 \\ y_n=r_n\sin\f_n\to y_0}\then z_n\to z_0$ по теореме.
+\end{proof}
+
+{\bfseries Замечание.}
+
+Обратное утверждение неверно.
+
+{\bfseries Утверждение 2.}
+
+$z_n\to z_0\then r_n\to r_0$ (доказательство следует из $\bigl||z_n|-|z_0|\bigr|\leq|z_n-z_0|$)
+
+{\bfseries Замечание.}
+
+Из сходимости $z_n\to z_0$ не обязательно следует $\f_n\to\f_0$
+
+{\bfseries Примеры:}
+\begin{enumerate}
+\item $z_n=\frac1n$ $\forall n\ \arg z_n=0$; $\arg 0$ не определён.
+\item $\arg z\in[0,2\pi)$
+
+$z_n=1+i\cfrac{(-1)^n}{n}\to z_0=1$
+
+$n=2k\colon z_{2k}=1+\cfrac{i}{2k},\ \arg z_{2k}\to0+$
+
+$n=2k-1\colon z_{2k-1}=1-\cfrac{i}{2k-1},\ \arg z_{2k-1}\to2\pi-$
+\end{enumerate}
+
+\subsection{Ряды}
+
+$\ind{n=1}{\infty}{\sum}z_n$ (1) - числовой ряд
+
+\opr{Числовой ряд (1) сходится, если сходится к конечному пределу последовательность $\{\rho_n\}$}
+
+\begin{theor}
+Ряд (1) сходится $\LRA\ \sys{\mbox{сходится}\ \ind{n=1}{\infty}{\sum}x_n \\ \mbox{сходится}\ \ind{n=1}{\infty}{\sum}y_n }$
+\end{theor}
+
+\opr{Ряд (1) сходится абсолютно, если сходится $\rd |z_n|$ (2)}
+
+{\bfseries Утверждение 3.}
+
+Ряд (1) сходится $\LRA\ \forall\e>0\ \exists N\colon\forall n>N,\forall p\in\N\ \left|\ind{k=n+1}{n+p}{\sum}z_k\right|<\e$
+
+{\bfseries Утверждение 4.}
+
+Сходимость ряда (1) означает $z_n\to 0$
+
+{\bfseries Утверждение 5.}
+
+Из сходимости ряда (2) следует сходимость ряда (1).
+
+{\bfseries Утверждение 6.}
+
+Сходимость ряда (2) можно исследовать, применяя любой из признаков сходимости вещественных рядов с неотрицательными членами.
+
+\section{Функции комплексной переменной. Предельное значение и неприменимость. Основные элементарные функции.}
+
+\subsection{Основные понятия}
+
+\opr{Пусть $E,F\in\CC$, $E,F$ - непустые.
+
+$f\colon E\to F$ $(w=f(z))$, если $\forall z\in E\ \exists w\in F\colon w=f(z)$}
+
+\opr{ФКП $w=f(z)$ однолистна на $G\subset E$, если $\forall z_1,z_2\in G,z_1\neq z_2\ w_1\neq w_2$}
+
+{\bfseries Замечание.}
+
+Далее рассматриваются однозначные ФКП, если специально не оговорено противное.
+
+Задание однозначной функции $w=f(z)$ на E означает задание пары вещественных функций двух действительных переменных: $\sys{u=u(x,y)\\v=v(x,y)}\ /w=u+iv,\ z=x+iy/,\ u,v,x,y\in\R$
+
+\subsection{Предельное значение функции}
+
+$w=f(z),\ z_0$ - предельная точка множества $E$, $z_0\neq\infty$.
+
+\opr{$l$ - предельное значение $f(z)$ в точке $z_0$ /$\mlim{z\to z_0}f(z)=l$/ $\LRA\ \forall\e>0\ \exists\delta(\e)>0\colon$
+
+$\forall z\in E\colon 0<|z-z_0|<\delta \then |f(z)-l|<\e$}
+
+\begin{theor}
+Пусть $l=a+ib\ (l\neq\infty)$.
+
+$\mlim{z\to z_0}f(z)=l\ \LRA\ \sys{u(x,y)\to a \\ v(x,y)\to b}$ при $(x,y)\to(x_0,y_0)$
+\end{theor}
+
+\begin{proof}
+$f=u_iv$
+
+$\left.\begin{matrix}|u-a|\\|v-b|\end{matrix}\right]\leq\sqrt{(u-a)^2+(v-b)^2}=|f(z)-l|\leq|u-a|+|v-b|$
+\end{proof}
+
+{\bfseries Следствие:}
+
+Из теоремы вытекают свойства пределов ФКП - те же, что и в вещественном случае.
+
+\begin{theor}[арифметические действия с пределами]
+Пусть $\exists \mlim{z\to z_0}f(z)=A, \mlim{z\to z_0}g(z)=B \then \ldots$
+\end{theor}
+
+\subsection{Непрерывность}
+
+\opr{$f(z)$ $\C$-непрерывна в т. $z_0$ ($z_0$ - предельная точка $E$) $\LRA\ \exists \mlim{z\to z_0}f(z)=f(z_0)$}
+
+В частности, если $z_0\neq\infty,\ f(z_0)\neq\infty$, то $\epsdelta\ \forall z\in E,\ |z-z_0|<\delta\ \then\ |f(z)-f(z_0)|<\e$
+
+\opr{$f(z)$ непрерывна на $E$, если $f(z)$ непрерывна $\forall z\in E$}
+
+\begin{theor}
+$f(z)\ \C$-непрерывна в т. $z_0$ $\LRA$ $\sys{u(x,y)\\v(x,y)}$ - $\R^2$-непрерывна в $(x_0,y_0)$ (следует из т. 4.1))
+\end{theor}
+
+\begin{theor}
+Если $f,g\ \C$-непрерывны в т. $z_0$, то $f\pm g, f*g, \cfrac fg (g(z_0))$ $\C$-непрерывны в $z_0$
+\end{theor}
+
+\begin{theor}
+Если $\zeta=f(z)$ непрерывна в $z_0\in E$, $w=g(\zeta)$ непрерывна в т. $\zeta_0=f(z_0)$, то $F(z)=g(f(z))$ непрерывна в т. $z_0$
+\end{theor}
+
+\opr{f(z) равномерно непрерывна на Е $\LRA\ \epsdelta \forall z_1,z_2\in E\ |z_1-z_2|<\delta\ \then\ |f(z_1)-f(z_2)|<\e$}
+
+\begin{theor}[Кантор]
+Пусть $E$ - ограниченное замкнутое множество. Если $f$ непрерывна на $E\ \then\ f$ равномерно непрерывна на $E$.
+\end{theor}
+
+\subsection{Основные элементарные функции}
+
+\begin{itemize}
+\item[а)] $w=z^n,\ n>1,\ n\in\N$
+
+Определена в $\C$, доопределим в $\CC\colon w(\infty)=\infty$
+
+Неоднолистна (n-листна) в $\C$.
+
+Непрерывна в $\CC$ (см. т. 4.4)
+\item[б)] $w=\sqrt[n]{z}$
+
+Определена в $\CC$
+
+n-значная
+
+Главная ветвь ($k=0$):
+
+$w=\sqrt[n]{|z|}e^{\frac{i\arg z}{n}}$
+
+$w=\arg z$
+
+Определена при $z\neq0,z\neq\infty$
+
+Непрерывна в $\C\smallsetminus\R^+$
+\item[в)] $w=e^z$
+
+$e^z=e^x(\cos y+i\sin y)$
+
+$\nexists\mlim{z\to\infty}e^z$
+
+Периодическая с основным периодом $T_0=2\pi i\ \then$ бесконечнолистна в $\C$
+
+Непрерывна в $\C$
+\item[г)] $w=\Ln z$ ($\LRA e^w=z$)
+
+Бесконечнозначная.
+
+$\Ln z=\ln|z|+i\Arg z=\ln|z|+i(\arg z+2\pi k),\ k\in\Z\ \forall z\in\C\smallsetminus\{0\}$
+
+Главная ветвь: $\ln z=\ln|z|+i\arg z$
+
+Непрерывна в $\C\smallsetminus\R^+$
+\item[д)] Тригонометрические функции:
+
+$\cos z=\frac12(e^{iz}+e^{-iz})$
+
+$\sin z=\frac1{2i}(e^{iz}-e^{-iz})$
+
+$\tg z=\cfrac{\sin z}{\cos z}$
+
+$\ctg z=\cfrac{\cos z}{\sin z}$
+
+Непрерывны на множестве определения.
+
+Имеют место все формулы элементарной тригонометрии.
+\item[е)] Обратные тригонометрические функции
+\item[ж)] Гиперболические функции:
+
+$\ch z=\frac12(e^z+e^{-z})$
+
+$\sh z=\frac12(e^z-e^{-z})$
+
+$\th z,\ \cth z$
+\end{itemize}
+
+\section{Дифференцируемость ФКП}
+
+\subsection{Определение и свойства дифференцируемых функций}
+
+$z_0,z\in E,\ z-z_0=\Delta z$
+
+$f(z)$ - однозначная
+
+$\Delta f(z_0)=f(z)-f(z_0)=f(z_0+\Delta z)-f(z_0)$
+
+\opr{Производная $f(z)$ в т. $z_0$ (по множеству $E$ в т. $z_0$) $f'(z_0)=\mlim{\mat{z\to z_0 \\ z\in E}}\cfrac{f(z)-f(z_0)}{z-z_0}=\mlim{\D z\to 0}\cfrac{\D f(z_0)}{\D z}$ (предел конечный)}
+
+\opr{$f(z)$ дифф-ма в т. $z_0$ $\LRA$ $\D f(z_0)=K\D z+\o(|\D z|)$, где $K\in\C$ и не зависит от $\D z$ (но может зависить от $z_0$)}
+
+$|\D z|=\sqrt{\D x^2+\D y^2}=\rho$, т.е. $\overline{o}(|\D z|)=\overline{o}(\rho)$
+
+{\bfseries Утверждение 1.}
+
+$f(z)$ дифференцируема в $z_0$ $\LRA$ $\exists f'(z_0)$, причём $K=f'(z_0)$
+
+\opr{$f(z)$ дифф. на E $\LRA\ \exists f'(z)\ \forall z\in E$ }
+
+{\bfseries Утверждение 2.}
+\begin{itemize}
+\item[а)] $f(z)=C\then f'(z)=0$
+\item[б)] $(cf(z))'=cf'(z)$
+\item[в)] $(f\pm g)'=f'\pm g'$
+\item[г)] $(fg)'=f'g+fg'$
+\item[д)] $\left(\cfrac fg\right)'=\cfrac{f'(z)g(z)-f(z)g'(z)}{g^2(z)}$
+\end{itemize} при условии, что существуют производные в правых частях.
+
+{\bfseries Утверждение 3.}
+
+$\zeta=f(z)$ - дифференцируема в т. $z_0\in Z$
+
+$w=g(\zeta)$ определена на $G\supset f(E)$
+
+$g(\zeta)$ дифференцируема в $\zeta_0=f(z_0)\then F(z)=g(f(z))$ дифференцируема в т. $z_0$, причём $F'(z_0)=\bigl.g'(\zeta_0)f'(z_0)\bigr|_{\zeta_0=f(z_0)}$
+
+{\bfseries Утверждение 4.}
+
+Пусть $w=f(z)$ - взаимно-однозначное отображение $E$ на $F$, причём обратная функция $z=\phi(w)$ непрерывна. Тогда, если $\exists f'(z_0)\neq0$, то $\exists \phi'(w_0)=\cfrac{1}{f'(z_0)}$
+
+\begin{proof}
+\forcenewline
+
+$\cfrac{1}{\frac{w-w_0}{z-z_0}}=\cfrac{z-z_0}{w-w_0}=\cfrac{\f(w)-\f(w_0)}{w-w_0}$
+
+$\mlim{\D w\to 0}\cfrac{z-z_0}{w-w_0}=\mlim{\D w\to0}\cfrac{\f(w)-\f(w_0)}{w-w_0}=\f'(w_0)=\mlim{\D w\to0}\cfrac{1}{\frac{w-w_0}{z-z_0}}=\mlim{\D z\to0}\cfrac{1}{\frac{w-w_0}{z-z_0}}=\cfrac{1}{\mlim{z\to z_0}\frac{\D w}{\D z}}=\cfrac{1}{f'(z_0)}$
+\end{proof}
+
+\subsection{Необходимое и достаточное условие дифференцируемости ФКП в точке}
+
+\begin{theor}[5.1]
+$f(z)=u+iv$ дифференцируема ($\C$ - дифф.) в т. $z_0=x_0+iy_0$ тогда и только тогда, когда \begin{enumerate}
+\item $u(x,y),v(x,y)-\R^2$ - дифференцируемы в $(x_0,y_0)$
+\item $\sys{\cfrac{\dd u}{\dd x}=\cfrac{\dd v}{\dd y} \\ \cfrac{\dd u}{\dd y}=-\cfrac{\dd v}{\dd x}}$ в $(x_0,y_0)$ - условия Коши-Римана.
+\end{enumerate}
+\end{theor}
+
+\begin{proof}
+\forcenewline
+\begin{itemize}
+\item[а)] Необходимость
+
+$\D f(z_0)=f'(z_0)\D z+o(\rho), \rho \to 0, f'(z_0)=A+iB$
+
+$\D f=\D u+i\D v$
+
+$\D u(x_0,y0)+i\D v(x0,y0)=(A+iB)(\D x+i\D y)+\o_1(\rho)+i\o_2(\rho)$
+
+$\D u=u(x_0+\D x,y_0+\D y)-u(x_0,y_0)$
+
+Отделяем действительные и мнимые части:
+
+$$\sys{\D u=A\D x-B\D y+\o_1(\rho) \\ \D v=B\D x+A\D y+\o_2(\rho)}_{\rho\to 0}$$
+
+Заметим, что $\rho\to 0\ \LRA\ \sys{\rho_1 \to 0 \\ \rho_2 \to 0} \LRA \sys{\D x\to 0 \\ \D y\to 0} \then u(x,y),\ v(x,y)-\R^2$-дифференцируемы в т. $(x_0,y_0)$
+
+Причем $A=\cfrac{\dd u}{\dd x}(x_0,y_0),\ -B=\cfrac{\dd u}{\dd y}(x_0,y_0)$
+
+$B=\cfrac{\dd v}{\dd x}(x_0,y_0),\ A=\cfrac{\dd v}{\dd y}(x_0,y_0)$
+
+\item[б)] достаточность - самостоятельно
+
+$u,v$ дифф-мы и имеют место равенства. пишем условия дифф-сти, бла-бла-бла
+\end{itemize}
+\end{proof}
+{\bfseries Следствие.}
+
+$f'(z_0)=A+iB=\cfrac{\dd u}{\dd x}+i\cfrac{\dd v}{\dd x}=\cfrac{\dd u}{\dd x}-i\cfrac{\dd u}{\dd y}=\cfrac{\dd v}{\dd y}-i\cfrac{\dd u}{\dd y}=\cfrac{\dd v}{\dd y}+i\cfrac{\dd v}{\dd x}$
+
+{\bfseries Задачи.}
+
+1) Доказать, что условия Коши-Римана в полярной системе координат имеют вид:
+$$\sys{\cfrac{\dd u}{\dd r}=\cfrac 1r\cfrac{\dd v}{\dd \f} \\ \cfrac{\dd v}{\dd r}=-\cfrac 1r\cfrac{\dd u}{\dd \f}}$$
+
+2) Условия Коши-Римана $\LRA\ \cfrac{\dd f}{\dd \z}=0$ (если рассматривать $f(z,\z)$) (условие Даламбера-Эйлера)
+
+\section{Аналитические функции и их свойства}
+
+\subsection{Основные определения и свойства аналитических функций}
+
+\opr{$f(z)$ - аналитическая в обл. $D$ ($f\in A(D)$) $\LRA\ \forall z\in D\ \exists$ непрерывная $f'(z)$ }
+\opr{$f\in A(z_0)$, если существует окрестность $U(z_0)\colon f\in A(U(z_0))$}
+\opr{$f\in A(\bar{D})\ \LRA\ \exists D_1\colon \bar{D}\subset D_1,\ f\in A(D_1)$}
+
+{\bfseries Утверждение 1.}
+
+$f\in A(D)\then f\in \C(D)$
+
+Если $f,g\in A(D)$, то
+\begin{itemize}
+\item[a)] $f\pm g\in A(D)$
+\item[b)] $fg \in A(D)$
+\item[c)] $\cfrac fg \in A(D\smallsetminus\{z\colon g(z)=0\})$
+\end{itemize}
+
+{\bfseries Утверждение 2.}
+
+$f\in A(D), G\supset f(E), g\in A(G)\then g(f(z))\in A(D)$
+
+{\bfseries Утверждение 3.}
+
+$w=f(z)\in A(z_0), w_0=f(z_0), f'(z_0)\neq 0 \then z=\f(w)\in A(w_0)$
+
+\subsection{Связь аналитичности с гармоничностью}
+
+\opr{Функция $u(x,y)$ - гармоническая в $D$ ($u\in H(D)$), если а) $u\in\C^2[D]$ и б) $\D u=\cfrac{\dd^2u}{\dd x^2}+\cfrac{\dd^2u}{\dd y^2}=0$ в $D$}
+
+\opr{$u,v$ - сопряжённые, если они удовлетворяют условиям Коши-Римана $$(1)\colon\sys{\cfrac{\dd u}{\dd x}=\cfrac{\dd v}{\dd y} \\ \cfrac{\dd u}{\dd y}=-\cfrac{\dd v}{\dd x}}$$}
+
+{\bfseries Утверждение 4.}
+\begin{itemize}
+\item[а)] $u,v$ - сопряжённые $\then\ u,v\in H(D)$
+\item[б)] $f=u+iv\in A(D)\ \LRA\ u,v$ - сопряжённые гармонические функции в $D$
+\end{itemize}
+
+\begin{proof}
+\begin{itemize}
+\item[а)] Возьмём уравнение (1) и дифференцируем =>
+$\sys{\cfrac{\dd^2u}{\dd x^2}=\cfrac{\dd^2v}{\dd y\dd x} \\ \cfrac{\dd^2u}{\dd y^2}=-\cfrac{\dd^2v}{\dd x\dd y}}$
+ => $\D u=0$ => $u\in H(D)$; аналогично для $v$
+\item[б)] => $f\in A\LRA \sys{u,v\in D(D) \mbox{(дифференцируемые)} \\ \mbox{выполнено}\ (1)}$
+
+<= очевидно
+\end{itemize}
+\end{proof}
+
+\subsection{Задача определения аналитической функции по её части}
+
+{\bfseries Утверждение 5.}
+
+Пусть $u\in H(D)$. Тогда $\E$ единственная с точностью до аддитивной константы $v(x,y)$: $f=u+iv\in A(D)$. В частности, $v(x,y)=\mint{(x_0,y_0)}{(x,y)}-u'_ydx+u'_xdy+C$ (2)
+
+\begin{proof}
+$dv=v'_xdx+v'_ydy=-u'_ydx+u'_xdy$
+
+Убедимся, что имеется полный дифференциал.
+
+$=(u'_y)'_y=-u''_{yy},\ (u'_x)'_x=u''_{xx} \LRA\ u''_{xx}+u''_{yy}=0$, т.к. $u\in H(D)$
+
+$\mint{(x_0,y_0)}{(x,y)}dv=v(x,y)-v(x_0,y_0)$ т.к. результат не зависит от выбора пути интегрирования.
+
+В силу произвольности выбора $(x_0,y_0)\in D$ следует (2)
+\end{proof}
+
+{\bfseries Замечания.}
+\begin{enumerate}
+\item Аналогичное утверждение верно для $v(x,y)=\Im f$. При этом вместо формулы (2) будет что-то другое
+\item Парную функцию можно находить не из (2), а непосредственно из системы (1).
+\item Если $f(z)\neq 0$, то $f(z)=|f(z)|e^{i\Arg f(z)}$
+
+$f\in A\ \LRA\ |f(z)|,\ \Arg f(z)$ - сопряжённые гармонические функции -- неверно!
+\end{enumerate}
+
+\chapter{Конформные отображения}
+
+\section{Геометрический смысл модуля и аргумента производной}
+
+\subsection{Основные понятия конформных отображений}
+
+\opr{Угол между гладкими кривыми, пересекающимися в точке $z_0$ -- это меньший угол между их касательными в этой точке. ($z_0\neq\infty$)}
+
+\opr{Угол между пересекающимися в точке $z_0=\infty$ кривыми - это угол в точке $\zeta_0=0$ между образами кривых при преобразовании $\zeta=\cfrac1z$}
+
+\opr{Непрерывное отображение $f(z)$ называется конформным в точке $z_0$, если оно сохраняет углы между пересекающимися в этой точке гладкими кривыми (по величине и направлению).}
+
+\opr{Отображение $f(z)$ называется конформным в области, если оно конформно во всякой точке этой области и взаимно-однозначно.}
+
+$z_0\in\CC,\ \gamma$ - гладкая кривая: $\gamma\colon z=\lambda{t},t\in[a,b]$
+
+$z_0\in\gamma$, т.е. $\E\ t_0\colon z_0=\lambda{t_0}$
+
+$\lambda'(t_0)$ - вектор касательной к $\gamma$ в точке $z_0$
+
+$\f=\arg \l'(t_0)$ - угол наклона касательной к $\g$ в $z_0$ (т.е. угол между касательной и положительным направлением)
+
+$z\in\g$
+
+$\D z=z-z_0$
+
+$\Gamma=f(\gamma),\ w_0=f(z_0),\ w=f(z);\ w_0,w\in\Gamma;\ \D w=w-w_0$
+
+$\Gamma\colon w=\Lambda(t)=f(\l(t)),\ t\in[a,b]$
+
+$\mlim{\D z\to0}\cfrac{|\D w|}{|\D z|}=k\neq0$ - коэффициент линейного растяжения (сжатия) кривой $\g$ в точке $z_0$ при отображении $f(z)$
+
+\subsection{Геометрический смысл модуля и аргумента $f'(z)$}
+
+Пусть $f\in A(z_0),\ f'(z_0)\neq0$. Тогда можно показать, что $f$ отображает некоторую окрестность точки $z_0$ взаимно-однозначно на окрестность $w_0$.
+
+\begin{theor}[7.1]
+\forcenewline
+
+Пусть $f\in A(z_0),\ f'(z_0)\neq0$, тогда
+\begin{enumerate}
+\item[а)] $|f'(z_0)|$ - коэффициент растяжения в точке $z_0$ при отображении $f$
+\item[б)] $\arg f'(z_0)$ - угол поворота гладкой кривой, проходящей через $z_0$ при отображении $f$
+\item[в)] отображение $f$ конформно в точке $z_0$
+\end{enumerate}
+\end{theor}
+
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item[а)] Т.к. $\E f'(z_0)$, т.е. $\E \mlim{\D z\to0}\cfrac{\D w}{\D z}=f'(z)$. Тогда выполнено следующее равенство:
+$$|f'(z_0)|=\mlim{\D z\to0}\left|\cfrac{\D w}{\D z}\right|=\mlim{\D z\to0}\cfrac{|\D w|}{|\D z|}=k(\neq0)$$
+Причём это равенство независимо от выбора $\g$.
+\item[б)] $\f=\arg \l'(z_)$
+
+$\Phi=\arg\Lambda'(t_0)$
+
+Тогда $\Lambda'(t_0)=f'(z_0)\l'(t_0)\then\arg\Lambda'(t_0)=\arg f'(z_0)+\arg\l'(t_0)$ (при надлежащем выборе промежутка для $\arg$)
+
+$\Phi-\f=\arg f'(z_0)$
+\item[в)] Рассмотрим $\g_1,\g_2$ - две гладкие кривые, проходящие через $z_0$, $\Gamma_1,\Gamma_2$ - их образы, проходящие через $w_0$
+
+$\a=\arg f'(z_0)$
+
+$\sys{\Phi_1-\f_1=\a \\ \Phi_2-\f_2=\a } \then \Phi_1-\Phi_2=\f_1-\f_2$
+\end{enumerate}
+\end{proof}
+
+{\bfseries Замечание.}
+
+Теперь ясно, что коэффициент сжатия не привязан к кривой.
+
+\subsection{Основные свойства конформных отображений}
+
+{\bfseries Утверждение 1.}
+
+Если $f\in A(z_0), f'(z_0)\neq 0$, то отображение $f$ конформно в $z_0$.
+
+{\bfseries Утверждение 2.}
+
+Если $f$ однолистна в $D$, $f\in A(D), f'(z)\neq0 \forall z\in D$, то $f$ конформно отображает $D$.
+
+\begin{theor}[7.1]
+\forcenewline
+
+Пусть $f\in A(D),\ f$ однолистна в $D$, $D$ -- область, тогда $G=f(D)$ -- область.
+\end{theor}
+{\bfseries Замечание.}
+
+Требование $f'(z)\neq0$ можно опустить.
+\begin{theor}[7.2]
+\forcenewline
+
+Пусть $D,G$ -- области в $(z), (w)$ соответственно с границами $\dd D, \dd G$ - замкнутыми контурами и $f\in A(D)\cap C(\bar{D})$. Если $f\colon \dd D\leftrightarrow \dd G$ взаимно-однозначна с сохранением ориентации, то $f$ конформно отображает $D$ на $G$
+\end{theor}
+\begin{theor}[7.3, Риман]
+\forcenewline
+
+Пусть $D$ -- односвязная область в $\CC$, $\dd D$ содержит больше одной точки. Тогда существует конформное отображение $D$ на единичный круг (вообще говоря, не единственное).
+\end{theor}
+
+\section{Дробно-линейные функции}
+
+\subsection{Определение, непрерывность}
+
+\opr{$w=L(z),\ L(z)=\cfrac{az+b}{cz+d},\ a,b,c,d\in \C$ -- дробно-линейная функция. $\D=ad-bc\neq0$}
+
+$z\neq-\cfrac dc\ \then\ \E L^{-1}\colon z=\cfrac{dw-b}{-cw+a}\in\{L\},\ \D^{-1}=\D\neq0$ (2)
+
+$L\colon \C\smallsetminus\left\{-\cfrac dc\right\}\leftrightarrow \C\smallsetminus\left\{\cfrac ac\right\}$ взаимно-однозначно и взаимно непрерывно.
+
+$\sys{w\left(-\cfrac dc\right)=\infty \\ w(\infty)=\cfrac ac} \then L\colon \CC \leftrightarrow \CC$
+
+\subsection{Конформность отображения}
+
+\begin{theor}
+\forcenewline
+
+\begin{enumerate}
+\item $w=L(z)\in A\left(\C \smallsetminus\left\{-\cfrac dc\right\}\right)$
+\item $L\colon \CC\leftrightarrow\CC$ конформно
+\end{enumerate}
+\end{theor}
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item $w'=\cfrac{a(cz+d)-c(az+b)}{(cz+d)^2}=\cfrac {\D}{(cz+d)^2}\neq 0$
+\item $\bsys{\E w'(z)\neq 0, z\neq-\cfrac dc \\ w=L(z) - \mbox{взаимно-однозначно}}\then \mbox{отображение\ конформно\ в\ }\C\smallsetminus\left\{-\cfrac dc\right\}$
+Рассмотрим $z_0=-\cfrac dc$
+
+Пусть гладкие кривые $\g_1, \g_2$ пересекаются в $z_0$ под углом $\f$.
+
+$L(z_0)=w_0=\infty$
+
+$L(\g_1)=\G_1,L(\g_2)=\G_2$
+
+$\G_1,\G_2$ пересекаются в $w_0=\infty$ под углом пересечения их образов $C_1,C_2$ в т. $\zeta_0=0$ при отображении $\zeta=\cfrac 1w$.
+
+$\zeta=\cfrac{cz+d}{az+b}\in\{L\}$ даёт конформное отображение в $z_0=-\cfrac dc$, т.е. угол между $C_1$ и $C_2$ равен $\f$ - углу между $\G_1$ и $\G_2$.
+
+Рассмотрение в $\infty$ сводится к аналогичному доказательству конформности $L^{-1}(w)$ в т. $w_0=\cfrac ac$
+\end{enumerate}
+\end{proof}
+
+\subsection{Групповое свойство}
+
+\begin{theor}[8.2]
+\forcenewline
+
+$\{L\}$ - алгебраическая группа относительно операций суперпозиции
+\end{theor}
+
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item $\F L\in\{L\}\then L^{-1}\in\{L\}$
+\item $\F L_1(\D_1),L_2(\D_2)\in\{L\}\then L_2(L_1(z))(\D=\D_1\D_2\neq0)\in\{L\}$
+\end{enumerate}
+\end{proof}
+
+\subsection{Инвариантность двойного отношения}
+\begin{theor}[8.3]
+\forcenewline
+
+$\F(z_1,z_2,z_3),(w_1,w_2,w_3)$, в каждой из которых нет совпадающих чисел, существует единственное дробно-линейное преобразование, что $w_k=L(z_k),\ k=1,2,3$, причём это $L$ можно получить из отношений
+$$
+\cfrac{z-z_1}{z-z_2}:\cfrac{z_3-z_1}{z_3-z_2}=\cfrac{w-w_1}{w-w_2}:\cfrac{w_3-w_1}{w_3-w_2}\ (3)
+$$
+\end{theor}
+
+\begin{proof}
+\forcenewline
+
+$L_1(z)=\cfrac{z-z_1}{z-z_2}:\cfrac{z_3-z_1}{z_3-z_2}$
+
+$L_2(w)=\cfrac{w-w_1}{w-w_2}:\cfrac{w_3-w_1}{w_3-w_2}$
+
+$(3) \LRA L_1(z)=L_2(w) \LRA w=L^{-1}_2(L_1(z))$ по т. 8.2
+
+$w=L(z),\ L\in\{L\}$
+
+Единственность: Пусть существует $F\colon F(z_k)=w_k,\ k=1,2,3$
+
+$L^{-1}$ - дробно-линейная
+
+$\cfrac{az_k+b}{cz_k+d}=z_k$
+
+$cz_k^2+(d-a)z_k-b=0$, $k=1,2,3 \then $ квадратный многочлен с тремя корнями тождественно равен нулю, $\sys{c=0 \\ d=a \\ b=0}$, т.е. $L(z)=\cfrac{az+b}{cz+d}\equiv z \LRA F=L$
+\end{proof}
+
+{\bfseries Замечание.}
+
+В (3) - равенство т.н. двойных отношений, т.е. инвариантность относительно дробно-линейного преобразования.
+
+\subsection{Круговое свойство}
+
+\begin{theor}[8.4]
+\forcenewline
+
+Дробно-линейное преобразование переводит множество прямых либо окружностей в (возможно, другое) множество прямых либо окружностей.
+\end{theor}
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item Для линейного отображения $w=l(z)$ - очевидно.
+\item Рассмотрим преобразование $w=\Lambda(z)\equiv \cfrac 1z$.
+
+Ранее было доказано, что уравнение
+$$
+(4)\ Az\z+\bar{B}z+B\z+D=0\ (B\bar{B}-AD>0)
+$$
+это уравнение окружности ($A\neq0$) или прямой ($A=0$).
+
+$w=\cfrac 1z \LRA z=\cfrac 1w \LRA \bar{z}=\cfrac {1}{\bar{w}} \then (4)$
+
+$Dw\bar{w}+Bw+\bar{B}\bar{w}+A=0\ (5)$
+
+$B\bar{B}-AD>0$
+
+т.е. (5) описывает множество прямых либо окружностей.
+\item $L(z)=\cfrac{az+b}{cz+d}=\cfrac ac \cfrac {z+\frac ba+\frac dc-\frac dc}{z+\frac dc}=\cfrac ac\left(1+\cfrac{\frac ba-\frac dc}{z+\frac dc}\right)=\cfrac ac\left(1+\cfrac{bc-ad}{a(cz+d)}\right)$ ($a\neq 0,\ c\neq 0$)
+
+$\bsys{w_1=l_1=cz+d \\ \L=\cfrac {1}{w_1}(=w_2) \\ w=l_2(w_2)}\then L=l_2\L l_1(z)$
+\end{enumerate}
+\end{proof}
+
+\subsection{Сохранение симметрии}
+
+\opr{$z_1, z_2$ -- симметричное отношение прямой $l$, если $l$ - срединный перпендикуляр к отрезку с концами в $z_1, z_2$}
+\opr{$z_1, z_2$ симметричны (сопряжены) относительно окружности $\g$, если
+\begin{enumerate}
+\item $z_1, z_2$ лежат на одном луче, исходящем из центра $z_0$ окружности $\g$
+\item $|z_1-z_0||z_2-z_0|=R^2$
+\end{enumerate}
+Обозначение: $z_1=z_2^*$}
+
+{\bfseries Утверждение 1 (свойства симметрии).}
+
+Пусть $z_1, z_2$ симметричны относительно прямой либо окружности.
+\begin{enumerate}
+\item[а)] $(z^*)^*=z$
+\item[б)] $z=z^* \LRA z\in l/\g$, иначе они расположены по разные стороны $l/\g$
+\item[в)] $\g\colon$ Если $z\to z_0$, то $z^*\to\infty$, т.е. $z_0$ и $\infty$ симметричны (сопряжены) относительно окружности любого радиуса.
+\end{enumerate}
+
+{\bfseries Лемма.}
+
+$z_1, z_2$ симметричны относительно прямой либо окружности тогда и только тогда, когда любая обобщённая окружность (т.е. окружность либо прямая), проходящая через $z_1, z_2$, ортогональна к $l(\g)$
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item В случае прямой доказательство очевидно.
+\item Рассмотрим произвольную окружность, проходящую через две эти точки. Проведём из $z_0$ касательную к этой окружности, $M$ - точка касания. Из элементарной геометрии следует, что $OM^2=|z-z_0||z^*-z_0|=R^2 \then OM=R \then \g\perp k$
+
+... доказательство геометрическое, см. учебник
+\end{enumerate}
+\end{proof}
+
+\begin{theor}[8.5]
+\forcenewline
+
+Пусть $z,z^*$ симметричны относительно обобщённой окружности $\g$
+
+$\Gamma=L(\g), w=L(z), w_1=L(z^*) \then w_1=w^*$ (относительно $\Gamma$)
+\end{theor}
+
+\begin{proof}
+\forcenewline
+
+$\g,z,z^*$
+
+$L\colon \Gamma,w,w_1$
+
+Рассмотрим в плоскости $(w)$ произвольную окружность $K\ni w,w_1$.
+
+Пусть $k=L^{-1}(K)$, тогда по лемме $k$ - прямая/окружность
+
+$z,z^*\in k\then \g\perp k$. Тогда, в силу конформности $L$, $\Gamma\perp K \then w_1=w^*$
+\end{proof}
+
+\section{Степенная функция и обратная к ней}
+
+\subsection{Степенная функция}
+
+\opr{Степенная функция: $w=z^n, n\in \N, n>1$ (1)}
+{\bfseries Утверждение 1.}
+
+Степенная функция:
+\begin{enumerate}
+\item Непрерывна в $\CC$
+\item Аналитична в $\CC$
+\item Конформна в любой точке $z\in\C,z\neq0$
+\item Конформно отображает $\{\a<\arg z<\b\}\ (0<\b-\a<\frac{2\pi}{n}$, в частности, $D_k=\left\{\cfrac{2(k-1)\pi}{n}<\arg z<\cfrac{2\pi k}{n}\right\}\to G=\C\smallsetminus\R^+$
+\end{enumerate}
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item $w(\infty)=\infty$ - доопределим до непрерывности. В т. $z\neq\infty$ непрерывность очевидна
+\item $\F z\in\C\ \E w'=nz^{n-1}$ непрерывна в $\C\then w\in A(\C)$
+\item $w'=0\LRA z=0$
+
+$\forall z\neq0\ w'\neq0\then$ конформна в т. $z$
+\item конф. в обл.
+
+Область однолистна
+
+$z_1\neq z_2\then w_1\neq w_2$
+
+$z_1^n=z_2^n\LRA |z_1|^ne^{i(\arg z_1)n}=|z_2|^ne^{i(\arg z_2)n}\LRA\sys{|z_1|=|z_2| \\ \arg z_1-\arg z_2=\cfrac{2\pi k}{n}}\then \{\a<\arg z<\b\}, \b-\a\leq \cfrac{2\pi}{n}$ - множество однолистности
+
+$\sys{z=|z|e^{i\arg z}\\w=z^n=|w|e^{i\arg w}=|z|^ne^{i(\arg z)n}}\then\sys{|w|=|z|^n \\ \arg w=n\arg z}$
+\end{enumerate}
+\end{proof}
+
+\subsection{Функция $w=\sqrt[n]{z}$}
+
+\opr{$w=\sqrt[n]{z}\LRA z=w^n,n\in N, n>1$}
+\opr{Однозначная аналитическая в $D$ функция $f(z)$ - регулярная однозначная ветвь многозначной функции $F(z)$ в $D$, если $\F z\in D$ значение $f(z)$ совпадает с одним из значений $F(z)$.}
+{\bfseries Утверждение 2.}
+
+Функция $w=\sqrt[n]{z}\ \F z\in\CC,z\neq 0;\infty$ имеет $n$ значений. В области $G=\C\smallsetminus\R^+$ допускает выделение $n$ однозначных регулярных ветвей $w_k$, причём $w_k\in A(G)$
+
+$w_k'=\cfrac{1}{n(\sqrt[n]{z})^{n-1}_k}$, $w_k$ конформно отображает $G$ на $D_k$=$\left\{\cfrac{2\pi(k-1)}{n}<\arg w<\cfrac{2\pi}{n}k\right\}$
+
+\begin{proof}
+\forcenewline
+
+$w(0)=0, w(\infty)=\infty$
+
+$w=\sqrt[n]{z}=\sqrt[n]{|z|}e^{\cfrac{i\arg z+2\pi k}{n}}$
+
+Фиксируем $k$. Выделяем однозначную ветвь $w_k=\left(\sqrt[n]{z}\right)_k$
+
+По теореме о производной обратной функции
+
+$w_k'=\cfrac{1}{nw^{n-1}}=\cfrac{1}{n\left(\sqrt[n]{z}\right)^{n-1}_k}\neq 0$ (4) $\F z\in\C\smallsetminus\R^+$ непрерывна в $G$.
+
+Из (4) следует конформность отображения $w_k(z)\ \F z\in G$. Т.к. отображение взаимно-однозначно, то $w_k$ конформно в области $G$.
+\end{proof}
+
+\section{Показательная функция и обратная к ней}
+
+\subsection{Показательная функция}
+
+\opr{$e^z=e^x(\cos y+i\sin y)$}
+{\bfseries Утверждение.}
+\begin{enumerate}
+\item $e^z\in A(\C)$
+\item Осуществляет конформное отображение $\F z\in\C$
+\item Конформно отображает $\{y<\Im z<y+2\pi\}$. В частности, $D_k=\{2\pi <\Im z<2\pi(k+1)$ отображается конформно на $G=\C\smallsetminus\R^+$
+\end{enumerate}
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item $(e^z)'=e^z\neq0\ \F z\in\C$
+\end{enumerate}
+\end{proof}
+
+\subsection{Логарифмическая функция}
+
+\opr{$w=\Ln z \LRA z=e^W$}
+
+$\Ln z=\ln|z|+i\Arg z=\ln |z|+i(\arg z+2\pi k), k\in\Z$ (2)
+
+{\bfseries Утверждение 2.}
+
+Логарифмическая функция, определённая (2), $\F z\neq0$ является бесконечнозначной.
+
+На множестве $G=\C\smallsetminus\R^+$ допускает выделение регулярных однозначных ветвей.
+
+$w_k=(\Ln z)_k, w_k\in A(G)$, конформно отображает $G\to D_k$
+
+$w_k'=\cfrac 1z\ \F z\in\C, z\neq0$
+
+\chapter{Интегрирование функций комплексных переменных}
+
+\section{Определение и свойства интегралов функций комплексных переменных}
+
+\subsection{Изначальное определение}
+
+Пусть $\g$ - кусочно-гладкая простая кривая без особых точек.
+
+$\g\colon\sys{z=z(t)\\t\in[\a,\b]}\ (1)$
+
+$A=z(\a),\ B=z(\b)$
+
+$f(z)$ - однозначная ФКП $z\in\g$
+
+$T\colon z_0=A,z_1,\ldots,z_n=B$
+
+$z_k\in\g$
+
+$\g=\overset{n}{\underset{k=1}{\cup}}\g_k$
+
+$\D z_k=z_k-z_{k-1}$
+
+$|\D z_k|=|z_k-z_{k-1}|=s_k$
+
+$\l(T)=\underset{k}{\max}s_k$
+
+$\zeta_k\in\g_k$
+
+$\{\zeta_k\}$
+
+Интегральные суммы:
+
+$S(f,T)=\msum{k=1}{n}f(\zeta_k)\D z_k\ (2)$
+
+$S_1(f,T)=\msum{k=1}{n}f(\zeta_k)|\D z_k|\ (3)$
+
+$\mlim{\l(T)\to 0}S(f,T)=\mint{\g}{} f(z)dz\ (4)$
+
+$\mlim{\l(T)\to 0}S_1(f,T)=\mint{\g}{} f(z)|dz|=\mint{\g}{} f(z)ds\ (5)$
+
+Если существуют конечные пределы (4), (5), не зависящие от способа разбиения и выбора $\{\zeta_k\}$ - это интеграл и интеграл первого рода $f(z)$ по $\g$.
+
+\begin{theor}[11.1]
+\forcenewline
+
+Пусть $\g$ - гладкая кривая, $f=u+iv$ - непрерывная на $\g$ функция. Тогда существуют интегралы (4), (5), причём справедливы равенства:
+
+$\mint{\g}{}f(z)dz=\mint{\g}{}(udx-vdy)+i\mint{\g}{}(vdx+udy)\ (6)$
+
+$\mint{\g}{}f(z)dz=\mint{\a}{\b}f(z(t))z'(t)dt\ (7)$
+
+$\mint{\g}{}f(z)|dz|=\mint{\g}{}uds+i\mint{\g}{}vds\ (8)$
+
+$\mint{\g}{}f(z)|dz|=\mint{\a}{\b}f(z(t))|z'(t)|dt\ (9)$
+\end{theor}
+\begin{proof}
+\forcenewline
+
+(6): $S(f,T)=\msum{k=1}{n}f(\zeta_k)\D z_k=\msum{k=1}{n}(u_k+iv_k)(\D x_k+i\D y_k)=\msum{k=1}{n}(u_k\D x_k-v_k\D y_k)+i\msum{k=1}{n}(v_k\D x_k+u_k\D y_k)$
+
+$|\D z_k|\to 0 \LRA\sys{\D x_k\to 0 \\ \D y_k\to 0}\then \mlim{\l(T)\to 0}S(f,T)=\mint{\g}{}(udx-vdy)+i\mint{\g}{}(vdx+udy)$
+
+(7): используя параметризацию (1), получаем:
+
+$(7)=\mint\a\b(u(x(t),y(t))x'(t)-v(x(t),y(t))y'(t))dt+i\mint\a\b(u(x(t),y(t))y'(t)+v(x(t),y(t))x'(t))dt=\mint\a\b(u+iv)(x'+iy')=\mint\a\b f(z(t))z'(t)dt$
+
+(8): $S_1(f,T)=\msum{k=1}{n}f(\zeta_k)|\D z_k|=\msum{k=1}{n}(u_k+iv_k)s_k=\msum{k=1}{n}u_ks_k+i\msum{k=1}{n}v_ks_k$
+
+(9): $|z_k|=s_k=\sqrt{\D x_k^2+\D y_k^2}$
+
+$ds=\sqrt{dx^2+dy^2}=\sqrt{(x'(t))^2+(y'(t))^2}dt=|z'(t)|dt$
+
+При $\l(T)\to 0$ получаем требуемое равенство.
+\end{proof}
+
+\begin{theor}[11.2]
+\forcenewline
+\begin{enumerate}
+\item[а)] $\mint{\g(A\to B)}{}f(z)dz=-\mint{\g^{-1}(B\to A)}{}f(z)dz$
+
+$\mint{\g}{}f(z)|dz|$ не зависит от направления интегрирования
+\item[б)] Если $\g_1,\g_2$ составляют $\g$ без наложения, то $\mint{\g}{}f(z)dz=\mint{\g_1}{}f(z)dz+\mint{\g_2}{}f(z)dz$, причём интегралы в левой и правой частях существуют одновременно.
+\item[в)] $\F a,b\in\C,\ f,g$ интегрируемы по $\g\then \mint{\g}{}(af(z)+bg(z))dz=a\mint{\g}{}f(z)dz+b\mint{\g}{}g(z)dz$
+\item[г)] $f(z)$ интегрируема на $\g \then |f(z)|$ интегрируема на $\g$ и $\left|\mint{\g}{}f(z)dz\right|\leq\mint{\g}{}|f(z)||dz|\ (10)$
+\end{enumerate}
+\end{theor}
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item[а)] Следует из теории вещественных криволинейных интегралов
+\item[б)] Следует из теории вещественных криволинейных интегралов
+\item[в)] Следует из теории вещественных криволинейных интегралов
+\item[г)] Следует из теории торсионных полей
+
+$f\in C(\g)\then |f|\in C(\g)$, т.е. $|f(z)|$ интегрируема на $\g$. (10) следует из неравенства:
+
+$|S(f,T)|=|\msum{k=1}{n}f(\zeta_k)\D z_k| \leq |f(\zeta_k)||\D z_k|=S_1(|f|, T)$ и предельного перехода.
+\end{enumerate}
+\end{proof}
+{\bfseries Следствие 1.}
+
+$|f(z)|\leq M \F z\in\g$, длина $\g=L\then |\mint{\g}{}f(z)dz|\leq ML$
+\begin{proof}
+$\left|\mint{\g}{}f(z)dz\right|\leq\mint{\g}{}|f(z)||dz|\leq M\mint{\g}{}ds=ML$
+\end{proof}
+{\bfseries Следствие 2.}
+
+Интеграл и интеграл первого рода от $f(z)$ по $\g$ существует и имеет те же свойства, если $\g$ -- кусочно-гладкая кривая и $f(z)$ -- кусочно-непрерывная
+
+{\bfseries Замечание.}
+
+Формула среднего значения для интеграла ФКП, вообще говоря, не верна.
+
+Контрпример: $\g\colon[0,2\pi]\subset\R,\ f(z)=e^{iz}$
+
+$\mint{\g}{}f(z)dz=\mint{0}{2\pi}e^{ix}dx=\mint{0}{2\pi}\cos xdx+i\mint{0}{2\pi}\sin xdx=0$
+
+Предположим, что $\E\zeta\colon\mint{\g}{}e^{iz}=e^{i\zeta}\mint{\g}{}dz\neq0$ - противоречие.
+
+\section{Интегральная теорема Коши}
+
+\subsection{Случай односвязной области}
+
+\begin{theor}
+Пусть $f\in A(D),\ \g$ - замкнутый контур в $D$. Тогда $\moint\g f(z)dz=0$ (1)
+\end{theor}
+\begin{proof}
+Из теоремы 11.1: $\moint\g f(z)dz=\moint\g udx-vdy+i\moint\g vfx+udy=I_1+I_2$
+
+$G=\Int \g$
+
+$f\in A(D)\then \E f'(z)\in C(D)$
+
+Используем формулу Грина:
+
+$I_1=\moint\g udx-vdy=\underset{\bar{G}}{\iint}(-\cfrac{\dd v}{\dd x}-\cfrac{\dd u}{\dd y})dxdy=0$ (по усл. К/Р)
+
+$I_2=\moint\g vdx+udy=\underset{\bar{G}}{\iint}(\cfrac{\dd u}{\dd x}-\cfrac{\dd v}{\dd y})dxdy=0$ (по усл. К/Р)
+\end{proof}
+
+{\bfseries Следствия.}
+\begin{enumerate}
+\item $f\in A(D)\then\moint{\dd D}f(z)dz=0$
+\item $f\in A(D)\then\F z_1,z_2\in D\  \mint{z_1}{z_2}f(z)dz$ не зависит от пути интегрирования (лежащего в $D$)
+\end{enumerate}
+
+\subsection{Случай неодносвязной области}
+
+\begin{theor}
+Пусть $D--n$-связная область с границей $\dd G=\G\cup\g_1\cup\ldots\cup\g_{n-1}$, ориентированной положительно относительно $D$, и $f\in A(\bar{D})$. 
+
+Тогда $\moint{\dd D}f(z)dz=0$, т.е. $\moint{\G}f(z)dz+\msum{k=1}{n-1}\moint{\g_k}f(z)dz=0$
+\end{theor}
+\begin{proof}
+Проведём доказательство для 2-х связной области, далее - по индукции.
+
+$A\in\G,\ B\in\g_1$
+
+Сделаем разрез по $AB$, тогда область односвязна. По теореме 12.1
+
+$\moint{\G}f(z)dz+\moint{AB}f(z)dz+\moint{\g_1}f(z)dz+\moint{BA}f(z)dz=0$, но $\moint{AB}f(z)dz=-\moint{BA}f(z)dz\then\mint{\dd D}{}f(z)dz=0$
+\end{proof}
+
+{\bfseries Следствие.}
+В условиях т. 12.2
+
+$\moint{\G}f(z)dz=\msum{k=1}{n-1}\moint{\g_k}f(z)dz$, (4)
+
+где во всех интегралах интегрирование в одном и том же направлении.
+
+\section{Интегральная формула Коши}
+
+\subsection{И.Ф.К.}
+
+\begin{theor}
+Пусть $f\in A(D),\ \g$ - замкнутый контур. Тогда $\F z_0\in\Int\g\subset D:$
+
+$f(z_0)=\cfrac{1}{2\pi i}\moint{\g}\cfrac{f(z)}{z-z_0}dz$
+\end{theor}
+\begin{proof}
+Так как $z_0$ внутри $D$, то существует $\g_\rho\colon|z-z_0|=\rho,\ \g_\rho\subset\Int\g$, тогда
+
+$\moint{\g}\cfrac{f(z)}{z-z_0}dz=\moint{\g_\rho}\cfrac{f(z)}{z-z_0}$
+
+$\moint{\g_\rho}\cfrac{dz}{z-z_0}=2\pi i$
+
+$\moint{\g_\rho}\cfrac{f(z)}{z-z_0}dz-2\pi if(z_0)=\moint{\g_\rho}\cfrac{f(z)}{z-z_0}-\moint{\g_\rho}\cfrac{z_0}{z-z_0}dz=\moint{\g_\rho}\cfrac{f(z)-f(z_0)}{z-z_0}dz=$
+
+$=\{z\in\g_\rho \LRA z=z_0+\rho e^{i\f}\}=\mint{0}{2\pi}\cfrac{f(z_0+\rho e^{i\f})-f(z_0)}{\rho e^{i\f}}i\rho e^{i\f}d\f=i\mint{0}{2\pi}(f(z)-f(z_0))d\f$
+
+$\left|\moint{\g_\rho}\cfrac{f(z)}{z-z_0}dz-2\pi if(z_0)\right|=\left|i\mint{0}{2\pi}(f(z)-f(z_0))d\f\right|\leq\mint{0}{2\pi}\left|f(z)-f(z_0)\right|d\f<\mint{0}{2\pi}\cfrac{\varepsilon}{2\pi}d\f=\cfrac{\varepsilon}{2\pi}2\pi=\varepsilon$
+
+Т. о. доказано, что существует $\mlim{\rho\to0}\moint{\g_\rho}\cfrac{f(z)}{z-z_0}dz=2\pi if(z_0)$ - не зависит от $\rho$
+\end{proof}
+
+{\bfseries Следствие 1 (формула среднего значения).}
+
+Пусть $\g_R=\{z\colon|z-z_0|=R\},\ \overline{\Int\g_R}\subset D,\ f\in A(D)$. Тогда 
+
+$f(z_0)=\cfrac{1}{2\pi}\mint{0}{2\pi}f(z_0+Re^{i\f})d\f$
+
+$f(z_0)=\cfrac{1}{2\pi R}\moint{\g_R}f(z)ds$
+\begin{proof}
+По (1) $f(z_0)=\cfrac{1}{2\pi i}\moint{\g_R}\cfrac{f(z)}{z-z_0}dz=\{z=z_0+Re^{i\f}\}=\cfrac{1}{2\pi i}\mint{0}{2\pi}\cfrac{f(z_0+Re^{i\f})}{Re^{i\f}}iRe^{i\f}d\f=\cfrac{1}{2\pi}\mint{0}{2\pi}f(z_0+Re^{i\f})d\f$
+\end{proof}
+
+{\bfseries Следствие 2.}
+
+$\moint{\g}\cfrac{f(z)}{z-z_0}dz=\sys{2\pi if(z_0),\ z_0\in\Int \g \\ 0, z_0\in\Ext\g}$
+
+\subsection{Принцип max модуля аналитической функции}
+
+\begin{theor}
+Пусть $f\in A(D),\ f\not\equiv const$. Тогда $\underset{z\in D}{\max}|f(z)|$ не может достигаться во внетренней точке $D$.
+\end{theor}
+\begin{proof}
+Пусть $\E z_0\in D\colon\underset{z\in D}{\max}|f(z)|=|f(z_0)|=M \then \E K_0=\{|z-z_0|\leq R\}\subset D$
+
+По (3) $M=|f(z_)|=\cfrac{1}{2\pi}\left|\mint{0}{2\pi}f(z_0+Re^{i\f})d\f\right|\leq\cfrac{1}{2\pi}\mint{0}{2\pi}|f(z_0+Re^{i\f}|d\f\leq\cfrac{1}{2\pi}M2\pi=M$
+$\LRA$
+$\mint{0}{2\pi}|f(z)|d\f=2\pi M$
+$\LRA$
+$\mint{0}{2\pi}(M-|f(z)|)d\f=0$
+
+$g(\f)=M-|f(z_0+Re^{i\f})|\geq 0$ -- действительная непрерывная функция параметра $\f$ на $[0,2\pi]$
+
+$\then M-|f(z)|=0\ \F z\in\g_R \then |f(z)|=M\ \F z\in\g_R$. То же верно для $\F \g_r,\ r<R \then |f(z)|\equiv M\ \F z\in K_0$
+
+Покажем теперь, что $|f(z)|\equiv M\ \F z\in D$
+
+Для любой $z^*\in D$ существует непрерывная кривая $l\subset D$, соединяющая $z_0$ с $z^*$.
+
+Рассмотрим т. $z_1=\g_R\cap l\in D$
+
+$\E K_{R_1}=\{|z-z_1|\leq R_1\}\subset D$
+
+$|f(z_1)|=M\then |f(z)|=M\ \F z\in K_{R_1}$
+
+$z_2=\g_{R_1}\cap l,\ \E K_{R_2}\ldots$
+
+За конечное число шагов получаем $K_{R_n}=\{|z-z_n|\leq R_n\}\subset D$
+
+$|f(z_n)|=M,\ z^*\in K_{R_n} \then |f(z^*)|=M$
+
+Если $\rho(l,\dd D)=\d$, то можно взять все $R_k>\cfrac\d2>0$
+
+Теперь докажем, что $f(z)\equiv const$ в $D$.
+
+$|f(z)|^2=u^2+v^2=M^2$
+
+$\sys{2uu_x'+2vv_x'=0 \\ 2uu_y'+2vv_y'=0}$
+
+$v_x'=-u_y',\ v_y'=u_x'$
+
+$\sys{uu_x'-vu_y'=0 \\ uu_x'+vu_y'=0}$ - линейна относительно $(u_x', u_y')$.
+
+$\D =u^2+v^2=M^2$
+
+$M=0\LRA |f(z)|\equiv 0\LRA f(z)\equiv 0$
+
+$M>0\then\sys{u'_x=0 \\ u'_y=0}\then u=const\then$(из условий К-Р) $v=const\then f=const$
+\end{proof}
+{\bfseries Следствие 1.}
+
+Пусть $D$ ограничено, $\dd D$ -- граница, $f\in A(D)\cap C(\bar{D})$. Тогда $\mmax{\bar{D}}|f(z)|=\mmax{\dd D}|f(z)|$
+\begin{proof}
+$f$ непрерывна в $\bar{D}$, следовательно, $|f|$ непрерывен в $\bar{D}$. $D$ - ограниченная замкнутая область, следовательно, $f$ достигает своё максимальное значение. Но это значение не может достигаться внутри области, следовательно, оно достигается на границе.
+\end{proof}
+{\bfseries Следствие 2.}
+
+Пусть $D$ ограничено, $f_1,f_2\in A(D)\cap C(\bar{D})$. Если $f_1(z)=f_2(z)\F z\in\dd D$, то $f_1(z)\equiv f_2(z)\F z\in D$
+\begin{proof}
+$f(z)=f_1(z)-f_2(z)$ и применяем следствие 1.
+\end{proof}
+{\bfseries Следствие 3.}
+Пусть $f\in  A(D),f\neq const,f\neq 0\F z\in D$. Тогда $\mmin{D}|f(z)|$ не может достигаться во внутренней точке $D$
+\begin{proof}
+$\cfrac{1}{f(z)}\in A(D);\ \max\left|\cfrac{1}{f(z)}\right|=\cfrac{1}{\min|f(z)|}$
+\end{proof}
+
+\section{Интеграл типа Коши. Бесконечная дифференцируемость аналитической функции.}
+
+\subsection{Интеграл типа Коши}
+
+\opr{$g(z)=\cfrac 1{2\pi i}\mint{\g}{}\cfrac{f(\zeta)}{\zeta-z}d\zeta,\ \g$ -- кусочно-гладкая кривая, $f\in C(\g)$}
+
+\begin{theor}
+Пусть $\g$ -- кусочно-гладкая кривая, $f\in C(\g)$. Тогда
+\begin{enumerate}
+\item[а)] $g(z)\in A(\C\smallsetminus\g)$
+\item[б)] $\F n\in N\ \E g^{(n)}(z)=\cfrac{n!}{2\pi i}\mint{\g}{}\cfrac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta$
+\end{enumerate}
+\end{theor}
+\begin{proof}
+\forcenewline
+\begin{enumerate}
+\item[а)] следует из б) ($n=1,2$) ($\then$ непрерывна $f'(z)\F z\in \C\smallsetminus\g$)
+\item[б)] индукция по $n$
+
+$n=1$ Докажем, что $g'=\cfrac{1}{2\pi i}\mint{\g}{}\cfrac{f(\zeta)}{(\zeta-z)^{2}}d\zeta$
+
+$\F z\notin\g\ \E U(z),\ \rho(\overline{U(z)},\g)=d>0$
+
+Возьмём $z+\D z\in U(z)$
+
+$$\cfrac1{\D z}(g(z+\D z)-g(z))-\cfrac{1}{2\pi i}\mint{\g}{}\cfrac{f(\zeta)}{(\zeta-z)^{2}}d\zeta=$$
+
+(ИФК: $f(z_0)=\cfrac{1}{2\pi i}\moint{\g}{}\cfrac{f(z)}{z-z_0}dz$)
+
+$$=\cfrac1{2\pi i\D z}\mint{\g}{}\left(\cfrac{f(\zeta)}{\zeta-z-\D z}-\cfrac{f(\zeta)}{\zeta-z}\right)d\zeta-\cfrac{1}{2\pi i}\mint{\g}{}\cfrac{f(\zeta)}{(\zeta-z)^{2}}d\zeta=\cfrac1{2\pi i}\mint{\g}{}f(\zeta)\left(\underset{=B_1}{\underbrace{\cfrac1{\D z}\left(\cfrac1{\zeta-z-\D z}-\cfrac1{\zeta-z}\right)-\cfrac1{(\zeta-z)^2}}}\right)d\zeta$$
+
+$$B_1=\cfrac1{\D z(\zeta-z)}\left(\cfrac1{1-\frac{\D z}{\zeta-z}}-1\right)-\cfrac1{\zeta-z}^2\underset{\D z\to 0}{=}\cfrac1{\D z(\zeta-z)}\left(1+\cfrac{\D z}{\zeta-z}+O\left(\left(\cfrac{\D z}{\zeta-z}\right)^2\right)-1\right)-\cfrac1{(\zeta-z)^2}=O\left(\cfrac{\D z}{(\zeta-1)^3}\right)$$
+\{списать у Тани\}
+
+Переход $(n-1)\to n$
+
+\{тоже списать у Тани\}
+\end{enumerate}
+\end{proof}
+
+\subsection{}
+
+\begin{theor}
+$f\in A(D)\then \F z\in D\ \F n\in\N\ \E f^{(n)}(z)=\cfrac{n!}{2\pi i}\moint{\g}\cfrac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta$, где $\g$ - произвольный замкнутый контур.
+\end{theor}
+\begin{proof}
+$\F z\in D,\F \G \then$ инт. Коши $f(z)=\cfrac{1}{2\pi i}\moint{\g}\cfrac{f(\zeta)}{\zeta-z}d\zeta$
+
+инт. Коши $\then$ интеграл типа Коши $\then$ 13.1
+\end{proof}
+{\bfseries Следствие 1 (оценка Коши для производных)}
+
+$K_R=\{\zeta\colon|\zeta-z|\leq R\},\ \g_R=\{\zeta\colon|\zeta-z|=R\}$
+
+$f\in A(\bar{K_R}),\ \mmax{\zeta\in\g_R}|f(\zeta)|=M_R$
+
+Тогда $|f^{(n)}(z)|\leq\cfrac{n!M_R}{R^n}$
+\begin{proof}
+По (5) $|f^{(n)}(z)|=|\cfrac{n!}{2\pi i}\mint{\g_R}{}\cfrac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta|\leq \cfrac {n!}{2\pi}\mint{\g_R}{}\cfrac{|f(\zeta)|}{|\zeta-z|^{n+1}}d\zeta\leq\cfrac{n!M_r}{2\pi}\cfrac1{R^{n+1}}\mint{\g_R}{}d\zeta=\cfrac{M_Rn!}{R^{n+1}}$
+\end{proof}
+
+\subsection{Теорема Лиувилля и её следствия}
+
+\opr{Однозначная функция $f(z)$ называется целой, если $f\in A(\C)$}
+\begin{theor}[Лиувилль]
+Если $f\in A(\C),\ |f(z)|\leq M\ \F z\in \C$, то $f=const$
+\end{theor}
+\begin{proof}
+$\F z\in\C$, рассмотрим $\g_R$ с центром в точке $z$. По (6) $|f'(z)|\leq \cfrac MR\underset{R\to\infty}{\to} 0 \then |f'(z)|=0 \LRA f'(z)=0$
+
+$f'(z)=u'_x+iv'_x=0\LRA \sys{u'_x=0 \\ v'_x=0} \then \sys{v'_y=0 \\ u'_y=0}$
+\end{proof}
+{\bfseries Следствие (основная теорема высшей алгебры).}
+
+Многочлен $P_n(z)=a_0z^n+\ldots+a_n,\ a_k\in\C$ имеет хотя бы один корень в $\C$.
+\begin{proof}
+От противного. Пусть $P_n(z)\neq0\ \F z\in\C$. Рассмотрим $f(z)=\cfrac 1{P_n(z)}$. $f\in A(\C),\ f(z)$ ограничена в $C$.
+
+Из того, что $|P_n(z)|\underset{z\to\infty}{\to}\infty$, следует $|f(z)|\underset{z\to\infty}{\to}0$
+
+$|f|\leq M$, тогда по т. Лиувилля $f=const$ - противоречие.
+\end{proof}
+
+\section{Первообразная и неопределённые интегралы. Теорема Морера}
+
+\subsection{ }
+
+\begin{theor}
+$f\in C(D)$, для любого замкнутого контура $\g\subset D$
+
+$\moint{\g}f(\zeta)d\zeta=0$ $(1)$
+
+Тогда
+
+$F(z)=\mint{z_0}{z}f(\zeta)d\zeta$ $(2)$
+
+$F(z)\in A(D)\ \F z_0\in D$, причём $F'(z)=f(z)$
+\end{theor}
+\begin{proof}
+Из условия (1) следует, что (2) не зависит от пути интегрирования, соединяющего $z_0$ и $z$, т.е. $F(z)$ -- однозначная функция $z$.
+Зафиксируем $z_0,\ \F$
+\end{proof}
+
+\chapter{Ряды аналитических функций}
+
+\section{Равномерно сходящиеся функциональные ряды}
+
+\subsection{Основные определения}
+
+\opr{ФР -- $\msum{n=1}{\infty}f_n(z)\ (1),\ f_n(z)$ -- однозначные функции.}
+
+\opr{ФР $(1)$ сходится в точке $z_0\LRA$ сходится числовой ряд $\msum{n=1}{\infty}f_n(z_0)$}
+
+\opr{Множество точек, где сходится $(1)$ -- множество сходимости ФР -- $E$}
+
+$\F z_0\in E\ \E$ сумма (2).
+
+На $E$ определена однозначная функция $f(z)$
+
+\opr{ФР $(1)\underset{E_0}{\rra}f(z)\LRA \F \e>0\ \E N\ \F n>N\ \F z\in E_0\ \left|\msum{k=1}{n}\{f_k(z)-f(z)\}\right|<\e$}
+
+\subsection{Непрерывность и интегрируемость суммы ряда}
+
+{\bfseries Утверждение.}
+
+Пусть $\msum{n=1}{\infty}f_n(z)\rrae{E_0}f(z), |g(z)|\leq M\ \F z\in E_0$. Тогда $\msum{n=1}{\infty}f_n(z)g(z)\rrae{E_0}f(z)g(z)$
+\begin{proof}
+$|\msum{n=1}{\infty}f_n(z)g(z)-f(z)g(z)|=|\msum{n=1}{\infty}f_n(z)-f(z)||g(z)|<\e$
+\end{proof}
+
+\begin{theor}[16.1]
+Пусть $f_n\in C(E_0)$, ФР $\rrae{E_0}f(z)$. Тогда $f(z)\in C(E_0)$.
+\end{theor}
+\begin{proof}
+Аналогично вещественному случаю.
+\end{proof}
+
+\begin{theor}[16.2]
+Пусть $\g\subset D$ -- кусочно-гладкая, $f_n(z)\in C(\g)$, ФР$\rrae{\g}f(z)$. Тогда $\mint{\g}{}\left(\msum{n=1}{\infty}f_n(z)\right)dz=\msum{n=1}{\infty}\mint{\g}{}f_n(z)dz$
+\end{theor}
+\begin{proof}
+По т. 16.1 $f(z)\in C(\g)$, т.е. все интегралы существуют.
+
+$\left|\msum{k=1}{n}\mint{\g}{}f_k(z)dz-\mint{\g}{}f(z)dz\right|=\left|\mint{\g}{}\left(\msum{k=1}{n}f_k(z)-f(z)\right)\right|\leq\mint{\g}{}\left|\msum{k=1}{n}f_k(z)-f(z)\right|dz\leq\cfrac \e L\mint{\g}{}dz=\e$
+\end{proof}
+
+\opr{ФР сходится равномерно внутри области $D$, если он равномерно сходится на любом компакте из $D$}
+
+{\bfseries Замечание.}
+
+В т. 16.1 при $E_0=D$~(область) условие равномерной сходимости на $D$ можно заменить на условие равномерной сходимости внутри $D$.
+
+\end{document}
