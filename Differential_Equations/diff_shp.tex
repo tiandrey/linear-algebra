@@ -1,0 +1,239 @@
+\documentclass[draft]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{verbatim}
+
+\textwidth=195mm % 210
+\oddsidemargin=-17.9mm
+\textheight=272mm % 297
+\topmargin=-17.9mm
+\headheight=10mm
+\hoffset=0mm
+\voffset=-20mm
+%\parindent=0in
+\abovedisplayskip=0mm
+\belowdisplayskip=0mm
+\abovedisplayshortskip=0mm
+\belowdisplayshortskip=0mm
+
+
+\newcommand{\opr}[1]{\begin{opred}#1\end{opred}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\gap}[1]{\left[#1\right]_{x=\xi}}
+\renewcommand{\f}{\phi}
+\newcommand{\sys}[1]{\left\{\begin{matrix}#1\end{matrix}\right.}
+\newcommand{\ssys}[1]{\left\{\begin{smallmatrix}#1\end{matrix}\right.}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\dd}{\partial}
+\newcommand{\mint}[2]{\underset{#1}{\overset{#2}{\int}}}
+\newcommand{\g}{\gamma}
+\newcommand{\G}{\Gamma}
+\newcommand{\msum}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\x}{\Bar{x}}
+\newcommand{\R}{\mathbb{R}}
+
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{theor}{Теорема}
+\newtheorem*{theor*}{Теорема}
+\newtheorem*{opred}{Определение}
+\theoremstyle{remark}
+\newtheorem*{remark}{\mybold{Замечание}}
+
+\begin{document}
+\subsection*{Вопрос 4. Функция Грина для краевой задачи, не имеющей нетривиального решения однородной задачи}
+{\bfseries Обозначения.}
+
+Краевая задача:
+$$\sys{L(y)=\cfrac{d}{dx}\left(p(x)\cfrac{dy}{dx}\right)-q(x)y(x)=f(x),&x\in[0,l]\\
+\gamma(y)=\a_1y'(0)+\b_1y(0)=0\\
+\Gamma(y)=\a_2y'(l)+\b_2y(l)=0}\eqno(3.8)$$
+
+Квадратные скобки -- разрыв функции:
+$$\gap{\f(x)}=\f(x=\xi+0)-\f(x=\xi-0)\eqno(3.2)$$
+
+\opr{\textbf{Функцией Грина краевой задачи}, у которой однородная задача имеет только тривиальное решение, называется функция двух переменных $G(x,\xi)$, являющаяся п опеременной $x$ решением следующей задачи:\begin{enumerate}
+\item $L(G)=0$ при $x\in(0,\xi)$ и $x\in(\xi,l)$
+\item при $x=0,\ x=l$ выполняются граничные условия: $\gamma(G)=0,\ \Gamma(G)=0\ (3.1)$
+\item $G\in\C^2$ при $x\in[0,\xi)$ и $x\in(\xi,l]$, а при $x=\xi$ выполняются условия сопряжения: $\gap{G}=0,\ \gap{\cfrac{dG}{dx}}=\cfrac{1}{p(\xi)}$
+\end{enumerate}}
+Легко показать, что функция Грина $G(x,\xi)$ является единственным решением задачи (3.1). Для этого предположим, что задача (3.1) имеет два решения: $G_1$ и $G_2$. Введём разность этих функций: $U(x,\xi)=G_1(x,\xi)-G_2(x,\xi)$
+
+Из условий сопряжения следует
+$$\gap{U(x,\xi)}=0,\ \gap{\cfrac{dU(x,\xi)}{dx}}=0 \eqno(3.3)$$
+
+Это означает, что $U(x,\xi)\in \C^1$ при $x\in[0,l]$. Однако из уравнения $L(U)=0$ при $x\in[0,\xi)$ и $x\in(\xi,l]$ следует, что
+$$\gap{p(x)\cfrac{d^2U}{dx^2}}=-\gap{p'(x)\cfrac{dU}{dx}}+\gap{q(x)U}$$
+
+Т.к. $p(x)\in \C^1,\ q(x)\in\C$, то из условий (3.2) получаем $\gap{\cfrac{d^2U}{dx^2}}=0$. Следовательно, $U(x,\xi)\in\C^2$ и является решением однородной краевой задачи
+$$\sys{L(U)=0,& x\in[0,l]\\\gamma(U)=0,& \Gamma(U)=0}$$
+
+Согласно условию определения функции Грина, однородная зачача имеет только тривиальное решение $U(x,\xi)\equiv0$. Следовательно, функция Грина единственна.
+
+\begin{theor}
+Если однородная краевая задача имеет только тривиальное решение, то решение неоднородной краевой задачи существует для любой непрерывной на $[0,l]$ функции $f(x)$ и выражается через функцию Грина в виде
+$$y(x)=\mint{0}{l}G(x,\xi)f(\xi)d\xi\eqno(3.9)$$
+\end{theor}
+\begin{proof}
+Единственность решения задачи (3.8) доказывается от противного. Пусть существуют два решения задачи (3.8) $y_1(x)$ и $y_2(x)$. Тогда их разность $u(x)=y_1(x)-y_2(x)$ является решением однородной краевой задачи, которое, согласно условию теоремы, равно нулю. Следовательно, $y_1(x)=y_2(x)$.
+
+Доказательство представления решения неоднородной задачи в виде (3.9), а следовательно, и доказательство существования решения, т.к. функция Грина существует, проводится простой проверкой. Доказывается, что $y(x)$, представленная в виде (3.9), удовлетворяет всем условиям задачи (3.8).
+
+Для этого нам необходимо вычислить производные от $y(x)$. Т.к. функция Грина $G(x,\xi)$ имеет разрыв производной в точке $x=\xi$, то запишем представление (3.9) в виде
+$$y(x)=\mint{0}{x}G(x,\xi)f(\xi)d\xi+\mint{x}{l}G(x,\xi)f(\xi)d\xi\eqno(3.10)$$
+
+В (3.10) имеем интеграл с еременным пределом, одновременно зависящий от $x$ как от параметра. Производная от таких интегралов вычисляется по следующим формулам:
+$$\cfrac{d}{dx}\mint{0}{x}K(x,\xi)u(\xi)d\xi=K(x,x-0)u(x)+\mint{0}{x}\cfrac{\dd K(x,\xi)}{\dd x}u(\xi)d\xi$$
+$$\cfrac{d}{dx}\mint{x}{l}K(x,\xi)u(\xi)d\xi=-K(x,x+0)u(x)+\mint{x}{l}\cfrac{\dd K(x,\xi)}{\dd x}u(\xi)d\xi$$
+
+Продифференцировав по $x$ выражение (3.10), получим
+$$y'(x)=G(x,x-0)f(x)+\mint{0}{x}\cfrac{\dd G(x,\xi)}{\dd x}f(\xi)d\xi-G(x,x+0)f(x)+\mint{x}{l}\cfrac{\dd G(x,\xi)}{\dd x}f(\xi)d\xi$$
+
+Учитывая непрерывность функции Грина при $\xi=x$, находим
+$$y'(x)=\mint{0}{x}\cfrac{\dd G(x,\xi)}{\dd x}f(\xi)d\xi-+\mint{x}{l}\cfrac{\dd G(x,\xi)}{\dd x}f(\xi)d\xi\eqno(3.11)$$
+
+Подставив (3.10) и (3.11) в граничные условия при $x=0$ и $x=l$, получим
+$$\gamma(y)=\mint{0}{l}\gamma(G(0,\xi))f(\xi)d\xi;\ \Gamma(y)=\mint{0}{l}\Gamma(G(0,\xi))f(\xi)d\xi;$$
+
+Т.к. функция Грина удовлетворяет краевым условиям $\gamma(G(0,\xi))=0$ и $\Gamma(G(l,\xi))=0$, то мы имеем выполнение краевых условий нашей задачи $\gamma(y)=\Gamma(y)=0$.
+
+Теперь нам необходимо доказать, что $y(x)$, представленная формулой (3.10), удовлетворяет уравнению задачи (3.8). Для этого продифференцируем выражение
+$$p(x)y'(x)=\mint{0}{x}p(x)\cfrac{\dd G(x,\xi)}{\dd x}f(\xi)d\xi+\mint{x}{l}p(x)\cfrac{\dd G(x,\xi)}{\dd x}f(\xi)d\xi$$
+и получим
+$$(p(x)y'(x))'=\mint{0}{x}\cfrac{d}{dx}\left(p(x)\cfrac{\dd G(x,\xi)}{\dd x}\right)f(\xi)d\xi+\mint{x}{l}\cfrac{d}{dx}\left(p(x)\cfrac{\dd G(x,\xi)}{\dd x}\right)f(\xi)d\xi+\left.p(x)f(x)\cfrac{\dd G(x,\xi)}{\dd x}\right|_{x=\xi-0}-\left.p(x)f(x)\cfrac{\dd G(x,\xi)}{\dd x}\right|_{x=\xi+0}$$
+
+Учитывая, что $\left.\cfrac{\dd G(x,\xi)}{\dd x}\right|_{x=\xi-0}-\left.\cfrac{\dd G(x,\xi)}{\dd x}\right|_{x=\xi+0}=\cfrac{1}{p(x)}$, получим
+$$(py')'=\mint{0}{x}\cfrac{d}{dx}\left(p(x)\cfrac{\dd G}{\dd x}\right)f(\xi)d\xi+\mint{x}{l}\cfrac{d}{dx}\left(p(x)\cfrac{\dd G}{\dd x}\right)f(\xi)d\xi+f(x)\eqno(3.12)$$
+
+Используя (3.10) и (3.12), найдем
+$$L(y)=(py')'-qy=\mint{0}{x}L(G)f(\xi)d\xi+\mint{x}{l}L(G)f(\xi)d\xi+f(x)$$
+
+Т.к. $L(G)=0$ при $x\in[0,\xi)$ и $x\in(\xi,l]$, то получаем, что $y(x)$ удовлетворяет уравнению $L(y)=f(x)$, что и требовалось доказать. Таким образом, $y(x)$, определенная формулой (3.9), является решением задачи (3.8). \textit{Теорема доказана.}
+\end{proof}
+\newpage
+\subsection*{Вопрос 5. Дополнительные условия постановки краевой задачи при существовании нетривиального решения однородной задачи.}
+Пусть однородная краевая задача имеет решение $\f_0(x)$, т.е.
+$$\sys{L(\f_0)=0,&x\in(0,l)\\
+\gamma(\f_0)=0,&\G(\f_0)=0}\eqno(4.1)$$
+
+Т.к. любая $\f(x)=C\f_0(x)$ также является решением задачи (4.1), то для единственности $\f_0(x)$ вводится дополнительное условие нормировки:
+$$\mint{0}{l}\f_0^2(x)dx=1\eqno(4.2)$$
+
+Пусть дана неоднородная краевая задача
+$$\sys{L(y)=\cfrac{d}{dx}\left(p(x)\cfrac{dy}{dx}\right)-q(x)y(x)=f(x),&x\in[0,l],&p(x)>0\\
+\g(y)=\a_1y'(0)+\b_1y(0)=0\\
+\G(y)=\a_2y'(l)+\b_2y(l)=0}\eqno(4.3)$$
+
+Возникает вопрос, необходимо ли ввести какие-либо дополнительные условя в постановку задачи (4.3), чтобы ее решение существовало и было единственным, при существовании решения $\f_0(x)$ однородной задачи.
+
+Наиболее просто решается вопрос об условии, обеспечивающем единственность решения задачи (4.3). Пусть существует некоторое решение неоднородной краевой задачи (4.3), которое обозначим $y_1(x)$. Т.к. однородная краевая задача имеет решение $\f_0(x)$, то функция $y(x)=y_1(x)+C\f_0(x)$ является общим решением задачи (4.3). Если ввести дополнительное условие ортогональности решения к функции $\f_0(x)$, получим
+$$\mint{0}{l}y(x)\f_0(x)dx=\mint{0}{l}y_1(x)\f_0(x)dx+C\mint{0}{l}\f^2_0(x)dx=0$$
+
+Т.к. $\mint{0}{l}y_1(x)\f_0(x)dx=0$, то $C\equiv0$, и мы получаем единственное решение. Отсюда следует дальнейшее утверждение.
+\begin{lemma}
+Однородная краевая задача с дополнительным условием ортогональности решения к $\f_0(x)$ имеет только тривиальное решение, т.е. задача $\ssys{L(y)=0\\\g(y)=\G(y)=0\\\mint{0}{l}\f_0(x)y(x)dx=0}$ имеет только решение $y\equiv0$.
+\end{lemma}
+\begin{proof}
+Т.к. однородная краевая задача имеет единственное линейно независимое решение $\f_0(x)$, то имеем $y(x)=C\f_0(x)$. Тогда из условия ортогональности имеем
+$$0=\mint{0}{l}y(x)\f_0(x)dx=C\mint{0}{l}\f^2_0(x)dx=C,$$
+откуда $C=0$. Следовательно, $y(x)=0$, \textit{что и требовалось доказать.}
+\end{proof}
+Рассмотрим теперь вопрос существования решения задачи (4.3).
+\begin{lemma}
+Необходимым условием разрешимости неоднородной краевой задачи является ортогональность правой части уравнения $f(x)$ к решению однородной задачи (4.1) $\f_0(x)$.
+\end{lemma}
+\begin{proof}
+Так как $\f_0(x)$ и $y(x)$ удовлетворяют одним и тем же однородным краевым условиям, то имеем для них формулу Грина
+$$\mint{0}{l}(\f_0(x)L(y(x))-y(x)L(\f_0(x))dx=0$$
+
+Откуда, учитывая, что $L(y)=f(x)$, а $L(\f_0)=0$, получаем
+$$\mint{0}{l}f(x)\f_0(x)dx=0$$
+\end{proof}
+
+\newpage
+
+\subsection*{Вопрос 11. Существование первых интегралов для линейного уравнения в частных производных первого порядка.}
+{\bfseries Обозначения.}
+Линейным уравнением в частных производных первого порядка называется уравнение вида
+$$\msum{i=1}{n}a_i(\x)\cfrac{\dd U}{\dd x_i}=0,\ \x\in\R^n,\eqno(13.1)$$
+коэффициенты которого $a_i(\x)$ при $\x\in G\subset \R^n$ -- непрерывные функции, имеющие непрерывные частные производные.
+\opr{\textbf{Характеристиками уравнения} $(13.1)$ называются интегральные кривые системы дифференциальных уравнений
+$$\cfrac{dx_1}{a_1(\x)}=\cfrac{dx_2}{a_2(\x)}=\ldots=\cfrac{dx_n}{a_n(\x)}\eqno(13.1)$$}
+Пусть характеристики заданы параметрически: $x_i=x_i(t),\ i\in[1,n].$
+
+Тогда из (13.3) имеем задачу Коши
+$$\sys{\cfrac{dx_i}{dt}=a_i(\x),&t\in[t_0,t_0+T]\\
+x_i(t=t_0)=x_i^0,&i\in[1,n-1]}\eqno(13.4)$$
+\opr{\textbf{Первым интегралом уравнения} $(13.1)$ называется функция $\f(\x)$, обращающаяся тождественно в постоянную, когда точка $M(\x)$ движется вдоль характеристики.}
+Возникает вопрос, как определить первые интегралы. Для этого исключим из системы уравнений (13.4) переменную $t$, т.е. перейдем в фазовое пространство. Пусть $a_n(\x)\neq0$. Тогда получим систему, в которой $x_n$ является независимой переменной:
+$$\cfrac{dx_i}{dx_n}=\cfrac{a_i(\x)}{a_n(\x)},\ i\in[1,n-1],\eqno(13.5)$$
+начальные данные $x_i|_{x_n=x_n^0}=x_i^0,\ i\in[1,n-1]$.
+
+Решение системы (13.5) можно записать в виде
+$$x_i=X_i(x_n,x_1^0,x_2^0,\ldots,x_n^0),\ i\in[1,n-1]\eqno(13.6)$$
+
+Функции $X_i$ сопоставляют точки $\{x_i\};\ \{x_i^0\}$. Эти точки можно поменять местами, т.е. записать
+$$x_i^0=X_i(x_n^0,x_1,x_2,\ldots,x_n),\ i\in[1,n-1]\eqno(13.7)$$
+
+Функции $X_i(x_n^0,\x),\ i\in[1,n-1]$ представляют собой $(n-1)$ первые интегралов уравнений (13.1). Это легко доказать, т.е. если точка с координатами $\x$ принадлежит некоторой характеристике, то, согласно (13.7),
+$$X_i(x_n^0,\x)|_{\mbox{\scriptsize{харак}}}=x_i^0=const,\ i\in[1,n-1]$$
+
+Взаимная обратимость функций, согласно (13.6) и (13.7), означает неравенство нулю якобиана:
+$$\cfrac{D(X_1,\ldots,X_{n-1}}{D(x_1,\ldots,x_{n-1}}\neq0\ \mbox{при}\ M\in G$$
+
+Это означает, что $X_1,\ldots,X_{n-1}$ являются функционально независимымы первыми интегралами. С другой стороны, $\f_i(\x)=X_i(x_n^0,\x)$ являются линейно независимыми решениями уравнения (13.5), записанными в виде:
+$$\f_i(\x)=X_i(\x)=C_i=const,\ i\in[1,n-1]$$
+\end{document}
+
+
+\begin{commentary}
+\newcommand{\res}{\mathop{\mathrm{res}}\nolimits}
+\renewcommand{\bf}{\bfseries}
+\newcommand{\rra}{\rightrightarrows}
+\newcommand{\rrae}[1]{\underset{#1}{\rightrightarrows}}
+\newcommand{\forcenewline}{$\phantom{\mbox{newline}}$\newline}
+\newcommand{\then}{\ \Rightarrow\ }
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ind}[3]{\underset{#1}{\overset{#2}{#3}}}
+\newcommand{\moint}[1]{\underset{#1}{\oint}}
+\newcommand{\ksum}{\msum{k=1}{n}}
+\newcommand{\rsum}{\msum{n=1}{\infty}}
+\newcommand{\ssum}{\msum{n=0}{\infty}}
+\newcommand{\lsum}{\msum{n=-\infty}{+\infty}}
+\newcommand{\mlim}[1]{\underset{#1}{\lim}}
+\newcommand{\mres}[1]{\underset{#1}{\res}}
+\newcommand{\mmax}[1]{\underset{#1}{\max}}
+\newcommand{\mmin}[1]{\underset{#1}{\min}}
+\newcommand{\LRA}{\Leftrightarrow}
+\newcommand{\epsdelta}{\forall \e>0\ \exists \delta(\e)>0\colon}
+\renewcommand{\bar}{\overline}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\newcommand{\Ln}{\mathop{\mathrm{Ln}}\nolimits}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
+\newcommand{\diam}{\mathop{\mathrm{diam}}\nolimits}
+\newcommand{\Int}{\mathop{\mathrm{int}}\nolimits}
+\newcommand{\Ext}{\mathop{\mathrm{ext}}\nolimits}
+
+\newcommand{\ninf}[1]{\underset{n\to\infty}{#1}}
+\renewcommand{\d}{\delta}
+\renewcommand{\l}{\lambda}
+\renewcommand{\L}{\Lambda}
+\renewcommand{\r}{\rho}
+\newcommand{\D}{\Delta}
+\newcommand{\e}{\varepsilon}
+\newcommand{\E}{\ \exists}
+\newcommand{\F}{\ \forall}
+\newcommand{\z}{\bar{z}}
+\renewcommand{\o}{\Bar{o}}
+\newcommand{\rd}{\underset{n=1}{\overset{\infty}{\sum}}}
+\newcommand{\CC}{\bar{\C}}
+\newcommand{\bsys}[1]{\left.\begin{matrix}#1\end{matrix}\right\}}
+\newcommand{\lra}[1]{\underset{#1}{\longrightarrow}}
+\end{commentary}
+
